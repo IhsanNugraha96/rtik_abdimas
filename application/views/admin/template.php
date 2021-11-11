@@ -72,7 +72,7 @@
 				</div>
 				<div class="modal-body text-left">
 					<h5 class="text-center mb-5">Update Template</h5>
-					<form class="user was-validated" method="post" action="<?= base_url('admin/ubah_template/'.$tmp['id_template']);?>" enctype="multipart/form-data">
+					<form class="user was-validated" method="post" action="<?= base_url('Admin/ubah_template/'.$tmp['id_template']);?>" enctype="multipart/form-data">
 
 						<div class="custom-file">
 						    <input type="file" class="custom-file-input" id="validatedCustomFile" id="file" name="file" accept=".doc,.docx,.pdf" oninvalid="this.setCustomValidity('Anda belum mengunggah berkas..')" oninput="setCustomValidity('')" required>

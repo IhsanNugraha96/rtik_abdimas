@@ -68,7 +68,7 @@
         </button>
       </div>
       <div class="modal-body" style="padding: 5% 10% 0 10%;">
-        <form class="user was-validated" method="post" action="<?= base_url('admin/pengajuan_keahlian/tambah/1');?>" enctype="multipart/form-data">
+        <form class="user was-validated" method="post" action="<?= base_url('Admin/pengajuan_keahlian/tambah/1');?>" enctype="multipart/form-data">
 
           <div class="form-group">
             <input type="text" class="form-control" id="keahlian" name="keahlian" placeholder="nama keahlian" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda mengisi nama keahlian')" oninput="setCustomValidity('')">
@@ -101,7 +101,7 @@
         </button>
       </div>
       <div class="modal-body" style="padding: 5% 10% 0 10%;">
-        <form class="user was-validated" method="post" action="<?= base_url('admin/pengajuan_keahlian/ubah/'.$keah['id_keahlian']); ?>" enctype="multipart/form-data">
+        <form class="user was-validated" method="post" action="<?= base_url('Admin/pengajuan_keahlian/ubah/'.$keah['id_keahlian']); ?>" enctype="multipart/form-data">
 
           <div class="form-group">
             <input type="text" class="form-control" id="keahlian" name="keahlian" placeholder="nama keahlian" value="<?= $keah['nama_keahlian'] ?>" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda mengisi nama keahlian')" oninput="setCustomValidity('')">
@@ -138,7 +138,7 @@
             <h5><?= $keah['nama_keahlian']; ?>?</h5>
           </div>
           <div class="modal-footer" style="margin-top: -10%;">
-            <a href="<?= base_url('admin/pengajuan_keahlian/hapus/'.$keah['id_keahlian']); ?>" class="badge badge-danger badge-sm">Hapus</a>
+            <a href="<?= base_url('Admin/pengajuan_keahlian/hapus/'.$keah['id_keahlian']); ?>" class="badge badge-danger badge-sm">Hapus</a>
           </div>
         </div>
       </div>

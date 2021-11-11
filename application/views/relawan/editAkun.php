@@ -22,13 +22,13 @@
             <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12">
                 <div class="card bg-white shadow mb-3" style="max-width: 90%; align-content: right; margin-left: 5%;">
                   <div class="card-body mt-3">
-                    <form class="user was-validated" method="post" action="<?= base_url('relawan/update_data/akun/').$relawan['id_relawan']; ?>" enctype="multipart/form-data">
+                    <form class="user was-validated" method="post" action="<?= base_url('Relawan/update_data/akun/').$relawan['id_relawan']; ?>" enctype="multipart/form-data">
                      <label for="Foto"><b>Photo</b></label><br>
                      <img class="img-profile rounded-circle mb-3 shadow img-thumbnail" style="height: 110px; width: 110px;" alt="background profil" src="   <?= base_url('assets/img/relawan/image/'.$relawan['image']) ?>" class="rounded-circle"><br>
 
                  <div class="form-group">
                     <label for="foto" class="btn btn-outline-primary btn-sm shadow">Pilih Foto Profil</label>
-                    <a href="<?= base_url('relawan/update_data/hapus_foto/').$relawan['id_relawan']; ?>" class="btn btn-outline-primary btn-sm shadow  mb-2">Hapus Foto Profil</a><br>
+                    <a href="<?= base_url('Relawan/update_data/hapus_foto/').$relawan['id_relawan']; ?>" class="btn btn-outline-primary btn-sm shadow  mb-2">Hapus Foto Profil</a><br>
 
                     <input type="file" id="foto" name="foto" accept=".jpg,.jpeg,.png" value="Pilih Foto Profil" style="visibility:hidden;" onchange="this.form.submit();">
                 </div>
@@ -71,14 +71,14 @@
         <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12">
             <div class="card bg-white shadow mb-3" style="max-width: 90%; align-content: right; margin-left: 5%;">
               <div class="card-body">
-                <form class="user was-validated" method="post" action="<?= base_url('relawan/update_data/biodata/').$relawan['id_relawan']; ?>" enctype="multipart/form-data">
+                <form class="user was-validated" method="post" action="<?= base_url('Relawan/update_data/biodata/').$relawan['id_relawan']; ?>" enctype="multipart/form-data">
                     <div class="form-group mt-3" style="margin-right: 30%;" >
                         <label for="id_card"><b>Id Card</b></label><br>
-                        <img class="img-profile  mb-3 shadow img-thumbnail" style="height: 110px; width: 210px;" alt="background profil" src="   <?= base_url('assets/img/relawan/id_card/'.$relawan['id_card']) ?>" ><br>
+                        <img class="img-profile  mb-3 shadow img-thumbnail" style="height: 110px; width: 210px;" alt="id card" src="   <?= base_url('assets/img/relawan/id_card/'.$relawan['id_card']) ?>" ><br>
                         
                         <div class="form-group">
                             <label for="id_card" class="btn btn-outline-primary btn-sm shadow">Pilih id card</label>
-                            <a href="<?= base_url('relawan/update_data/hapus_id_card/').$relawan['id_relawan']; ?>" class="btn btn-outline-primary btn-sm shadow  mb-2">Hapus id card</a><br>
+                            <a href="<?= base_url('Relawan/update_data/hapus_id_card/').$relawan['id_relawan']; ?>" class="btn btn-outline-primary btn-sm shadow  mb-2">Hapus id card</a><br>
 
                             <input type="file" id="id_card" name="id_card" accept=".jpg,.jpeg,.png" value="Pilih id card" style="visibility:hidden;" onchange="this.form.submit();">    
                         </div>      
@@ -86,7 +86,7 @@
 
                     <div class="form-group" style="margin-right: 30%; margin-top: -5%;" >
                         <label for="nik"><b>NIK</b></label>
-                        <input type="text" class="form-control is_invalid form-control-sm" id="nik" name="nik" aria-describedby="nik" placeholder="<?= $relawan['nik']; ?>" value="<?= $relawan['nik']; ?>" required>
+                        <input type="text" class="form-control is_invalid form-control-sm" id="nik" name="nik" aria-describedby="nik" placeholder="<?= $relawan['nik']; ?>" value="<?= $relawan['nik']; ?>" minlength="16" required>
                         <div class="invalid-feedback">
                             NIK lengkap harus di isi.
                         </div>            
@@ -248,7 +248,7 @@
             <div class="card bg-white shadow mb-3" style="max-width: 90%; align-content: right; margin-left: 5%;">
 
               <div class="card-body mt-3">
-                <form class="user was-validated" method="post" action="<?= base_url('relawan/update_data/keahlian/').$relawan['id_relawan']; ?>">
+                <form class="user was-validated" method="post" action="<?= base_url('Relawan/update_data/keahlian/').$relawan['id_relawan']; ?>">
                     <label for="keahlian"><b>Bidang Keahlian TIK</b></label><br>
                     <div class="form-row">
                         <?php $i = 0; 
@@ -309,7 +309,7 @@
             <div class="card bg-white shadow mb-3" style="max-width: 90%; align-content: right; margin-left: 5%;">
 
                 <div class="card-body">
-                    <form class="user was-validated" method="post" action="<?= base_url('relawan/update_data/komisariat/').$relawan['id_relawan']; ?>">
+                    <form class="user was-validated" method="post" action="<?= base_url('Relawan/update_data/komisariat/').$relawan['id_relawan']; ?>">
                         <label for="keahlian_lain"><b>Pangkalan</b></label>
                         <div class="card bg-white shadow mb-3 col-lg-9 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group mt-3 text-center">
@@ -366,7 +366,7 @@
             <div class="card bg-white shadow mb-3" style="max-width: 90%; align-content: right; margin-left: 5%;">
 
                 <div class="card-body">
-                    <form class="user was-validated" method="post" action="<?= base_url('relawan/update_data/ubah_password/').$relawan['id_relawan']; ?>">
+                    <form class="user was-validated" method="post" action="<?= base_url('Relawan/update_data/ubah_password/').$relawan['id_relawan']; ?>">
                         <div class="form-group mt-3" style="margin-right: 30%;" >
                             <label for="passwordlama"><b>Password lama</b></label>
                             <input type="password" class="form-control form-password form-control-sm" id="passwordlama" name="passwordlama" placeholder="Password lama" required oninvalid="this.setCustomValidity('Anda belum mengisi password lama untuk akun anda..')" oninput="setCustomValidity('')" minlength="8" maxlength="50">
@@ -448,7 +448,7 @@
                 <h5 class="mt-2"><b>Ubah Pangkalan</b></h5>  
             </div>
             <div class="modal-body" style="margin-top: -5%;">
-                <form class="user was-validated" method="post" action="<?= base_url('relawan/update_data/ubah_komisariat/').$relawan['id_relawan']; ?>">
+                <form class="user was-validated" method="post" action="<?= base_url('Relawan/update_data/ubah_komisariat/').$relawan['id_relawan']; ?>">
 
                     <select class="custom-select custom-select-sm" id="pangkalan" name="pangkalan" required oninvalid="this.setCustomValidity('Silahkan pilih pangkalan..')" oninput="setCustomValidity('')">
                         <option value="">--Pilih Pangkalan--</option>
@@ -479,7 +479,7 @@
           <h4 class="mt-2"><b>Yakin anda mau menghapus akun?</b></h4>
           <p>Pilih tombol "Hapus" di bawah jika Anda akan menghapus akun.</p></div>
           <div class="modal-footer danger-md" style="margin-top: -7%;">
-            <a class="badge badge-danger badge-xs" href="<?= base_url('relawan/update_data/hapus_akun/'.$relawan['id_relawan']); ?>">Hapus</a>
+            <a class="badge badge-danger badge-xs" href="<?= base_url('Relawan/update_data/hapus_akun/'.$relawan['id_relawan']); ?>">Hapus</a>
           </div>
       </div>
   </div>

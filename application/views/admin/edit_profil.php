@@ -22,13 +22,13 @@
             <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12">
                 <div class="card bg-white shadow mb-3" style="max-width: 90%; align-content: right; margin-left: 5%;">
                   <div class="card-body mt-3">
-                    <form class="user was-validated" method="post" action="<?= base_url('admin/update_data/akun/').$admin['id_admin']; ?>" enctype="multipart/form-data">
+                    <form class="user was-validated" method="post" action="<?= base_url('Admin/update_data/akun/').$admin['id_admin']; ?>" enctype="multipart/form-data">
                      <label for="Foto"><b>Photo</b></label><br>
                      <img class="img-profile rounded-circle mb-3 shadow img-thumbnail" style="height: 110px; width: 110px;" alt="background profil" src="   <?= base_url('assets/img/admin/'.$admin['image']) ?>" class="rounded-circle"><br>
                     
                  <div class="form-group">
                     <label for="foto" class="btn btn-outline-primary btn-sm shadow">Pilih Foto Profil</label>
-                    <a href="<?= base_url('admin/update_data/hapus_foto/').$admin['id_admin']; ?>" class="btn btn-outline-primary btn-sm shadow  mb-2">Hapus Foto Profil</a><br>
+                    <a href="<?= base_url('Admin/update_data/hapus_foto/').$admin['id_admin']; ?>" class="btn btn-outline-primary btn-sm shadow  mb-2">Hapus Foto Profil</a><br>
 
                     <input type="file" id="foto" name="foto" accept=".jpg,.jpeg,.png" value="Pilih Foto Profil" style="visibility:hidden;" onchange="this.form.submit();">
                 </div>
@@ -71,11 +71,11 @@
         <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12">
             <div class="card bg-white shadow mb-3" style="max-width: 90%; align-content: right; margin-left: 5%;">
               <div class="card-body mb-4">
-                <form class="user was-validated" method="post" action="<?= base_url('admin/update_data/biodata/').$admin['id_admin']; ?>" enctype="multipart/form-data">
+                <form class="user was-validated" method="post" action="<?= base_url('Admin/update_data/biodata/').$admin['id_admin']; ?>" enctype="multipart/form-data">
         
                     <div class="form-group mt-3" style="margin-right: 30%; margin-top: -5%;" >
                         <label for="nik"><b>NIK</b></label>
-                        <input type="text" class="form-control is_invalid form-control-sm" id="nik" name="nik" aria-describedby="nik" placeholder="<?= $admin['no_induk']; ?>" value="<?= $admin['no_induk']; ?>" required>
+                        <input type="text" class="form-control is_invalid form-control-sm" id="nik" name="nik" aria-describedby="nik" placeholder="<?= $admin['no_induk']; ?>" value="<?= $admin['no_induk']; ?>" minlength="16" required>
                         <div class="invalid-feedback">
                             NIK harus di isi.
                         </div>            
@@ -97,7 +97,6 @@
                     <?= form_error('hp', '<small class="text-danger pl-3">','</small>'); ?>
                     <div class="invalid-feedback">Masukkan jabatan anda.</div>
                 </div>
-
 
             </div>
             <div class="card-footer" style="margin-top: -6%;">
@@ -124,7 +123,7 @@
             <div class="card bg-white shadow mb-3" style="max-width: 90%; align-content: right; margin-left: 5%;">
 
                 <div class="card-body">
-                    <form class="user was-validated" method="post" action="<?= base_url('admin/update_data/ubah_password/').$admin['id_admin']; ?>">
+                    <form class="user was-validated" method="post" action="<?= base_url('Admin/update_data/ubah_password/').$admin['id_admin']; ?>">
                         <div class="form-group mt-3" style="margin-right: 30%;" >
                             <label for="passwordlama"><b>Password lama</b></label>
                             <input type="password" class="form-control form-password form-control-sm" id="passwordlama" name="passwordlama" placeholder="Password lama" required oninvalid="this.setCustomValidity('Anda belum mengisi password lama untuk akun anda..')" oninput="setCustomValidity('')" minlength="8" maxlength="50">
@@ -209,7 +208,7 @@
           <h4 class="mt-2"><b>Yakin anda mau menghapus admin?</b></h4>
         <p>Pilih tombol "Hapus" di bawah jika Anda akan menghapus akun admin.</p></div>
         <div class="modal-footer warning-md" style="margin-top: -7%;">
-          <a class="badge badge-danger badge-xs" href="<?= base_url('admin/hapus_akun/admin2/'.$admin['id_admin']) ?>">Hapus</a>
+          <a class="badge badge-danger badge-xs" href="<?= base_url('Admin/hapus_akun/admin2/'.$admin['id_admin']) ?>">Hapus</a>
         </div>
       </div>
     </div>

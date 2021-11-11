@@ -22,7 +22,7 @@
       <?php else : ?>
         <li class="nav-item ">
       <?php endif;?>
-        <a class="nav-link" href="<?= base_url('admin/detail_Event') ?>">
+        <a class="nav-link" href="<?= base_url('Admin/detail_Event') ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -48,9 +48,9 @@
         <div id="collapsePages" class="collapse <?php if($title == 'Komisariat' || $title == 'Mitra' || $title == 'Tim Relawan') {echo"show";}?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Data :</h6>
-            <a class="collapse-item <?php if($title == 'Komisariat'){echo'active';} ?>" href="<?= base_url('admin/komisariat_event'); ?>">Pangkalan </a>
-            <a class="collapse-item <?php if($title == 'Tim Relawan'){echo'active';} ?>" href="<?= base_url('admin/timRelawan_event'); ?>">Tim Relawan </a>
-            <a class="collapse-item <?php if($title == 'Mitra'){echo'active';} ?>" href="<?= base_url('admin/mitra_Event'); ?>">Mitra</a>
+            <a class="collapse-item <?php if($title == 'Komisariat'){echo'active';} ?>" href="<?= base_url('Admin/komisariat_event'); ?>">Pangkalan </a>
+            <a class="collapse-item <?php if($title == 'Tim Relawan'){echo'active';} ?>" href="<?= base_url('Admin/timRelawan_event'); ?>">Tim Relawan </a>
+            <a class="collapse-item <?php if($title == 'Mitra'){echo'active';} ?>" href="<?= base_url('Admin/mitra_Event'); ?>">Mitra</a>
           </div>
         </div>
       </li>
@@ -76,8 +76,8 @@
         </a>
         <div id="collapsePages2" class="collapse <?php if($title == 'Pengaturan' || $title == 'Pengaturan Lainnya') {echo"show";}?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item <?php if($title == 'Pengaturan'){echo'active';} ?>" href="<?= base_url('admin/pengaturan_event');?>">Jadwal Kegiatan </a>
-            <a class="collapse-item <?php if($title == 'Pengaturan Lainnya'){echo'active';} ?>" href="<?= base_url('admin/pengaturan_lainnya'); ?>">Pengaturan Lainnya </a>
+            <a class="collapse-item <?php if($title == 'Pengaturan'){echo'active';} ?>" href="<?= base_url('Admin/pengaturan_event');?>">Jadwal Kegiatan </a>
+            <a class="collapse-item <?php if($title == 'Pengaturan Lainnya'){echo'active';} ?>" href="<?= base_url('Admin/pengaturan_lainnya'); ?>">Pengaturan Lainnya </a>
           </div>
         </div>
       </li> -->
@@ -88,21 +88,10 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link" href = "<?= base_url('admin/pengaturan_event');?>">
+        <a class="nav-link" href = "<?= base_url('Admin/pengaturan_event');?>">
         <i class="fas fa-cogs"></i>
         <span>Konfigurasi</span></a>
       </li>
-
-
-     <!--  <?php if($title == 'Pengumuman') :?>
-        <li class="nav-item active">
-      <?php else : ?>
-        <li class="nav-item">
-      <?php endif;?>
-        <a class="nav-link" href="<?= base_url('admin/pengumuman_event') ?>" style="margin-top: -20px;">
-          <i class="fas fa-bullhorn"></i>
-          <span>Pengumuman</span></a>
-      </li> -->
 
 
       <!-- Divider -->
@@ -110,7 +99,7 @@
 
        <!-- Nav Item - Tables -->
       <li class="nav-item" style="margin-top: -20px;">
-        <a class="nav-link" href="<?= base_url('logout/keluar_detail_event'); ?>">
+        <a class="nav-link" href="<?= base_url('Logout/keluar_detail_event'); ?>">
           <i class="fas fa-backward"></i>
           <span>Kembali</span></a>
       </li>

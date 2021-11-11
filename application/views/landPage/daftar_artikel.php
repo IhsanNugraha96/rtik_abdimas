@@ -54,7 +54,7 @@
                 <td><?= $art['nama_tim'] ?></td>
                 <td><?= $art['judul_laporan'] ?></td>    
                 <td>
-                  <a href="<?= base_url('landingPage/artikel_tim/'.$art['id_tim']) ?>">Lihat Artikel</i></a>
+                  <a href="<?= base_url('LandingPage/artikel_tim/'.$art['id_tim']) ?>">Lihat Artikel</i></a>
                 </td>             
               </tr>
               <?php  $i++; } ?>

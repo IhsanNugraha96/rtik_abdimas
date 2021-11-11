@@ -13,7 +13,7 @@
   <div class="row">
     <!-- Earnings User Card -->
     <div class="col-xl-3 col-md-6 mb-4 animated--grow-in" >
-      <a href="<?= base_url('admin/komisariat_event'); ?>">
+      <a href="<?= base_url('Admin/komisariat_event'); ?>">
         <div class="card border-left-primary shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -32,7 +32,7 @@
 
     <!-- Earnings Acara Card -->
     <div class="col-xl-3 col-md-6 mb-4 animated--grow-in" data-scroll-reveal="enter top move 50px over 0.9s after 0.4s">
-      <a href="<?= base_url('admin/timRelawan_event'); ?>">
+      <a href="<?= base_url('Admin/timRelawan_event'); ?>">
         <div class="card border-left-success shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">

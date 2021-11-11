@@ -3,7 +3,7 @@
       <footer class="sticky-footer bg-white shadow">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            &copy; Copyright <?= date('Y');?> <strong><span>Sekolah Tinggi Teknologi Garut</span></strong>
+            &copy; Copyright <?= date('Y');?> <strong><span>Institut Teknologi Garut</span></strong>
           </div>
         </div>
       </footer>
@@ -48,7 +48,7 @@
           <p>Anda tidak bisa mengakses menu ini. <br> Harap melengkapi biodata terlebih dahulu!</p>
         </div>
         <div class="modal-footer warning-md" style="margin-top: -7%;">
-          <a href="<?= base_url('relawan/edit_profil') ?>"class="badge badge-primary badge-xs" type="button">Lengkapi Sekarang</a>
+          <a href="<?= base_url('Relawan/edit_profil') ?>"class="badge badge-primary badge-xs" type="button">Lengkapi Sekarang</a>
           <!-- <a href="" class="badge badge-warning badge-xs " type="button" data-dismiss="modal">Keluar</a> -->
         </div>
       </div> 
@@ -66,7 +66,7 @@
           <h4 class="mt-2"><b>Yakin anda mau keluar?</b></h4>
           <p>Pilih tombol "Keluar" di bawah jika Anda siap mengakhiri sesi Anda saat ini.</p></div>
           <div class="modal-footer warning-md" style="margin-top: -7%;">
-            <a class="badge badge-warning badge-xs" href="<?= base_url('logout') ?>">Keluar</a>
+            <a class="badge badge-warning badge-xs" href="<?= base_url('Logout') ?>">Keluar</a>
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@
               <h4 class="mt-2"><b>Yakin anda mau menghapus akun ini?</b></h4>
               <p>Pilih tombol "Hapus Akun" di bawah jika Anda yakin untuk menghapus akun.</p></div>
               <div class="modal-footer warning-md" style="margin-top: -7%;">
-                <a class="badge badge-danger badge-xs" href="<?= base_url('relawan/update_data/hapus_akun/'.$relawan['id_relawan']); ?>">Hapus Akun</a>
+                <a class="badge badge-danger badge-xs" href="<?= base_url('Relawan/update_data/hapus_akun/'.$relawan['id_relawan']); ?>">Hapus Akun</a>
               </div>
             </div>
           </div>
@@ -111,11 +111,11 @@
             <div class="modal-footer warning-md" style="margin-top: -7%;">
               <?php if ($this->session->userdata('id_pembimbing')) 
               {?>
-                <a class="badge badge-warning badge-xs" href="<?= base_url('pembimbing/aksi_event/batal_ikuti_event'); ?>">Ya</a>
+                <a class="badge badge-warning badge-xs" href="<?= base_url('Pembimbing/aksi_event/batal_ikuti_event'); ?>">Ya</a>
               <?php } 
               elseif ($this->session->userdata('id_relawan')) 
                 {?>
-                  <a class="badge badge-warning badge-xs" href="<?= base_url('relawan/batal_event/'.urlencode($kegiatan_akan_datang['id_event'])); ?>">Ya</a>
+                  <a class="badge badge-warning badge-xs" href="<?= base_url('Relawan/batal_event/'.urlencode($kegiatan_akan_datang['id_event'])); ?>">Ya</a>
                 <?php } ?>
               </div>
             </div>
@@ -134,7 +134,7 @@
             <div class="modal-body">
               <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
               <!-- form -->
-              <form class="user was-validated mt-3" method="post" action="<?= base_url('admin/buat_event_baru/'.$admin['id_admin']);  ?>">
+              <form class="user was-validated mt-3" method="post" action="<?= base_url('Admin/buat_event_baru/'.$admin['id_admin']);  ?>">
                 <div class="form-group">
                   <p for="" class="text-left mb-1 font-weight-bold">Nama/tema event :</p>
                   <input type="nama_event" class="form-control is_invalid form-control-sm" id="nama_event" name="nama_event" placeholder="RTIKAbdimas 20**" required oninvalid="this.setCustomValidity('Anda belum mengisi nama/tema event yang akan di selenggarakan..')" oninput="setCustomValidity('')">
@@ -186,9 +186,9 @@
             $.ajax({
               type:'post',
               <?php if ($title == 'edit_profil') {?>
-                url:'<?= base_url('relawan/get_provinsi'); ?>',
+                url:'<?= base_url('Relawan/get_provinsi'); ?>',
               <?php } elseif ($title == 'Mitra') {?>
-                url:'<?= base_url('relawan/get_provinsi2'); ?>',
+                url:'<?= base_url('Relawan/get_provinsi2'); ?>',
               <?php } ?>
               success:function(hasil_provinsi)
               {
@@ -204,9 +204,9 @@
           $.ajax({
             type:'post',
             <?php if ($title == 'edit_profil') {?>
-              url:'<?= base_url('relawan/get_kota'); ?>',
+              url:'<?= base_url('Relawan/get_kota'); ?>',
             <?php } elseif ($title == 'Mitra') {?>
-              url:'<?= base_url('relawan/get_kota2'); ?>',
+              url:'<?= base_url('Relawan/get_kota2'); ?>',
             <?php } ?>
             data:'id_provinsi='+id_provinsi_terpilih,
             success:function(hasil_distrik)
@@ -225,7 +225,7 @@
           $(document).ready(function(){
             $.ajax({
               type:'post',
-              url:'<?= base_url('instruktur/get_provinsi'); ?>',
+              url:'<?= base_url('Instruktur/get_provinsi'); ?>',
               success:function(hasil_provinsi)
               {
             // alert("oke");
@@ -239,7 +239,7 @@
           var id_provinsi_terpilih = $("option:selected",this).attr('id_provinsi');
           $.ajax({
             type:'post',
-            url:'<?= base_url('instruktur/get_kota'); ?>',
+            url:'<?= base_url('Instruktur/get_kota'); ?>',
             data:'id_provinsi='+id_provinsi_terpilih,
             success:function(hasil_distrik)
             {
@@ -257,7 +257,7 @@
           $(document).ready(function(){
             $.ajax({
               type:'post',
-              url:'<?= base_url('pangkalan/get_provinsi'); ?>',
+              url:'<?= base_url('Pangkalan/get_provinsi'); ?>',
               success:function(hasil_provinsi)
               {
             // alert("oke");
@@ -271,7 +271,7 @@
           var id_provinsi_terpilih = $("option:selected",this).attr('id_provinsi');
           $.ajax({
             type:'post',
-            url:'<?= base_url('pangkalan/get_kota'); ?>',
+            url:'<?= base_url('Pangkalan/get_kota'); ?>',
             data:'id_provinsi='+id_provinsi_terpilih,
             success:function(hasil_distrik)
             {
@@ -289,7 +289,7 @@
           $(document).ready(function(){
             $.ajax({
               type:'post',
-              url:'<?= base_url('pembimbing/get_provinsi'); ?>',
+              url:'<?= base_url('Pembimbing/get_provinsi'); ?>',
               success:function(hasil_provinsi)
               {
             // alert("oke");
@@ -303,7 +303,7 @@
           var id_provinsi_terpilih = $("option:selected",this).attr('id_provinsi');
           $.ajax({
             type:'post',
-            url:'<?= base_url('pembimbing/get_kota'); ?>',
+            url:'<?= base_url('Pembimbing/get_kota'); ?>',
             data:'id_provinsi='+id_provinsi_terpilih,
             success:function(hasil_distrik)
             {
@@ -322,7 +322,7 @@
           $(document).ready(function(){
             $.ajax({
               type:'post',
-              url:'<?= base_url('mitra/get_provinsi'); ?>',
+              url:'<?= base_url('Mitra/get_provinsi'); ?>',
               success:function(hasil_provinsi)
               {
             // alert("oke");
@@ -336,7 +336,7 @@
           var id_provinsi_terpilih = $("option:selected",this).attr('id_provinsi');
           $.ajax({
             type:'post',
-            url:'<?= base_url('mitra/get_kota'); ?>',
+            url:'<?= base_url('Mitra/get_kota'); ?>',
             data:'id_provinsi='+id_provinsi_terpilih,
             success:function(hasil_distrik)
             {
@@ -358,7 +358,7 @@
           $(document).ready(function(){
             $.ajax({
               type:'post',
-              url:'<?= base_url('relawan/get_provinsi'); ?>',
+              url:'<?= base_url('Relawan/get_provinsi'); ?>',
               success:function(hasil_provinsi)
               {
             // alert("oke");
@@ -372,7 +372,7 @@
           var id_provinsi_terpilih = $("option:selected",this).attr('id_provinsi');
           $.ajax({
             type:'post',
-            url:'<?= base_url('relawan/get_kota'); ?>',
+            url:'<?= base_url('Relawan/get_kota'); ?>',
             data:'id_provinsi='+id_provinsi_terpilih,
             success:function(hasil_distrik)
             {

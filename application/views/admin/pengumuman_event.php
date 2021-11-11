@@ -96,7 +96,7 @@
         </button>
       </div>
       <div class="modal-body" style="padding: 5% 10% 0 10%;">
-        <form class="user was-validated" method="post" action="<?= base_url('admin/tambah_pengumuman');?>" enctype="multipart/form-data">
+        <form class="user was-validated" method="post" action="<?= base_url('Admin/tambah_pengumuman');?>" enctype="multipart/form-data">
 
           <div class="form-group">
             <textarea type="text" class="form-control" id="isi" name="isi" placeholder="isi pengumuman" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda belum mengisi pengumuman')" oninput="setCustomValidity('')"></textarea>
@@ -143,7 +143,7 @@
         </div>
         <div class="modal-body text-left">
           <h5 class="text-center">Update Pengumuman</h5>
-          <form class="user was-validated" method="post" action="<?= base_url('admin/aksi_pengumuman/edit/'.$png['id_pengumuman']);?>" enctype="multipart/form-data">
+          <form class="user was-validated" method="post" action="<?= base_url('Admin/aksi_pengumuman/edit/'.$png['id_pengumuman']);?>" enctype="multipart/form-data">
 
           <div class="form-group">
             <textarea type="text" class="form-control" id="isi" name="isi" placeholder="isi pengumuman" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda belum mengisi pengumuman')" oninput="setCustomValidity('')"><?=$png['isi']; ?></textarea>
@@ -193,7 +193,7 @@
           <h5 class="text-center">Yakin akan menghapus pengumuman ini?</h5>          
         </div>
         <div class="modal-footer" style="margin-top: -10%">
-          <a href="<?= base_url('admin/aksi_pengumuman/hapus/'.$png['id_pengumuman']); ?>" class="badge badge-danger badge-sm">Hapus</a>
+          <a href="<?= base_url('Admin/aksi_pengumuman/hapus/'.$png['id_pengumuman']); ?>" class="badge badge-danger badge-sm">Hapus</a>
         </div>
       </form>
       </div>

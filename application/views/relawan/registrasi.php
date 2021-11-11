@@ -16,8 +16,8 @@
 		<!-- menampilkan notifikasi kesalahan inputan -->
 		
 		<label class="custom-file-label" for="id_card">unggah file</label>
-		<div class="invalid-feedback">Unggah surat izin orang tua jika anda berusia di bawah 25 tahun. klik <a href="<?= base_url('auth/unduh_template/surat_izin'); ?>" class="text-danger">di sini</a> untuk mengunduh template surat izin</div>
-		<div class="valid-feedback">Unggah surat izin orang tua jika anda berusia di bawah 25 tahun. klik <a href="<?= base_url('auth/unduh_template/surat_izin'); ?>" class="text-danger">di sini</a> untuk mengunduh template surat izin</div>
+		<div class="invalid-feedback">Unggah surat izin orang tua jika anda berusia di bawah 25 tahun. klik <a href="<?= base_url('Auth/unduh_template/surat_izin'); ?>" class="text-danger">di sini</a> untuk mengunduh template surat izin</div>
+		<div class="valid-feedback">Unggah surat izin orang tua jika anda berusia di bawah 25 tahun. klik <a href="<?= base_url('Auth/unduh_template/surat_izin'); ?>" class="text-danger">di sini</a> untuk mengunduh template surat izin</div>
 	</div>
 
 

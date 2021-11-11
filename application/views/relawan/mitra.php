@@ -40,7 +40,7 @@
 								<a href="" class="btn btn-primary btn-sm mt-2" data-toggle="modal" data-target="#ModalTambahMitra"> 
 									Ubah mitra
 								</a>
-								<a href="<?= base_url('relawan/unggah_berkas/reset_password/'.urlencode($mitra['email_koordinator']))?>" class="btn btn-warning btn-sm shadow text-light  mt-2">Reset password</a>
+								<a href="<?= base_url('Relawan/unggah_berkas/reset_password/'.urlencode($mitra['email_koordinator']))?>" class="btn btn-warning btn-sm shadow text-light  mt-2">Reset password</a>
 							</div>
 						</div>
 					</div>
@@ -185,9 +185,9 @@
 						<!-- form -->
 						<form class="user was-validated" method="post" 
 							<?php if (!$mitra){ ?>
-								action="<?= base_url('relawan/unggah_berkas/akun_mitra/'.urlencode($tim['id_tim']));?>"
+								action="<?= base_url('Relawan/unggah_berkas/akun_mitra/'.urlencode($tim['id_tim']));?>"
 							<?php } elseif ($mitra) {?>
-								action="<?= base_url('relawan/unggah_berkas/update_akun_mitra/'.urlencode($mitra['id_mitra']));?>"
+								action="<?= base_url('Relawan/unggah_berkas/update_akun_mitra/'.urlencode($mitra['id_mitra']));?>"
 							<?php } ?>
 						>
 							<div class="form-group mt-3">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2021 at 11:01 AM
+-- Generation Time: Nov 11, 2021 at 11:08 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -45,7 +45,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `nama`, `username`, `no_induk`, `jabatan`, `email`, `image`, `role_id`, `password`) VALUES
-('1', 'Ihsan Nugraha', 'ihsan', '12345678', 'Anggota RTIK', 'ihsan@gmail.com', 'default_image.jpg', '1', 'MTIzNDU2Nzg='),
+('1', 'Administrator', 'admin', '0123456789012345', 'Administrator', 'admin@itg.ac.id', 'ITG_Hitam_Putih.png', '1', 'MTIzNDU2Nzg='),
 ('dummy', 'Akun sudah tidak ada', '-', '-', '-', '-', 'default_image.jpg', '3', 'MTIzNDU2Nzg=');
 
 -- --------------------------------------------------------
@@ -68,16 +68,11 @@ CREATE TABLE `anggota_tim` (
 --
 
 INSERT INTO `anggota_tim` (`id_anggota`, `id_tim`, `id_relawan`, `status_pengajuan`, `file_surat_izin_ortu`, `status`) VALUES
-('1d8wzHUxV9iAsYn1', '20210626121149vg4Y', '20210912620210531200934vOFn0531204136', '4', 'https://drive.google.com/drive/u/2/folders/1ku4RqG1Z8AiKeF2Vdc96cv0wZSn3POEi', '0'),
-('1d8wzHUxV9iAsYn3', '20210626121149vg4Y', '20210912620210531200934vOFn0531236985', '3', '0', '0'),
-('1d8wzHUxV9iAsYn4', '20210626121149vg4Y', '20210912620210531200934vOFn0531236965', '3', '0', '0'),
-('1d8wzHUxV9iAsYn5', '20210626121149vg4Y', '20210912620210531200934vOFn0531236986', '3', '0', '0'),
-('1d8wzHUxV9iAsYn7', '20210626121149vg4Y', '20210202920210531200934vOFn0608195910', '3', '0', '0'),
-('CJuwQmxyNoP3qv96', '20210601153728qiNk', '20210912620210531200934vOFn0531236945', '3', '0', '0'),
-('CJuwQmxyNoP3qvl1', '20210601153728qiNk', '20210912620210531200934vOFn0531204136', '4', 'https://drive.google.com/file/d/1wJgLze_LFuRAn7WsX-awegFCZwgR_54M/view?usp=sharing', '0'),
-('CJuwQmxyNoP3qvl2', '20210601153728qiNk', '20210912620210531200934vOFn0531236985', '3', '0', '0'),
-('CJuwQmxyNoP3qvl5', '20210601153728qiNk', '20210912620210531200934vOFn0531236965', '3', 'https://drive.google.com/file/d/1wJgLze_LFuRAn7WsX-awegFCZwgR_54M/view?usp=sharing', '0'),
-('CJuwQmxyNoP3qvl6', '20210601153728qiNk', '20210912620210531200934vOFn0531236986', '3', '0', '0');
+('VcNIDrtxZy2TCsY1', '0', '20210912620210531200934vOFn0531236945', '0', '0', '0'),
+('VcNIDrtxZy2TCsY2', '0', '202109126202108270153220lj3082720928', '0', '0', '0'),
+('vNX76VMDS4iT83a1', '20210827022346vhC5', '202109126202108270153220lj3082720928', '4', 'https://docs.google.com/document/d/1yGz0oBzJX8YOT1M1f8GBWqV5HZZtokw7/edit?usp=sharing&amp;ouid=114807066934147240895&amp;rtpof=true&amp;sd=true', '0'),
+('vNX76VMDS4iT83a2', '20210827022346vhC5', '20210912620210531200934vOFn0531236945', '3', '0', '0'),
+('vNX76VMDS4iT83a3', '20210827022346vhC5', '20210912620210531200934vOFn0531236965', '3', 'https://docs.google.com/document/d/1Rc2k6CAskEXlHXl1cVIJXk7AqBvqFTaJ/edit?usp=sharing&amp;ouid=114807066934147240895&amp;rtpof=true&amp;sd=true', '0');
 
 -- --------------------------------------------------------
 
@@ -123,15 +118,23 @@ INSERT INTO `draf_keahlian_relawan` (`id_draf`, `id_relawan`, `id_keahlian`, `le
 ('202106081959101', '20210202920210531200934vOFn0608195910', '04', 2),
 ('202106081959102', '20210202920210531200934vOFn0608195910', '02', 2),
 ('202106081959113', '20210202920210531200934vOFn0608195910', '01', 2),
-('20210608959280', '20210912620210531200934vOFn0531204136', '03', 2),
-('20210608959281', '20210912620210531200934vOFn0531204136', '04', 2),
-('20210608959282', '20210912620210531200934vOFn0531204136', '02', 2),
-('20210608959283', '20210912620210531200934vOFn0531204136', '01', 2),
 ('202106162251320', '20210541920210531200934vOFn0616225132', '03', 1),
 ('202106162251321', '20210541920210531200934vOFn0616225132', '04', 1),
 ('202106162255390', '20210541920210531200934vOFn0616225538', '03', 1),
 ('202106162255391', '20210541920210531200934vOFn0616225538', '04', 1),
-('202106162310210', '20211521420210531200934vOFn0616231021', '04', 1);
+('202106162310210', '20211521420210531200934vOFn0616231021', '04', 1),
+('20210717019030', '20210912620210531200934vOFn071701902', '03', 2),
+('20210717019031', '20210912620210531200934vOFn071701902', '04', 2),
+('20210717019032', '20210912620210531200934vOFn071701902', '02', 2),
+('20210717019510', '20210912620210531200934vOFn071701951', '03', 2),
+('20210717019511', '20210912620210531200934vOFn071701951', '04', 2),
+('20210717019512', '20210912620210531200934vOFn071701951', '02', 2),
+('20210717023180', '20210946820210531200934vOFn071702318', '03', 2),
+('20210717023181', '20210946820210531200934vOFn071702318', '04', 2),
+('20210717023192', '20210946820210531200934vOFn071702318', '02', 2),
+('20210827209290', '202109126202108270153220lj3082720928', '03', 2),
+('20210827209291', '202109126202108270153220lj3082720928', '04', 2),
+('20210827209292', '202109126202108270153220lj3082720928', '02', 2);
 
 -- --------------------------------------------------------
 
@@ -163,9 +166,8 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`id_event`, `id_admin`, `date_created`, `nama_event`, `link_gdrive_default`, `awal_registrasi`, `akhir_registrasi`, `awal_pembekalan`, `akhir_pembekalan`, `awal_pelayanan`, `akhir_pelayanan`, `awal_pelaporan`, `akhir_pelaporan`, `awal_penilaian`, `akhir_penilaian`, `role_id`) VALUES
-('1d8wzHUxV9iAsYn', '1', '2022-04-14 11:54:20', 'RTIKAbdimas 2022', '', '2021-06-25 00:00:00', '2021-06-25 00:00:00', '2021-06-25 13:18:10', '2021-06-25 13:18:15', '2021-06-25 13:53:56', '2021-06-25 13:54:22', '2021-06-25 13:54:41', '2021-06-27 13:55:22', '2021-06-25 13:55:17', '2021-06-28 13:56:04', 3),
-('CJuwQmxyNoP3qvl', '1', '2021-05-31 21:18:14', 'RTIKAbdimas 2021', 'https://drive.google.com/drive/u/2/folders/1BELlmsJ1ilw3oK0fkKRdLZpFU8X6Ww10', '2021-05-11 21:51:42', '2021-06-18 10:11:22', '2021-06-01 16:08:39', '2021-06-15 00:09:18', '2021-06-04 22:20:55', '2021-06-21 00:11:38', '2021-06-03 00:00:00', '2021-06-23 15:31:05', '2021-06-18 21:46:33', '2021-06-16 15:05:36', 3),
-('CJuwQmxyNoP3qvp', 'dummy', '2018-09-04 14:34:07', 'RTIKAbdimas 2020', 'https://drive.google.com/drive/u/2/folders/1BELlmsJ1ilw3oK0fkKRdLZpFU8X6Ww10', '2021-05-01 21:51:42', '2021-06-05 22:09:08', '2021-06-01 16:08:39', '2021-06-16 17:40:37', '2021-06-04 22:20:55', '2021-06-03 11:23:52', '2021-06-03 00:00:00', '2021-06-03 00:00:00', '2021-06-18 00:54:01', '2021-06-15 00:57:08', 3);
+('VcNIDrtxZy2TCsY', '1', '2021-10-01 08:08:31', 'RTIKAbdimas 2021', 'https://drive.google.com/drive/folders/1BELlmsJ1ilw3oK0fkKRdLZpFU8X6Ww10?usp=sharing', '2021-09-26 00:00:00', '2021-10-02 00:00:00', '2021-10-02 00:01:00', '2021-10-03 00:00:00', '2021-10-04 00:01:00', '2021-10-05 00:00:00', '2021-10-05 00:01:00', '2021-10-06 00:00:00', '2021-10-06 00:00:00', '2021-10-07 00:00:00', 3),
+('vNX76VMDS4iT83a', '1', '2019-07-17 02:16:11', 'RTIKAbdimas 2019', 'https://drive.google.com/drive/u/3/folders/1BELlmsJ1ilw3oK0fkKRdLZpFU8X6Ww10', '2019-08-27 00:00:00', '2021-08-26 00:00:00', '2021-08-26 00:00:00', '2021-08-28 23:59:00', '2021-08-26 21:24:13', '2021-08-28 21:24:18', '2021-08-26 21:24:50', '2021-08-28 21:24:54', '2021-08-26 21:37:07', '2021-09-16 19:37:56', 3);
 
 -- --------------------------------------------------------
 
@@ -189,7 +191,6 @@ INSERT INTO `indikator_penilaian` (`id_indikator`, `id_kriteria`, `indikator`) V
 ('20210609160553ijkO', 'mtr', 'Seberapa besar keinginan anda untuk terus menerapkan pengetahuan, keterampilan, atau kemampuan yang diberikan oleh Relawan TIK?'),
 ('20210609160553ijkP', 'mtr', 'Seberapa besar kecenderungan Anda menjalin kerjasama terkait pemanfaatan TIK dengan Relawan TIK?'),
 ('20210609160553ijkQ', 'mtr', 'Seberapa ingin organisasi Anda menjalin kerjasama terkait pemanfaatan TIK dengan Relawan TIK?'),
-('20210609160553ijkR', 'mtr', 'Pilih satu atau lebih aspek Relawan TIK yang memuaskan'),
 ('20210609200312lw2', 'lpr', '&quot;Komponen Abstrak&quot; sesuai petunjuk manuskrip atau template artikel jurnal PkM MIFTEK'),
 ('20210609200415oNa', 'lpr', '&quot;Komponen Pendahuluan&quot; sesuai petunjuk manuskrip atau template artikel jurnal PkM MIFTEK'),
 ('20210609200443dht', 'lpr', '&quot;Komponen Metode&quot; sesuai petunjuk manuskrip atau template artikel jurnal PkM MIFTEK'),
@@ -230,7 +231,7 @@ CREATE TABLE `instruktur` (
 
 INSERT INTO `instruktur` (`id_instruktur`, `nama`, `jenis_kelamin`, `no_hp`, `email`, `image`, `profesi`, `tempat_lahir`, `tgal_lahir`, `id_kota`, `password`, `role_id`) VALUES
 ('0', 'Tidak tersedia data instruktur', '0', '-', '-', 'default_image.jpg', '-', '-', '0000-00-00', '0', '-', 1),
-('202109126J0YSi', 'Ihsan Nugraha', '0', '0895369729896', 'ihsannugraha96@gmail.com', 'default_image.jpg', 'Mahasiswa', 'Garut', '2021-05-12', '126', 'MTIzNDU2Nzg=', 1);
+('202109171ANGnI', 'Instruktur 1', '0', '0895369729896', 'instruktur@itg.ac.id', 'default_image.jpg', 'Mahasiswa', 'Garut', '2021-08-10', '171', 'MTIzNDU2Nzg=', 1);
 
 -- --------------------------------------------------------
 
@@ -279,8 +280,8 @@ CREATE TABLE `komisariat` (
 --
 
 INSERT INTO `komisariat` (`id_komisariat`, `nama_komisariat`, `logo`, `email`, `kontak`, `surat_komitmen`, `surat_tugas`, `id_kota`, `ketua`, `foto_ketua`, `password`, `role_id`) VALUES
-('20210531200934vOFm', 'IPI', 'default_logo.png', '1706005@sttgarut.ac.id', '0895369729898', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', '126', '-', 'default_image.jpg', 'MTIzNDU2Nzg=', 1),
-('20210531200934vOFn', 'Sekolah Tinggi Teknologi Garut', 'sttg.png', 'ihsannugraha96@gmail.com', '0895369729898', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', '126', 'Nama Ketua', 'default_image.jpg', 'MTIzNDU2Nzg=', 1);
+('20210531200934vOFn', 'Institut Teknologi Garut', 'sttg.png', 'pangkalan@itg.ac.id', '089536979898', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', '126', 'Nama Ketua', 'default_image.jpg', 'MTIzNDU2Nzg=', 1),
+('202108270153220lj3', 'Intina Group', 'ITG_kecil5.png', '1706005@itg.ac.id', '0895369729898', 'https://docs.google.com/document/d/1yGz0oBzJX8YOT1M1f8GBWqV5HZZtokw7/edit?usp=sharing&amp;ouid=114807066934147240895&amp;rtpof=true&amp;sd=true', 'https://docs.google.com/document/d/1yGz0oBzJX8YOT1M1f8GBWqV5HZZtokw7/edit?usp=sharing&amp;ouid=114807066934147240895&amp;rtpof=true&amp;sd=true', '126', 'Alwi Zakaria', 'foto_AI_SITI_ALAWIYAH_(1).jpeg', 'MTIzNDU2Nzg=', 1);
 
 -- --------------------------------------------------------
 
@@ -857,8 +858,7 @@ CREATE TABLE `mitra` (
 --
 
 INSERT INTO `mitra` (`id_mitra`, `nama_mitra`, `alamat`, `kecamatan`, `id_kota`, `titik_koordinat`, `situs_web`, `profil_ringkas`, `koordinator`, `jabatan_koordinator`, `no_hp_koordinator`, `email_koordinator`, `pimpinan`, `jabatan_pimpinan`, `no_hp_pimpinan`, `email_pimpinan`, `logo`, `jenis_layanan`, `password`, `id_tim`, `id_cluster`) VALUES
-('20210601173904p', 'INTINA GROUP', 'Kp. Bojong Kalapa rt.03 rw.05, Desa. Karangsari', 'Karangpawitan', '126', 'Titik koordinat 1', 'http://rtikabdimas.sttgarut.ac.id/p/kontrak-koordinator.html', 'merupakan sebuah UMKM yang bergerak dalam bidang craft', 'Tina Maryana', 'Wakil Pimpinan', '012345678910', 'tmaryana96@gmail.com', 'Ihsan Nugraha', 'Pemilik', '0895369729896', 'ihsannugraha96@gmail.com', 'default_logo.png', 'Layanan Pengguna', 'MTIzNDU2Nzg=', '20210601153728qiNk', '1'),
-('20210601173904Q', 'INTINA STORE', 'Kp. Bojong Kalapa rt.03 rw.05, Desa. Karangsari', 'Karangpawitan', '126', 'Titik koordinat 1', 'http://rtikabdimas.sttgarut.ac.id/p/kontrak-koordinator.html', 'merupakan sebuah UMKM yang bergerak dalam bidang craft', 'Tina Maryana', 'Wakil Pimpinan', '012345678910', 'ihsannugraha96@gmail.com', 'Ihsan Nugraha', 'Pemilik', '0895369729896', 'ihsannugraha96@gmail.com', 'default_logo.png', 'Layanan Informasi', 'MTIzNDU2Nzg=', '20210601153728qiNp', '2');
+('20210827212243D', 'Mitra 1', 'Garut Kota', 'Nama Kecamatan', '126', '-', 'https://mail.google.com/mail/u/1/#inbox', 'ini profil ringkas UMKM kami.......................................................', 'Gama', 'Sekretaris', '0123456789012', 'mitra@itg.ac.id', 'Alpha', 'Owner', '0123456789123', 'alphaintina@gmail.com', 'Go_Green_Poster_(4).jpg', 'Layanan Informasi', 'MTIzNDU2Nzg=', '20210827022346vhC5', '3');
 
 -- --------------------------------------------------------
 
@@ -872,6 +872,21 @@ CREATE TABLE `nilai_individu` (
   `id_penilai` varchar(18) NOT NULL,
   `nilai` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `nilai_individu`
+--
+
+INSERT INTO `nilai_individu` (`id_nilai_individu`, `id_anggota_tim`, `id_penilai`, `nilai`) VALUES
+('20210827213547pcG', 'vNX76VMDS4iT83a3', 'vNX76VMDS4iT83a1', 100),
+('20210827213547Q8H', 'vNX76VMDS4iT83a2', 'vNX76VMDS4iT83a1', 100),
+('20210827214504FBq', 'vNX76VMDS4iT83a1', '20210827213377IP', 100),
+('20210827214504sNm', 'vNX76VMDS4iT83a2', '20210827213377IP', 80),
+('20210827214505SDf', 'vNX76VMDS4iT83a3', '20210827213377IP', 80),
+('20210827214654JoA', 'vNX76VMDS4iT83a3', 'vNX76VMDS4iT83a2', 80),
+('20210827214654xaX', 'vNX76VMDS4iT83a1', 'vNX76VMDS4iT83a2', 100),
+('20210827214726Cdw', 'vNX76VMDS4iT83a2', 'vNX76VMDS4iT83a3', 80),
+('20210827214726dpn', 'vNX76VMDS4iT83a1', 'vNX76VMDS4iT83a3', 100);
 
 -- --------------------------------------------------------
 
@@ -890,10 +905,8 @@ CREATE TABLE `nilai_kinerja_relawan` (
 --
 
 INSERT INTO `nilai_kinerja_relawan` (`id_nilai_kinerja`, `id_anggota`, `nilai_kinerja_relawan`) VALUES
-('2021062610125458k', 'CJuwQmxyNoP3qvl1', 0),
-('202106261300078SQ', 'CJuwQmxyNoP3qvl3', 0),
-('20210626133456a3f', 'CJuwQmxyNoP3qv96', 0),
-('20210626135841L8x', '1d8wzHUxV9iAsYn1', 0);
+('20210827221355Dxo', 'vNX76VMDS4iT83a1', 96.116),
+('20211001827087Ho', 'vNX76VMDS4iT83a2', 88.116);
 
 -- --------------------------------------------------------
 
@@ -908,6 +921,13 @@ CREATE TABLE `nilai_kinerja_tim` (
   `nilai_mitra` float NOT NULL,
   `nilai_laporan` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `nilai_kinerja_tim`
+--
+
+INSERT INTO `nilai_kinerja_tim` (`id_nilai_kinerja_tim`, `id_tim`, `nilai_dokumen`, `nilai_mitra`, `nilai_laporan`) VALUES
+('20210827214519DQ4', '20210827022346vhC5', 20, 26, 44.29);
 
 -- --------------------------------------------------------
 
@@ -930,9 +950,10 @@ CREATE TABLE `pembekalan` (
 --
 
 INSERT INTO `pembekalan` (`id_pembekalan`, `id_event`, `id_instruktur`, `id_pengumuman`, `waktu_pelaksanaan`, `link`, `link_materi`) VALUES
-('20210601175158n', 'CJuwQmxyNoP3qvl', '202109126J0YSi', '20210601175158n', '2021-06-23 22:51:00', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', 'https://drive.google.com/drive/u/0/my-drive'),
-('20210601175158y', 'CJuwQmxyNoP3qvp', '202109126J0YSi', '20210601175158n', '2020-06-17 22:51:00', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', 'https://drive.google.com/drive/u/0/my-drive'),
-('20210620154652i', 'ouFPMTRCk4hfA7m', '202109126J0YSi', '20210620154652i', '2021-06-03 08:05:00', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', 'https://drive.google.com/drive/u/0/my-drive');
+('20210620154652i', 'ouFPMTRCk4hfA7m', '202109126J0YSi', '20210620154652i', '2021-06-03 08:05:00', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', 'https://drive.google.com/drive/u/0/my-drive'),
+('20210827183151f', 'vNX76VMDS4iT83a', '202109171ANGnI', '20210827183151f', '2021-08-28 06:33:00', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', 'https://drive.google.com/drive/u/0/my-drive'),
+('20210827185016T', 'vNX76VMDS4iT83a', '202109171ANGnI', '20210827185016T', '2021-08-28 18:50:00', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', 'https://drive.google.com/drive/u/0/my-drive'),
+('202108271859146', 'vNX76VMDS4iT83a', '202109171ANGnI', '202108271859146', '2021-08-28 18:01:00', 'https://drive.google.com/file/d/1rv4-JMnGslnFHVoqo4af7SzFjc_go1aA/view', 'https://drive.google.com/drive/u/0/my-drive');
 
 -- --------------------------------------------------------
 
@@ -964,9 +985,7 @@ CREATE TABLE `pembimbing` (
 --
 
 INSERT INTO `pembimbing` (`id_pembimbing`, `email`, `id_komisariat`, `nik`, `nama`, `tgl_lahir`, `jenis_kelamin`, `alamat_rumah`, `kecamatan`, `id_kota`, `no_telp`, `sektor_pekerjaan`, `jabatan`, `image`, `password`, `role_id`) VALUES
-('2021060272009y8', 'ihsannugraha86@gmail.com', '20210531200934vOFn', '11111111111257', 'pembimbing sttg 1', '0000-00-00', 'Laki-laki', '-', '-', '126', '-', '-', '-', 'default_image.jpg', 'MTIzNDU2Nzg=', 1),
-('2021060272009yz', 'ihsannugraha96@gmail.com', '20210531200934vOFn', '', 'pembimbing utama', '2021-06-17', 'Laki-laki', 'Kp. Bojong Kalapa rt.03 rw.05, desa. Karangsari', 'Karangpawitan', '126', '08953695795', 'Pendidikan', 'Dosen', 'default_image.jpg', 'MTIzNDU2Nzg=', 1),
-('2021060495109JG', '1706005@sttgarut.ac.id', '20210531200934vOFn', 'crjzGTx6', '222222', '0000-00-00', '-', '-', '-', '126', '-', '-', '-', 'default_image.jpg', 'Y3JqekdUeDY=', 2),
+('20210827213377I', 'pembimbing@itg.ac.id', '202108270153220lj3', '1234567890123784', 'Alpha Pembimbing', '2021-08-02', 'Laki-laki', 'Garut Kota', 'Karangpawitan', '126', '0895369729896', 'Pendidikan', 'Dosen', 'sunda.png', 'MTIzNDU2Nzg=', 2),
 ('dummy', '-', '-', '-', 'tidak ditemukan ', '0000-00-00', '-', '-', '-', '-', '-', '-', '-', '-', '-', 0);
 
 -- --------------------------------------------------------
@@ -989,7 +1008,9 @@ CREATE TABLE `pengumuman` (
 
 INSERT INTO `pengumuman` (`id_pengumuman`, `id_pembuat`, `date`, `isi`, `batas_waktu`) VALUES
 ('20210531201354e', '1', '2021-05-31 20:13:54', 'Ini pengumuman pertama pada event ini ', '2021-06-25 00:57:00'),
-('20210620154652i', '1', '2021-06-20 15:46:52', 'acara pembekalan', '2021-06-03 08:05:00');
+('20210620154652i', '1', '2021-06-20 15:46:52', 'acara pembekalan', '2021-09-01 08:05:00'),
+('20210827183151f', '1', '2021-08-27 18:31:51', 'tes pengumuman pembekalan 2asdas', '2021-08-28 06:33:00'),
+('202108271859146', '1', '2021-08-27 18:59:14', 'asdasdasda', '2021-08-28 18:01:00');
 
 -- --------------------------------------------------------
 
@@ -1105,12 +1126,13 @@ CREATE TABLE `relawan` (
 --
 
 INSERT INTO `relawan` (`id_relawan`, `username`, `nama_lengkap`, `jenis_kelamin`, `tempat_lahir`, `tgl_lahir`, `provinsi`, `kota`, `kecamatan`, `komisariat`, `registrasi`, `id_card`, `alamat_lengkap`, `no_hp`, `email`, `keahlian_lain`, `pekerjaan`, `pendidikan_terakhir`, `nik`, `thn_anggota`, `jabatan_di_rtik`, `image`, `password`, `is_active`) VALUES
-('20210202920210531200934vOFn0608195910', '@administrator', 'Charlie', 'Laki-laki', 'Garut', '2021-06-25', '02', '029', 'Karangpawitan', '20210531200934vOFn', 'none', 'yusuf21.jpg', 'jakljgkabs dkjasgd gdhgsahbaslk ahjgasb', '112456414345', 'nugrahaihsan95@gmail.com', 'Desain Grafis', 'Belum Bekerja', 'D3', '1223445', 0000, 'belum di atur!', 'default_image.jpg', 'MTIzNDU2Nzg=', 3),
-('20210912620210531200934vOFn0531204136', '@ihsannugraha96', 'Ihsan Nugraha', 'Laki-laki', 'Garut', '2021-05-04', '09', '126', 'Karangpawitan', '20210531200934vOFn', 'none', 'default_id_card.jpg', 'Kp. Bojong kalapa rt.03 rw.05, Desa. Karangsari', '0895369729896', 'ihsannugraha96@gmail.com', 'Desain Grafis', 'Belum Bekerja', 'SMA', '3205024810860010', 2010, 'belum di atur!', 'ihsan.jpg', 'MTIzNDU2Nzg=', 3),
-('20210912620210531200934vOFn0531236945', 'tes1', 'Alpha', 'Perempuan', 'Garut', '2021-05-11', '09', '126', 'Garut Kota', '20210531200934vOFn', 'none', '20210531204136QDPXK2M5zH', 'Kp. Loa', '08953697297654', 'tmaryana92@gmail.com', '', 'Belum Bekerja', 'SMA', '320502481086054', 0000, 'belum di atur!', 'default_image.jpg', 'MTIzNDU2Nzg=', 3),
-('20210912620210531200934vOFn0531236965', 'tes2', 'Beta', 'Perempuan', 'Garut', '2021-05-11', '09', '126', 'Garut Kota', '20210531200934vOFn', 'none', '20210531204136QDPXK2M5zH', 'Kp. Loa', '0895369729832', 'tmaryana97@gmail.com', '', 'Belum Bekerja', 'SMA', '3205024810860098', 0000, 'belum di atur!', 'default_image.jpg', 'MTIzNDU2Nzg=', 3),
-('20210912620210531200934vOFn0531236985', 'tes3', 'Tina Maryana', 'Perempuan', 'Garut', '2021-05-11', '09', '126', 'Garut Kota', '20210531200934vOFn', 'none', '20210531204136QDPXK2M5zH', 'Kp. Loa', '0895369729897', 'tmaryana98@gmail.com', '', 'Belum Bekerja', 'SMA', '3205024810860011', 0000, 'belum di atur!', 'default_image.jpg', 'MTIzNDU2Nzg=', 3),
-('20210912620210531200934vOFn0531236986', 'tes4', 'Delta', 'Perempuan', 'Garut', '2021-05-11', '09', '126', 'Garut Kota', '20210531200934vOFn', 'none', '20210531204136QDPXK2M5zH', 'Kp. Loa', '0895369729868', 'tmaryana99@gmail.com', '', 'Belum Bekerja', 'SMA', '3205024810860024', 0000, 'belum di atur!', 'default_image.jpg', 'MTIzNDU2Nzg=', 3),
+('20210202920210531200934vOFn0608195910', 'Charlie', 'Charlie', 'Laki-laki', 'Garut', '2021-06-25', '02', '029', 'Karangpawitan', '20210531200934vOFn', 'none', 'yusuf21.jpg', 'Alamat Charlie', '112456414345', 'charlie@itg.ac.id', 'Desain Grafis', 'Belum Bekerja', 'D3', '1223445', 0000, 'belum di atur!', 'default_image.jpg', 'MTIzNDU2Nzg=', 3),
+('20210912620210531200934vOFn0531204136', 'Gama', 'Gama', 'Laki-laki', 'Garut', '2021-05-04', '09', '126', 'Karangpawitan', '20210531200934vOFn', 'none', 'default_id_card.jpg', 'Alamat Gama', '0895369729896', 'gama@itg.ac.id', '', 'Belum Bekerja', 'SMA', '32050248108', 2010, 'belum di atur!', 'default_image.jpg', 'MTIzNDU2Nzg=', 3),
+('20210912620210531200934vOFn0531236945', 'Alpha', 'Alpha', 'Perempuan', 'Garut', '2021-05-11', '09', '126', 'Garut Kota', '20210531200934vOFn', 'none', 'default_id_card.jpg', 'Alamat Alpha', '08953697297654', 'alpha@itg.ac.id', '', 'Belum Bekerja', 'SMA', '320502481086054', 0000, 'belum di atur!', 'default_image.jpg', 'MTIzNDU2Nzg=', 3),
+('20210912620210531200934vOFn0531236965', 'Bravo', 'Bravo', 'Perempuan', 'Garut', '2021-05-11', '09', '126', 'Garut Kota', '20210531200934vOFn', 'none', 'default_id_card.jpg', 'Alamat Bravo', '0895369729832', 'bravo@itg.ac.id', '', 'Belum Bekerja', 'SMA', '3205024810860098', 0000, 'belum di atur!', 'default_image.jpg', 'MTIzNDU2Nzg=', 3),
+('20210912620210531200934vOFn0531236986', 'Delta', 'Delta', 'Perempuan', 'Garut', '2021-05-11', '09', '126', 'Garut Kota', '20210531200934vOFn', 'none', 'default_id_card.jpg', 'Alamat Delta', '0895369729868', 'delta@itg.ac.id', '', 'Belum Bekerja', 'SMA', '3205024810860024', 0000, 'belum di atur!', 'default_image.jpg', 'MTIzNDU2Nzg=', 3),
+('202109126202108270153220lj3082720924', 'Fortran', 'Fortran', 'Laki-laki', 'Nama Kota', '2021-08-01', '09', '126', 'Nama Kecamatan', '202108270153220lj3', 'none', 'default_id_card.jpg', 'Alamat Lengkap', '0123456789016', 'fortran@itg.ac.id', 'Desain Grafis', 'Belum Bekerja', 'SMA', '11223344553', 0000, 'belum di atur!', 'default_image.jpg', 'MTIzNDU2Nzg=', 3),
+('202109126202108270153220lj3082720928', 'Echo', 'Echo -', 'Laki-laki', 'Nama Kota', '2021-08-01', '09', '126', 'Karangpawitan', '202108270153220lj3', 'none', 'default_id_card.jpg', 'Alamat Lengkap', '01234567890', 'echo@itg.ac.id', 'Desain Grafis', 'Belum Bekerja', 'SMA', '1122334455', 2020, 'Anggota', 'default_image.jpg', 'MTIzNDU2Nzg=', 3),
 ('dummy', '-', 'Akun tidak diketahui', '-', '-', '0000-00-00', '-', '-', '-', '-', '-', 'default_id_card.jpg', '-', '-', '-', '-', '-', '-', '-', 0000, '-', 'default_image.jpg', '-', 0);
 
 -- --------------------------------------------------------
@@ -1138,8 +1160,8 @@ INSERT INTO `template` (`id_template`, `nama_template`, `date`, `id_admin`) VALU
 ('4', '05 Template Survei Program.docx', '2021-05-29 08:33:05', 1),
 ('5', '06 Template Artikel Berita.docx', '2021-05-29 08:33:05', 1),
 ('6', '07 Template artikel MIFTEK.docx', '2021-05-29 08:33:05', 1),
-('mitra', 'mitra_-_Salin.png', '2021-05-31 20:15:09', 1),
-('pangkalan', 'mitra_-_Salin.png', '2021-05-29 08:38:59', 1);
+('mitra', 'mitra_-_Salin.png', '2021-08-27 17:50:43', 1),
+('pangkalan', '02_Surat_Pengantar.docx', '2021-08-27 00:49:35', 1);
 
 -- --------------------------------------------------------
 
@@ -1167,7 +1189,8 @@ CREATE TABLE `template_sertifikat` (
 --
 
 INSERT INTO `template_sertifikat` (`id_template`, `id_event`, `tempat_dikeluarkan`, `tgal_dikeluarkan`, `nama_1`, `ttd_1`, `stempel_1`, `jabatan_1`, `nama_2`, `ttd_2`, `stempel_2`, `jabatan_2`) VALUES
-('20210613130349Wod', 'CJuwQmxyNoP3qvl', 'Garut', '2021-06-30', 'Bambang Tri Santoso, S.Sn.', 'default_ttd.png', 'stempel_rtik2.png', 'Kepala Sub Direktorat Pemberdayaan Komunitas TIK', 'Fajar Eri Dianto', 'default_ttd.png', 'stempel_rtik2.png', 'Ketua Pengurus Pusat Relawan TIK Indonesia');
+('20210827022151V1m', 'vNX76VMDS4iT83a', 'Jakarta', '2021-08-31', 'Bambang Tri Santoso,  S.Sn.', 'default_ttd.png', 'default_stempel.png', 'Kepala SUB Direktorat Pemberdayaan Komunitas TIK', 'Fajar Eri Dianto', 'default_ttd.png', 'default_stempel.png', 'Kepala Pengurus Pusat Relawan TIK Indonesia'),
+('202110010822588j0', 'VcNIDrtxZy2TCsY', 'Jakarta', '2021-10-06', 'Bambang Tri Santoso, S.Sn.', 'default_ttd.png', 'default_stempel.png', 'Kepala Sub Direktorat Pemberdayaan Komunitas TIK', 'Fajar Eri Dianto', 'default_ttd.png', 'default_stempel.png', 'Ketua Pengurus Pusat Relawan TIK Indonesia');
 
 -- --------------------------------------------------------
 
@@ -1198,12 +1221,7 @@ CREATE TABLE `tim` (
 --
 
 INSERT INTO `tim` (`id_tim`, `id_event`, `nama_tim`, `id_pembimbing`, `status_pembimbing`, `surat_pengantar`, `survey_permintaan`, `surat_konfirmasi`, `artikel_miftek`, `presensi_pelayanan`, `berita_Acara`, `status_pelayanan`, `judul_laporan`, `laporan`, `role_id`) VALUES
-('20210601153728qiNk', 'CJuwQmxyNoP3qvl', 'Algoritma 1', '2021060272009y8', '2', 'https://drive.google.com/file/d/1wJgLze_LFuRAn7WsX-awegFCZwgR_54M/view?usp=sharing', '-', 'https://drive.google.com/file/d/1wJgLze_LFuRAn7WsX-awegFCZwgR_54M/view?usp=sharing', '-', 'https://drive.google.com/file/d/1wJgLze_LFuRAn7WsX-awegFCZwgR_54M/view?usp=sharing', '-', '0', '-', '<p style=\"text-align: center; \"><br></p><p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p><p>assssssssssssajsgdbasjhd</p><p>asdgsagdhjsa</p><ol><li>iiasdjghasd</li><li>asdjgsakd</li><li>adgasd</li><li>dahsjd</li></ol><p>askhdjhsja</p><ul><li style=\"text-align: right; \">asdjasghdjhdfgkas</li><li style=\"text-align: right; \">djaskdgh</li></ul><p style=\"text-align: right;\"><br></p><p style=\"text-align: left;\">kadjkha</p><p style=\"text-align: center;\"></p><p style=\"text-align: left;\">ahjdsjas</p><p style=\"text-align: left;\"><br></p><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><p style=\"text-align: left;\"><br></p>', 0),
-('20210601153728qiNl', 'CJuwQmxyNoP3qvl', 'Algoritma 2', '2021060272009y8', '-', '-', '-', '-', '-', '-', '-', '0', '-', '<p style=\"text-align: center; \"><br></p><p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p><p>assssssssssssajsgdbasjhd</p><p>asdgsagdhjsa</p><ol><li>iiasdjghasd</li><li>asdjgsakd</li><li>adgasd</li><li>dahsjd</li></ol><p>askhdjhsja</p><ul><li style=\"text-align: right; \">asdjasghdjhdfgkas</li><li style=\"text-align: right; \">djaskdgh</li></ul><p style=\"text-align: right;\"><br></p><p style=\"text-align: left;\">kadjkha</p><p style=\"text-align: center;\"><img src=\"http://localhost/rtik_abdimas/assets/img/artikel/Simbolis_pemberian_kartu_tanda_peserta_paket_4_oleh_Kepala_Kelurahan_Pananjung.jpeg\" style=\"width: 50%;\"></p><p style=\"text-align: left;\">ahjdsjas</p><p style=\"text-align: left;\"><br></p><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><p style=\"text-align: left;\"><br></p>', 0),
-('20210601153728qiNp', 'CJuwQmxyNoP3qvl', 'Cloud 4', '2021060272009y8', '2', 'https://drive.google.com/file/d/1wJgLze_LFuRAn7WsX-awegFCZwgR_54M/view?usp=sharing', '-', 'https://drive.google.com/file/d/1wJgLze_LFuRAn7WsX-awegFCZwgR_54M/view?usp=sharing', '-', 'https://drive.google.com/file/d/1wJgLze_LFuRAn7WsX-awegFCZwgR_54M/view?usp=sharing', '-', '0', 'Laporan Kegiatan RTIKAbdimas 2021 Tim Cloud 4', '<p style=\"text-align: center; \"><br></p><p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p><p>assssssssssssajsgdbasjhd</p><p>asdgsagdhjsa</p><ol><li>iiasdjghasd</li><li>asdjgsakd</li><li>adgasd</li><li>dahsjd</li></ol><p>askhdjhsja</p><ul><li style=\"text-align: right; \">asdjasghdjhdfgkas</li><li style=\"text-align: right; \">djaskdgh</li></ul><p style=\"text-align: right;\"><br></p><p style=\"text-align: left;\">kadjkha</p><p style=\"text-align: center;\"><img src=\"http://localhost/rtik_abdimas/assets/img/artikel/Simbolis_pemberian_kartu_tanda_peserta_paket_4_oleh_Kepala_Kelurahan_Pananjung.jpeg\" style=\"width: 50%;\"></p><p style=\"text-align: left;\">ahjdsjas</p><p style=\"text-align: left;\"><br></p><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><p style=\"text-align: left;\"><br></p>', 0),
-('20210601153728qiNr', 'CJuwQmxyNoP3qvl', 'Cloud 1', '2021060272009yz', '0', '-', '-', '-', '-', '-', '-', '0', '-', '<p style=\"text-align: center; \"><br></p><p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p><p>assssssssssssajsgdbasjhd</p><p>asdgsagdhjsa</p><ol><li>iiasdjghasd</li><li>asdjgsakd</li><li>adgasd</li><li>dahsjd</li></ol><p>askhdjhsja</p><ul><li style=\"text-align: right; \">asdjasghdjhdfgkas</li><li style=\"text-align: right; \">djaskdgh</li></ul><p style=\"text-align: right;\"><br></p><p style=\"text-align: left;\">kadjkha</p><p style=\"text-align: center;\"><img src=\"http://localhost/rtik_abdimas/assets/img/artikel/Simbolis_pemberian_kartu_tanda_peserta_paket_4_oleh_Kepala_Kelurahan_Pananjung.jpeg\" style=\"width: 50%;\"></p><p style=\"text-align: left;\">ahjdsjas</p><p style=\"text-align: left;\"><br></p><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><p style=\"text-align: left;\"><br></p>', 0),
-('20210601153728qiNx', 'CJuwQmxyNoP3qvl', 'Cloud 2', '2021060495109JG', '2', '-', '-', '-', '-', '-', '-', '0', '-', '<p><br></p><p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p><p>assssssssssssajsgdbasjhd</p><p>asdgsagdhjsa</p><ol><li>iiasdjghasd</li><li>asdjgsakd</li><li>adgasd</li><li>dahsjd</li></ol><p>askhdjhsja</p><ul><li style=\"text-align: right; \">asdjasghdjhdfgkas</li><li style=\"text-align: right; \">djaskdgh</li></ul><p style=\"text-align: right;\"><br></p><p style=\"text-align: left;\">kadjkha</p><p style=\"text-align: center;\"><img src=\"http://localhost/rtik_abdimas/assets/img/artikel/Simbolis_pemberian_kartu_tanda_peserta_paket_4_oleh_Kepala_Kelurahan_Pananjung.jpeg\" style=\"width: 50%;\"></p><p style=\"text-align: left;\">ahjdsjas</p><p style=\"text-align: left;\"><br></p><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><p style=\"text-align: left;\"><br></p>', 0),
-('20210626121149vg4Y', '1d8wzHUxV9iAsYn', 'ALGORITMA 1', '2021060495109JG', '1', '-', '-', '-', '-', '-', '-', '0', 'Laporan Kegiatan RTIKAbdimas 2022 Tim Algoritma 1', '<p style=\"text-align: center; \"><img src=\"http://localhost/rtik_abdimas/assets/img/artikel/goldfish.jpg\" style=\"width: 90%;\"><br></p><p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p><p>assssssssssssajsgdbasjhd</p><p>asdgsagdhjsa</p><ol><li>iiasdjghasd</li><li>asdjgsakd</li><li>adgasd</li><li>dahsjd</li></ol><p>askhdjhsja</p><ul><li style=\"text-align: right; \">asdjasghdjhdfgkas</li><li style=\"text-align: right; \">djaskdgh</li></ul><p style=\"text-align: right;\"><br></p><p style=\"text-align: left;\">kadjkha</p><p style=\"text-align: center;\"><img src=\"http://localhost/rtik_abdimas/assets/img/artikel/Simbolis_pemberian_kartu_tanda_peserta_paket_4_oleh_Kepala_Kelurahan_Pananjung.jpeg\" style=\"width: 50%;\"></p><p style=\"text-align: left;\">ahjdsjas</p><p style=\"text-align: left;\"><br></p><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><p style=\"text-align: left;\"><br></p>', 1);
+('20210827022346vhC5', 'vNX76VMDS4iT83a', 'Algoritma ', '20210827213377I', '2', 'https://docs.google.com/document/d/1Pr9zpzU5yxFClApajqoOzZJ819Cg3jhW/edit?usp=sharing&ouid=114807066934147240895&rtpof=true&sd=true', 'https://docs.google.com/document/d/1Pr9zpzU5yxFClApajqoOzZJ819Cg3jhW/edit?usp=sharing&amp;ouid=114807066934147240895&amp;rtpof=true&amp;sd=true', 'https://docs.google.com/document/d/1Pr9zpzU5yxFClApajqoOzZJ819Cg3jhW/edit?usp=sharing&amp;ouid=114807066934147240895&amp;rtpof=true&amp;sd=true', 'https://docs.google.com/document/d/1Pr9zpzU5yxFClApajqoOzZJ819Cg3jhW/edit?usp=sharing&amp;ouid=114807066934147240895&amp;rtpof=true&amp;sd=true', 'https://docs.google.com/document/d/1Pr9zpzU5yxFClApajqoOzZJ819Cg3jhW/edit?usp=sharing&amp;ouid=114807066934147240895&amp;rtpof=true&amp;sd=true', 'https://docs.google.com/document/d/1Pr9zpzU5yxFClApajqoOzZJ819Cg3jhW/edit?usp=sharing&amp;ouid=114807066934147240895&amp;rtpof=true&amp;sd=true', '0', 'Laporan Kegiatan RTIKAbdimas 2022 Tim Algoritma 1', '<p><span style=\"font-size: 11pt; line-height: 107%; font-family: Arial;\">Daftar Kontributor:\r\nKetua Tim, Anggota Tim ke-1, ... Anggota Tim Ke-n</span></p><p style=\"text-align: center; \"><img src=\"http://localhost/rtik_abdimas/assets/img/artikel/IMG-20190520-WA0008.jpg\" style=\"width: 50%;\"><span style=\"font-size:11.0pt;line-height:107%;\r\nfont-family:&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:\r\nCalibri;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;\r\nmso-bidi-font-family:Arial;mso-bidi-theme-font:minor-bidi;mso-ansi-language:\r\nIN;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\"><br></span></p><p style=\"text-align: center; \"><span style=\"font-size:11.0pt;line-height:107%;\r\nfont-family:&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:\r\nCalibri;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;\r\nmso-bidi-font-family:Arial;mso-bidi-theme-font:minor-bidi;mso-ansi-language:\r\nIN;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\"><br></span></p><p style=\"text-align: justify;\"><span style=\"font-size:11.0pt;line-height:107%;\r\nfont-family:&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:\r\nCalibri;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;\r\nmso-bidi-font-family:Arial;mso-bidi-theme-font:minor-bidi;mso-ansi-language:\r\nIN;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\"></span></p><p class=\"MsoNormal\"><b><span style=\"font-family: Arial;\">Tempat, tanggal publikasi.</span></b><span style=\"font-family: Arial;\">\r\nDeskripsikan: latar belakang yang mengungkap profil, masalah/kebutuhan mitra\r\npenerima manfaat; rencana kegiatan&nbsp; utk\r\nmenangani masalah atau memenuhi kebutuhan tersebut; pelaksanaan dan hasil\r\npelaksanaan kegiatan tersebut; rekomendasi tim utk kegiatan ke depan.</span><o:p></o:p></p>', 0);
 
 -- --------------------------------------------------------
 

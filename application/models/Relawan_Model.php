@@ -321,9 +321,10 @@ class Relawan_Model extends CI_Model
     public function	get_data_pengajuan_menjadi_anggota($id_tim)
     {
     	$id = "'".$id_tim."'";
-		$query = "SELECT * FROM anggota_tim JOIN relawan 
+		$query = "SELECT * FROM anggota_tim JOIN relawan
 				ON anggota_tim.id_relawan = relawan.id_relawan
-				
+				JOIN komisariat
+				ON relawan.komisariat = komisariat.id_komisariat
 				WHERE anggota_tim.id_tim = $id and anggota_tim.status_pengajuan = 1";
 		return $this->db->query($query)->result_array();
     }

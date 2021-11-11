@@ -74,7 +74,7 @@
 
               </td>
               <td>  
-                <a href="<?= base_url('admin/detil_event/').urlencode($ev['id_event']);?>" name="detail" class="badge badge-info">detail</i></a>
+                <a href="<?= base_url('Admin/detil_event/').urlencode($ev['id_event']);?>" name="detail" class="badge badge-info">detail</i></a>
                 <a href="" name="detail" class="badge badge-danger" data-toggle="modal" data-target="#hapus_event_<?=$ev['id_event'];?>">hapus</i></a>
               </td>
             </tr>
@@ -108,7 +108,7 @@
       <div class="modal-body">
         <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
         <!-- form -->
-        <form class="user was-validated mt-3" method="post" action="<?= base_url('admin/buat_event_baru/'.$admin['id_admin']);  ?>">
+        <form class="user was-validated mt-3" method="post" action="<?= base_url('Admin/buat_event_baru/'.$admin['id_admin']);  ?>">
           <div class="form-group">
             <p for="" class="text-left mb-1 font-weight-bold">Nama/tema event :</p>
             <input type="nama_event" class="form-control is_invalid form-control-sm" id="nama_event" name="nama_event" placeholder="RTIKAbdimas 20**" required oninvalid="this.setCustomValidity('Anda belum mengisi nama/tema event yang akan di selenggarakan..')" oninput="setCustomValidity('')">
@@ -143,7 +143,7 @@ foreach ($event as $ev) { ?>
           <p>Anda yakin akan menghapus event ini?<br>Semua data yang telah terekam akan ikut terhapus, kecuali berkas yang sudah di unggah ke google drive.</p>
         </div>
         <div class="modal-footer" style="margin-top: -5%;">
-          <a href="<?= base_url('admin/hapus_event/').urlencode($ev['id_event']);?>"class="badge badge-danger badge-xs" type="button">Hapus event</a>
+          <a href="<?= base_url('Admin/hapus_event/').urlencode($ev['id_event']);?>"class="badge badge-danger badge-xs" type="button">Hapus event</a>
         </div>  
       </div>
     </div>

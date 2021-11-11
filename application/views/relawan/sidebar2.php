@@ -22,7 +22,7 @@
         <li class="nav-item ">
       <?php endif;?>
         
-        <a class="nav-link" href="<?= base_url('relawan/kegiatan_Selesai') ?>">
+        <a class="nav-link" href="<?= base_url('Relawan/kegiatan_Selesai') ?>">
     
           <i class="fas fa-ellipsis-h"></i>
           <span>Menu Utama</span></a>
@@ -31,33 +31,33 @@
        
       <li class="nav-item" >
         <?php if ($title == 'Tim Relawan' || $title == 'Registrasi' || $title == 'Mitra' ||  $title == 'Pembimbing Tim' || $title == 'Agenda Pembekalan' || $title == 'Pelayanan' || $title == 'Pelaporan' || $title == 'Penilaian Relawan') {?>
-          <a class="nav-link" href="<?= base_url('relawan/kegiatan_berlangsung') ?>">
+          <a class="nav-link" href="<?= base_url('Relawan/kegiatan_berlangsung') ?>">
         <?php } elseif ($title == 'Detail Tim') {?>
-          <a class="nav-link" href="<?= base_url('relawan/registrasi_tim') ?>">
+          <a class="nav-link" href="<?= base_url('Relawan/registrasi_tim') ?>">
         <?php } elseif ($title == 'Lihat_artikel') {?>
-         <a class="nav-link" href="<?= base_url('relawan/pelaporan') ?>">
+         <a class="nav-link" href="<?= base_url('Relawan/pelaporan') ?>">
         <?php }elseif ($title == "Kegiatan Selesai") {?>
-          <a class="nav-link" href="<?= base_url('relawan/kegiatan_selesai') ?>">
+          <a class="nav-link" href="<?= base_url('Relawan/kegiatan_selesai') ?>">
         <?php }  elseif ( $title == 'Pengajuan Komisariat'){?>
-          <a class="nav-link" href="<?= base_url('admin/komisariat') ?>">
+          <a class="nav-link" href="<?= base_url('Admin/komisariat') ?>">
         <?php } elseif ($title == 'Detail Pangkalan') {?>
-          <a class="nav-link" href="<?= base_url('admin/kembali_komisariat') ?>">
+          <a class="nav-link" href="<?= base_url('Admin/kembali_komisariat') ?>">
         <?php } elseif ($title == 'Detail Tim Relawan') {?>
-          <a class="nav-link" href="<?= base_url('logout/keluar_detail_tim'); ?>">
+          <a class="nav-link" href="<?= base_url('Logout/keluar_detail_tim'); ?>">
         <?php } elseif ($title == 'Pengajuan Instruktur') {?>
-          <a class="nav-link" href="<?= base_url('admin/instruktur'); ?>">
+          <a class="nav-link" href="<?= base_url('Admin/instruktur'); ?>">
         <?php } elseif ($title == 'Template') {?>
-          <a class="nav-link" href="<?= base_url('admin'); ?>">
+          <a class="nav-link" href="<?= base_url('Admin'); ?>">
         <?php } elseif ($title == 'Pengajuan Anggota') {?>
-          <a class="nav-link" href="<?= base_url('pangkalan/anggota'); ?>">
+          <a class="nav-link" href="<?= base_url('Pangkalan/anggota'); ?>">
         <?php } elseif ($title == 'Detail Event Pangkalan') {?>
-          <a class="nav-link" href="<?= base_url('pangkalan/event'); ?>">
+          <a class="nav-link" href="<?= base_url('Pangkalan/event'); ?>">
         <?php } elseif ($title == 'Pengajuan Pembimbing Tim' || $title == 'Tim Pembimbing' || $title == 'Agenda Pembekalan Event' || $title == 'Template Berkas' || $title == 'Penilaian Pembimbing') {?>
-          <a class="nav-link" href="<?= base_url('pembimbing/kegiatan_berlangsung'); ?>">
+          <a class="nav-link" href="<?= base_url('Pembimbing/kegiatan_berlangsung'); ?>">
         <?php } elseif ($title == 'Detail Tim Pembimbing' || $title == 'Artikel Berita Tim') {?>
-          <a class="nav-link" href="<?= base_url('pembimbing/tim_pembimbing'); ?>">
+          <a class="nav-link" href="<?= base_url('Pembimbing/tim_pembimbing'); ?>">
         <?php } elseif ($title == 'Detail Tim Pembimbing2') {?>
-          <a class="nav-link" href="<?= base_url('pembimbing/kegiatan_selesai'); ?>">
+          <a class="nav-link" href="<?= base_url('Pembimbing/kegiatan_selesai'); ?>">
         <?php } ?>
           <i class="fas fa-backward"></i>
           <span>Kembali</span></a>
@@ -65,7 +65,7 @@
 
       <?php if ($title == 'Pelaporan') {?>
       <li class="nav-item" style="margin-top: -10%;">
-        <a class="nav-link" href="<?= base_url('relawan/lihat_artikel/'.urlencode($tim['id_tim'])) ?>">
+        <a class="nav-link" href="<?= base_url('Relawan/lihat_artikel/'.urlencode($tim['id_tim'])) ?>">
         <i class="far fa-eye"></i>
         <span>Lihat Artikel</span></a>
       </li>

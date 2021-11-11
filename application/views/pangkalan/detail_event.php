@@ -40,7 +40,7 @@
 								<tr style="text-align: center;">
 									<th scope="row"><?= $i+1; ?></th>
 									<td>
-										<?= $tm['nama_tim'] ?>
+										<?= $tm['nama_tim'] ?><br><small><a href="" data-toggle="modal" data-target="#berkas_tim_<?= $tm['id_tim']?>">lihat berkas</a></small>
 									</td>
 									<td><?= $ketua_tim[$i][0]['nama_lengkap'].' ('.$ketua_tim[$i][0]['nama_komisariat'].')' ?></td>   
 									<td align="left"><?php $j=0;
@@ -151,3 +151,92 @@ foreach ($tim as $tm)
 		<?php }
 		$i++;
 	}?>
+
+
+
+	<?php $i = 0; foreach ($berkas_tim as $tm): ?>
+<div id="berkas_tim_<?=$tm['id_tim'];?>" class="modal modal-edu-general Customwidth-popup-WarningModal fade shadow" role="dialog" style="padding: 20px;">
+	<div class="modal-dialog">
+		<div class="modal-content shadow">
+			<div class="modal-close-area modal-close-df">
+				<a class="close" data-dismiss="modal" href="#"><i class="fas fa-times"></i></a>
+			</div>
+			<div class="modal-body">
+
+				<img src="<?= base_url('assets/img/logo/logoRTIKAbdimas2.png'); ?>" style="width: 20%;">
+				<h5 class="font-weight-bold mb-5">Berkas Tim <?=$tm['nama_tim'];?></h5>
+
+				<table class="text-left table no-border bg-white" width="100%" cellspacing="0" > 
+					<tr valign="top">
+						<td>Surat Pengantar </td>
+						<td> : </td>
+						<td>
+							<a href=<?php if($tm['surat_pengantar'] != '-')
+								{ echo '"'.$tm['surat_pengantar'].'" target="_blank"';} 
+								else{ echo '"'.base_url('Pangkalan/tidak_ada_berkas/'.$id_event).'"';} ?> > Lihat berkas surat pengantar
+							</a>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>Survey Permintaan </td>
+						<td> : </td>
+						<td>
+							<a href=<?php if($tm['survey_permintaan'] != '-')
+								{ echo '"'.$tm['survey_permintaan'].'" target="_blank"';} 
+								else{ echo '"'.base_url('Pangkalan/tidak_ada_berkas/'.$id_event).'"';} ?> > Lihat berkas survey permintaan
+							</a>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>Surat Konfirmasi </td>
+						<td> : </td>
+						<td>
+							<a href=<?php if($tm['surat_konfirmasi'] != '-')
+								{ echo '"'.$tm['surat_konfirmasi'].'" target="_blank"';} 
+								else{ echo '"'.base_url('Pangkalan/tidak_ada_berkas/'.$id_event).'"';} ?> > Lihat berkas surat konfirmasi
+							</a>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>Presensi Pelayanan </td>
+						<td> : </td>
+						<td>
+							<a href=<?php if($tm['presensi_pelayanan'] != '-')
+								{ echo '"'.$tm['presensi_pelayanan'].'" target="_blank"';} 
+								else{ echo '"'.base_url('Pangkalan/tidak_ada_berkas/'.$id_event).'"';} ?> > Lihat berkas presensi pelayanan
+							</a>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>Berita Acara </td>
+						<td> : </td>
+						<td>
+							<a href=<?php if($tm['berita_Acara'] != '-')
+								{ echo '"'.$tm['berita_Acara'].'" target="_blank"';} 
+								else{ echo '"'.base_url('Pangkalan/tidak_ada_berkas/'.$id_event).'"';} ?> > Lihat berkas berita acara
+							</a>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>Artikel Berita </td>
+						<td> : </td>
+						<td><a href="<?= base_url('Pangkalan/lihat_artikel/'.$tm['id_tim'].'/'.$id_event);?>"> Lihat artikel berita
+							</a>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>Artikel MIFTEK </td>
+						<td> : </td>
+						<td><a href=<?php if($tm['artikel_miftek'] != '-')
+								{ echo '"'.$tm['artikel_miftek'].'" target="_blank"';} 
+								else{ echo '"'.base_url('Pangkalan/tidak_ada_berkas/'.$id_event).'"';} ?> > Lihat berkas artikel MIFTEK
+							</a>
+						</td>
+					</tr>
+				</table>
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>
+<?php $i++; endforeach ?>

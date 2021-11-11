@@ -60,8 +60,8 @@
                               <td><?= $kgt['nama_tim']; ?></td>
                               <td><?= substr($kgt['date_created'], 0, 4); ?></td>
                               <td>  
-                                <a href="<?= base_url('relawan/detail_kegiatan_selesai/'.urlencode($kgt['id_tim'])); ?>" class="badge badge-info" >detail event</i></a>
-                                <a href="<?= base_url('relawan/sertifikat/'.urlencode($kgt['id_event'])); ?>" class="badge badge-success" >sertifikat</i></a>
+                                <a href="<?= base_url('Relawan/detail_kegiatan_selesai/'.urlencode($kgt['id_tim'])); ?>" class="badge badge-info" >detail event</i></a>
+                                <a href="<?= base_url('Relawan/sertifikat/'.urlencode($kgt['id_event'])); ?>" class="badge badge-success" >sertifikat</i></a>
                               </td>
                             </tr>
 
@@ -127,12 +127,12 @@
                               <td>
                                   <?php foreach ($tim_bimbingan[$i] as $tim) 
                                   {?>
-                                    <a href="<?= base_url('pembimbing/tim2/').$tim['id_tim']; ?>"><?= $tim['nama_tim']?> </a><br>
+                                    <a href="<?= base_url('Pembimbing/tim2/').$tim['id_tim']; ?>"><?= $tim['nama_tim']?> </a><br>
                                   <?php } ?>
                               </td>
                               <td><?= substr($kgt['date_created'], 0, 4); ?></td>
                               <td>  
-                                <a href="<?= base_url('pembimbing/sertifikat/'.urlencode($pembimbing['id_pembimbing']).'/'.$kegiatan[$i]['id_event']); ?>" class="badge badge-success" >Sertifikat</i></a>
+                                <a href="<?= base_url('Pembimbing/sertifikat/'.urlencode($pembimbing['id_pembimbing']).'/'.$kegiatan[$i]['id_event']); ?>" class="badge badge-success" >Sertifikat</i></a>
                               </td>
                             </tr>
 

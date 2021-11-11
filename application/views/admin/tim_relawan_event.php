@@ -39,7 +39,7 @@
                 <td><?= $jml_anggota[$i]; ?></td>
                 <td><?php if (!$nama_ketua[$i]) { echo '-';} else{echo $nama_ketua[$i]['nama_komisariat'];} ?></td> 
                 <td>  
-                  <a href="<?= base_url('admin/lihat_detail_tim/'.urlencode($nama_tim[$i]['id_tim'])) ?>" class="badge badge-success" >detail Tim</i></a>
+                  <a href="<?= base_url('Admin/lihat_detail_tim/'.urlencode($nama_tim[$i]['id_tim'])) ?>" class="badge badge-success" >detail Tim</i></a>
                 </td>
               </tr>
             <?php } ?>
@@ -47,7 +47,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+   <?php if (!$nama_tim) { echo "</div></div></div></div>"; } ?> <!-- </div> -->
 <!-- End of Main Content --->
 
 

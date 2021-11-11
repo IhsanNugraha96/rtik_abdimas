@@ -15,9 +15,8 @@
                 <div class="d-sm-flex align-items-center justify-content-between">
                       <h6 class="m-0 font-weight-bold text-primary">Tabel data pangkalan </h6>
                     <div>
-                      <a href="<?= base_url('admin/pengajuan_komisariat'); ?>" class="d-sm-inline-block btn btn-sm btn-info shadow-sm">Pengajuan Pangkalan <?php if ($jml_pengajuan_komisariat) {?><div class="badge bg-danger text-light">  <?= $jml_pengajuan_komisariat; ?> </div> <?php } ?></a>
-                     <!--  <a href="<?= base_url('users/excel'); ?>" class="d-sm-inline-block btn btn-sm btn-info shadow-sm"><i class="fas fa-download text-white-50"></i> Download Template</a>
-                      <a href="" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#ModalTambahPemilih"><i class="far fa-file-excel text-white-50"></i> Tambah Pemilih</a> -->
+                      <a href="<?= base_url('Admin/pengajuan_komisariat'); ?>" class="d-sm-inline-block btn btn-sm btn-info shadow-sm">Pengajuan Pangkalan <?php if ($jml_pengajuan_komisariat) {?><div class="badge bg-danger text-light">  <?= $jml_pengajuan_komisariat; ?> </div> <?php } ?></a>
+                     
                     </div>
                 </div>
             </div>
@@ -44,7 +43,7 @@
                           <th scope="row"><?= $kms['email']; ?></th>  
                           <td><?= $kms['type'].'. '.$kms['nama_kota'].',<br>Provinsi. '.$kms['nama_provinsi']; ?></td>        
                           <td scope="row">
-                            <a href="<?= base_url('admin/detailPangkalan/'.urlencode($kms['id_komisariat'])); ?>" name="detail" class="badge badge-info">detail</i></a>
+                            <a href="<?= base_url('Admin/detailPangkalan/'.urlencode($kms['id_komisariat'])); ?>" name="detail" class="badge badge-info">detail</i></a>
                               <!-- <a href="" name="detail" class="badge badge-danger" data-toggle="modal" data-target="#hapus_komisariat_<?=$kms['id_komisariat'];?>">hapus</i></a> -->
                           </td>             
                         </tr>
@@ -78,7 +77,7 @@
             <p>jika pangkalan di hapus : <br>1. semua pembimbing  semua relawan yang terdaftar di pangkalan ini akan dikembalikan </p>  
           </div>
           <div class="modal-footer" style="margin-top: -10%;">
-            <a href="<?= base_url('admin/pengajuan_pangkalan/tolak/'.urlencode($kms['id_komisariat'])); ?>" class="badge badge-primary badge-sm">Tolak</a>
+            <a href="<?= base_url('Admin/pengajuan_pangkalan/tolak/'.urlencode($kms['id_komisariat'])); ?>" class="badge badge-primary badge-sm">Tolak</a>
           </div>
         </div>
       </div>

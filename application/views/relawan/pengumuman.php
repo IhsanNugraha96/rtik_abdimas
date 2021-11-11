@@ -58,7 +58,7 @@
                       <td><?= $kgt['nama_tim']; ?></td>
                       <td><?= $kgt['date_created']; ?></td>
                       <td>  
-                        <a href="<?= base_url('relawan/event/').$kgt['id_event'];?>" name="detail" class="badge badge-success">detail event</i></a>
+                        <a href="<?= base_url('Relawan/event/').$kgt['id_event'];?>" name="detail" class="badge badge-success">detail event</i></a>
                         </td>
                     </tr>
 

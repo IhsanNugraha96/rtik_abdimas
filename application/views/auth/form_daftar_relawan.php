@@ -7,12 +7,12 @@
               <?= $this->session->flashdata('message'); ?>
               <!-- akhir notifikasi -->
               <!-- <?php echo form_open_multipart('auth/formulir_relawan');?> -->
-              <form class="user was-validated" method="post" action="<?= base_url('auth/formulir_relawan');?>" enctype="multipart/form-data">
+              <form class="user was-validated" method="post" action="<?= base_url('Auth/formulir_relawan');?>" enctype="multipart/form-data">
                 <p  class="text-right font-italic">
-                  <small><a href="<?= base_url('landingPage'); ?>">Kembali ke Beranda</a></small> | 
-                  <small><a href="<?= base_url('auth'); ?>">Sudah punya akun, login!</a></small><br>
-                  <small><a href="<?= base_url('auth/form_daftar_instruktur'); ?>">Daftar sebagai instruktur</a></small> | 
-                  <small><a href="<?= base_url('auth/form_daftar_pangkalan'); ?>">Daftar sebagai pangkalan</a></small>
+                  <small><a href="<?= base_url('LandingPage'); ?>">Kembali ke Beranda</a></small> | 
+                  <small><a href="<?= base_url('Auth'); ?>">Sudah punya akun, login!</a></small><br>
+                  <small><a href="<?= base_url('Auth/form_daftar_instruktur'); ?>">Daftar sebagai instruktur</a></small> | 
+                  <small><a href="<?= base_url('Auth/form_daftar_pangkalan'); ?>">Daftar sebagai pangkalan</a></small>
                 </p>
                 <h5 class="text-gray-900 mb-4" style="margin-top: -6%;">Informasi Personal</h5>
 
@@ -318,7 +318,7 @@
           </button>
         </div>
         <div class="modal-footer">
-         <a href="<?= base_url('landingPage');  ?>" class="btn btn-primary"> Ya </a>
+         <a href="<?= base_url('LandingPage');  ?>" class="btn btn-primary"> Ya </a>
          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak </button>
 
        </div>

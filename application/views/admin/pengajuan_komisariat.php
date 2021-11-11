@@ -133,7 +133,7 @@
 						<h5><?= $kms['nama_komisariat']; ?>?</h5>		
 					</div>
 					<div class="modal-footer" style="margin-top: -10%;">
-						<a href="<?= base_url('admin/pengajuan_pangkalan/acc/'.urlencode($kms['id_komisariat'])); ?>" class="badge badge-primary badge-sm">Terima</a>
+						<a href="<?= base_url('Admin/pengajuan_pangkalan/acc/'.urlencode($kms['id_komisariat'])); ?>" class="badge badge-primary badge-sm">Terima</a>
 					</div>
 				</div>
 			</div>
@@ -155,7 +155,7 @@
 						<h5><?= $kms['nama_komisariat']; ?>?</h5>		
 					</div>
 					<div class="modal-footer" style="margin-top: -10%;">
-						<a href="<?= base_url('admin/pengajuan_pangkalan/tolak/'.urlencode($kms['id_komisariat'])); ?>" class="badge badge-primary badge-sm">Tolak</a>
+						<a href="<?= base_url('Admin/pengajuan_pangkalan/tolak/'.urlencode($kms['id_komisariat'])); ?>" class="badge badge-primary badge-sm">Tolak</a>
 					</div>
 				</div>
 			</div>

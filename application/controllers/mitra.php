@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class mitra  extends CI_Controller 
+class Mitra  extends CI_Controller 
 
 {
 	public function __construct()
@@ -9,7 +9,7 @@ class mitra  extends CI_Controller
 		parent::__construct();
 		if(!$this->session->userdata('id_mitra'))
 		{	
-			redirect('landingPage');
+			redirect('LandingPage');
 		}
 		$this->load->model('Relawan_Model');
 		$this->load->model('Admin_Model');
@@ -19,6 +19,7 @@ class mitra  extends CI_Controller
 
 		$semua_event = $this->Admin_Model->get_event();
 		
+
 		// print_r($semua_event); die();
 		
 		foreach ($semua_event as $event) 
@@ -119,7 +120,8 @@ class mitra  extends CI_Controller
 		$data['pengumuman'] = $this->Relawan_Model->get_pengumuman();
 		$data['mitra'] 		= $this->Mitra_Model->cek_mitra_by_id_mitra($id_mitra);
 		$data['komisariat'] = $this->Mitra_Model->get_komisariat($data['mitra']['id_komisariat']);
-
+		$data['event'] = $this->Admin_Model->get_event();
+// print_r($data['event']). die();
 		$this->load->view('template/header', $data);
 		$this->load->view('mitra/sidebar', $data);
 		$this->load->view('mitra/topbar', $data);
@@ -140,7 +142,7 @@ class mitra  extends CI_Controller
 		$data['komisariat'] = $this->Mitra_Model->get_komisariat($data['mitra']['id_komisariat']);
 		$data['id_kota'] 	= $data['mitra']['id_kota'];
 		$data['distrik'] 	= $this->Authentikasi->get_distrik($data['mitra']['id_provinsi']);
-		// print_r($data['mitra']); die();
+		$data['event'] = $this->Admin_Model->get_event();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('mitra/sidebar', $data);
@@ -167,7 +169,7 @@ class mitra  extends CI_Controller
 				{
 					$pesan = "Akun gagal di perbaharui, harap mengisi data dengan benar";
 					$this->alert_gagal($pesan);
-					redirect('mitra/edit_profil');
+					redirect('Mitra/edit_profil');
 
 				}
 				else
@@ -202,7 +204,7 @@ class mitra  extends CI_Controller
 						{
 							$pesan = "Ukuran dokumen yang diunggah melebihi batas (2MB), dokumen gagal di upload";
 							$this->alert_gagal($pesan);
-							redirect('mitra/edit_profil');
+							redirect('Mitra/edit_profil');
 						}
 						
 						$where = array('id_mitra' => $id_mitra );
@@ -229,6 +231,19 @@ class mitra  extends CI_Controller
 							$pesan = "Akun anda sudah berhasil diperbaharui";
 							$this->alert_ok($pesan);
 						}
+						elseif ($email == $data_mitra['email_koordinator']) 
+						{
+							$data = [
+								'email_koordinator' 	=> $email
+							];
+							// print_r($data); die();
+							$this->db->set($data);
+							$this->db->where('id_mitra', $data_mitra['id_mitra']);
+							$this->db->update('mitra');
+							
+							$pesan = "Tidak ada yang diperbaharui!";
+							$this->alert_info($pesan);
+						}
 						else
 						{
 							$pesan = "Alamat email sudah digunakan";
@@ -239,7 +254,7 @@ class mitra  extends CI_Controller
 				}
 			
 
-			redirect('mitra/edit_profil');
+			redirect('Mitra/edit_profil');
 		}
 
 
@@ -260,7 +275,7 @@ class mitra  extends CI_Controller
 
 			$pesan = "Foto Profil berhasil di hapus";
 			$this->alert_ok($pesan);
-			redirect('mitra/edit_profil');
+			redirect('Mitra/edit_profil');
 		}
 
 
@@ -292,7 +307,7 @@ class mitra  extends CI_Controller
 			{
 				$pesan = "Biodata gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('mitra/edit_profil');
+				redirect('Mitra/edit_profil');
 
 			}
 			else
@@ -316,7 +331,7 @@ class mitra  extends CI_Controller
 
 				$pesan = "Profil Pimpinan dan Koordinator telah di perbaharui";
 				$this->alert_ok($pesan);
-				redirect('mitra/edit_profil');
+				redirect('Mitra/edit_profil');
 			}	 
 
 		}
@@ -351,7 +366,7 @@ class mitra  extends CI_Controller
 			{
 				$pesan = "Biodata gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('mitra/edit_profil');
+				redirect('Mitra/edit_profil');
 
 			}
 			else
@@ -374,7 +389,7 @@ class mitra  extends CI_Controller
 
 				$pesan = "Profil Mitra telah di perbaharui";
 				$this->alert_ok($pesan);
-				redirect('mitra/edit_profil');
+				redirect('Mitra/edit_profil');
 			}	 
 
 		}
@@ -395,7 +410,7 @@ class mitra  extends CI_Controller
 			{
 				$pesan = "Password gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('mitra/edit_profil');
+				redirect('Mitra/edit_profil');
 
 			}
 			else
@@ -403,12 +418,12 @@ class mitra  extends CI_Controller
 				if ($passwordlama != base64_decode($data_mitra['password'])) {
 					$pesan = "Password lama tidak sesuai";
 					$this->alert_gagal($pesan);
-					redirect('mitra/edit_profil');
+					redirect('Mitra/edit_profil');
 				}
 				elseif ($passwordbaru != $passwordbaru2) {
 					$pesan = "Password baru tidak sama, harap input password baru dengan benar";
 					$this->alert_gagal($pesan);
-					redirect('mitra/edit_profil');
+					redirect('Mitra/edit_profil');
 				}
 				else{
 					$password_baru3 = base64_encode($passwordbaru);
@@ -419,7 +434,7 @@ class mitra  extends CI_Controller
 
 					$pesan = "Password berhasil di perbaharui";
 					$this->alert_ok($pesan);
-					redirect('mitra/edit_profil');
+					redirect('Mitra/edit_profil');
 				}
 				
 			}
@@ -444,7 +459,7 @@ class mitra  extends CI_Controller
 		$data['status_penilaian'] = $this->Mitra_Model->get_status_penilaian_mitra($id_tim);
 		$data['kegiatan_berlangsung']		= $this->Mitra_Model->get_event($id_tim);
 		$data['now'] = date('Y-m-d G:i:s');
-
+		$data['event'] = $this->Admin_Model->get_event();
 		// print_r($data['kegiatan_berlangsung']); die();
 
 		$this->load->view('template/header', $data);
@@ -463,7 +478,7 @@ class mitra  extends CI_Controller
  		$data_persentase 		= $this->Mitra_Model->get_persentase_penilaian_mitra($id_kriteria);
  		$persentase 			= $data_persentase['persentase'];
  		$status_penilaian 		= $this->Mitra_Model->get_status_penilaian_mitra($id_tim);
-
+ 		$data['event'] = $this->Admin_Model->get_event();
 		
  		// print_r($status_penilaian); die();
 		$i=0;
@@ -479,7 +494,7 @@ class mitra  extends CI_Controller
 		{
 			$pesan = "Gagal merekam penilaian, harap mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('mitra/survey');
+			redirect('Mitra/survey');
 		}
 
 		else
@@ -535,7 +550,7 @@ class mitra  extends CI_Controller
 
 
 
-			redirect('mitra/survey');
+			redirect('Mitra/survey');
 		}
 
 		// echo $persentase;

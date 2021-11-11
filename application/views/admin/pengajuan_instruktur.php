@@ -145,7 +145,7 @@
 						<h5><?= $ins['nama']; ?>?</h5>		
 					</div>
 					<div class="modal-footer" style="margin-top: -10%;">
-						<a href="<?= base_url('admin/aksi_pengajuan_instruktur/acc/'.urlencode($ins['email']).'/'.urlencode($ins['id_instruktur'])); ?>" class="badge badge-primary badge-sm">Terima</a>
+						<a href="<?= base_url('Admin/aksi_pengajuan_instruktur/acc/'.urlencode($ins['email']).'/'.urlencode($ins['id_instruktur'])); ?>" class="badge badge-primary badge-sm">Terima</a>
 					</div>
 				</div>
 			</div>
@@ -168,7 +168,7 @@
 						<h5><?= $ins['nama']; ?>?</h5>		
 					</div>
 					<div class="modal-footer" style="margin-top: -10%;">
-						<a href="<?= base_url('admin/aksi_pengajuan_instruktur/tolak/'.urlencode($ins['email']).'/'.urlencode($ins['id_instruktur'])); ?>" class="badge badge-warning badge-sm">Tolak</a>
+						<a href="<?= base_url('Admin/aksi_pengajuan_instruktur/tolak/'.urlencode($ins['email']).'/'.urlencode($ins['id_instruktur'])); ?>" class="badge badge-warning badge-sm">Tolak</a>
 					</div>
 				</div>
 			</div>

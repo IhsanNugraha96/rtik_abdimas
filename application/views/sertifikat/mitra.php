@@ -86,7 +86,7 @@
 		</div>
 
 
-		<div class="row text-center" >
+		<div class="row text-center ml-4" >
 			<div class="col-6 pl-3" style="padding:0 10% 0 10%;">
 				<table class="text-center p-0 m-0">
 					<tr>

@@ -47,9 +47,11 @@
 									<td><?= $jml_relawan[$i]; ?></td>  
 									<td><?= $jml_pembimbing[$i]; ?></td>        
 									<td scope="row">
-										<a href="<?= base_url('pangkalan/detail_event/').$ev['id_event']; ?>" name="detail" class="badge badge-primary">detail tim</i></a><br>
-										<a href="<?= base_url('pangkalan/detail_pembimbing_event/').$ev['id_event']; ?>" name="detail" class="badge badge-info">detail pembimbing</i></a><br>
-										<a href="<?= base_url('pangkalan/sertifikat/').$ev['id_event']; ?>" name="reset" class="badge badge-success">sertifikat</i></a>
+										<a href="<?= base_url('Pangkalan/detail_event/').$ev['id_event']; ?>" name="detail" class="badge badge-primary">detail tim</i></a><br>
+										<a href="<?= base_url('Pangkalan/detail_pembimbing_event/').$ev['id_event']; ?>" name="detail" class="badge badge-info">detail pembimbing</i></a><br>
+										<?php if (strtotime($ev['akhir_penilaian']) <= strtotime(date('YmdHis')) ) { ?>
+											<a href="<?= base_url('Pangkalan/sertifikat/').$ev['id_event']; ?>" name="reset" class="badge badge-success">sertifikat</i></a>
+										<?php } ?>
 									</td>             
 								</tr>
 								<?php  $i++; 

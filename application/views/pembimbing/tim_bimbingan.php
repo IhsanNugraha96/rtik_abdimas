@@ -42,7 +42,7 @@
 								<td><?= $tim['nama_komisariat']; ?></td>  
 
 								<td scope="row">
-									<a href="<?= base_url('pembimbing/tim/').$tim['id_tim']; ?>" name="detail" class="badge badge-primary">detail</i></a>
+									<a href="<?= base_url('Pembimbing/tim/').$tim['id_tim']; ?>" name="detail" class="badge badge-primary">detail</i></a>
 									<a href="" class="badge badge-info" data-toggle="modal" data-target="#berkas_tim_<?= $tim['id_tim']?>">berkas tim</a>
 								</td>             
 							</tr>
@@ -82,7 +82,7 @@
 						<td>
 							<a href=<?php if($tim['surat_pengantar'] != '-')
 								{ echo '"'.$tim['surat_pengantar'].'" target="_blank"';} 
-								else{ echo '"'.base_url('pembimbing/lihat_berkas/surat_pengantar/'.$tim['surat_pengantar']).'"';} ?> > Lihat berkas surat pengantar
+								else{ echo '"'.base_url('Pembimbing/lihat_berkas/surat_pengantar/'.$tim['surat_pengantar']).'"';} ?> > Lihat berkas surat pengantar
 							</a>
 						</td>
 					</tr>
@@ -92,7 +92,7 @@
 						<td>
 							<a href=<?php if($tim['survey_permintaan'] != '-')
 								{ echo '"'.$tim['survey_permintaan'].'" target="_blank"';} 
-								else{ echo '"'.base_url('pembimbing/lihat_berkas/survey_permintaan/'.$tim['survey_permintaan']).'"';} ?> > Lihat berkas survey permintaan
+								else{ echo '"'.base_url('Pembimbing/lihat_berkas/survey_permintaan/'.$tim['survey_permintaan']).'"';} ?> > Lihat berkas survey permintaan
 							</a>
 						</td>
 					</tr>
@@ -102,7 +102,7 @@
 						<td>
 							<a href=<?php if($tim['surat_konfirmasi'] != '-')
 								{ echo '"'.$tim['surat_konfirmasi'].'" target="_blank"';} 
-								else{ echo '"'.base_url('pembimbing/lihat_berkas/surat_konfirmasi/'.$tim['surat_konfirmasi']).'"';} ?> > Lihat berkas surat konfirmasi
+								else{ echo '"'.base_url('Pembimbing/lihat_berkas/surat_konfirmasi/'.$tim['surat_konfirmasi']).'"';} ?> > Lihat berkas surat konfirmasi
 							</a>
 						</td>
 					</tr>
@@ -112,7 +112,7 @@
 						<td>
 							<a href=<?php if($tim['presensi_pelayanan'] != '-')
 								{ echo '"'.$tim['presensi_pelayanan'].'" target="_blank"';} 
-								else{ echo '"'.base_url('pembimbing/lihat_berkas/presensi_pelayanan/'.$tim['presensi_pelayanan']).'"';} ?> > Lihat berkas presensi pelayanan
+								else{ echo '"'.base_url('Pembimbing/lihat_berkas/presensi_pelayanan/'.$tim['presensi_pelayanan']).'"';} ?> > Lihat berkas presensi pelayanan
 							</a>
 						</td>
 					</tr>
@@ -122,14 +122,14 @@
 						<td>
 							<a href=<?php if($tim['berita_Acara'] != '-')
 								{ echo '"'.$tim['berita_Acara'].'" target="_blank"';} 
-								else{ echo '"'.base_url('pembimbing/lihat_berkas/berita_acara/'.$tim['berita_Acara']).'"';} ?> > Lihat berkas berita acara
+								else{ echo '"'.base_url('Pembimbing/lihat_berkas/berita_acara/'.$tim['berita_Acara']).'"';} ?> > Lihat berkas berita acara
 							</a>
 						</td>
 					</tr>
 					<tr valign="top">
 						<td>Artikel Berita </td>
 						<td> : </td>
-						<td><a href="<?= base_url('pembimbing/lihat_berkas/artikel_berita/'.$tim['id_tim']);?>"> Lihat artikel berita
+						<td><a href="<?= base_url('Pembimbing/lihat_berkas/artikel_berita/'.$tim['id_tim']);?>"> Lihat artikel berita
 							</a>
 						</td>
 					</tr>
@@ -138,7 +138,7 @@
 						<td> : </td>
 						<td><a href=<?php if($tim['artikel_miftek'] != '-')
 								{ echo '"'.$tim['artikel_miftek'].'" target="_blank"';} 
-								else{ echo '"'.base_url('pembimbing/lihat_berkas/artikel_miftek/'.$tim['artikel_miftek']).'"';} ?> > Lihat berkas artikel MIFTEK
+								else{ echo '"'.base_url('Pembimbing/lihat_berkas/artikel_miftek/'.$tim['artikel_miftek']).'"';} ?> > Lihat berkas artikel MIFTEK
 							</a>
 						</td>
 					</tr>

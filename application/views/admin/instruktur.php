@@ -15,9 +15,8 @@
       <div class="d-sm-flex align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">Tabel data Instruktur </h6>
         <div>
-          <a href="<?= base_url('admin/pengajuan_instruktur'); ?>" class="d-sm-inline-block btn btn-sm btn-info shadow-sm">Pengajuan Instruktur <?php if ($jml_pengajuan_instruktur) {?><div class="badge bg-danger text-light">  <?= $jml_pengajuan_instruktur; ?> </div> <?php } ?></a>
-                     <!--  <a href="<?= base_url('users/excel'); ?>" class="d-sm-inline-block btn btn-sm btn-info shadow-sm"><i class="fas fa-download text-white-50"></i> Download Template</a>
-                      <a href="" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#ModalTambahPemilih"><i class="far fa-file-excel text-white-50"></i> Tambah Pemilih</a> -->
+          <a href="<?= base_url('Admin/pengajuan_instruktur'); ?>" class="d-sm-inline-block btn btn-sm btn-info shadow-sm">Pengajuan Instruktur <?php if ($jml_pengajuan_instruktur) {?><div class="badge bg-danger text-light">  <?= $jml_pengajuan_instruktur; ?> </div> <?php } ?></a>
+                    
                     </div>
                   </div>
                 </div>
@@ -157,7 +156,7 @@
                           <h6>Hapus instruktur dari daftar instruktur?</h6>
                         </div>
                         <div class="modal-footer">
-                          <a href="<?= base_url('admin/aksi_pengajuan_instruktur/hapus/'.urlencode($ins['email']).'/'.urlencode($ins['id_instruktur'])); ?>" class="badge badge-danger badge-sm">hapus</a>
+                          <a href="<?= base_url('Admin/aksi_pengajuan_instruktur/hapus/'.urlencode($ins['email']).'/'.urlencode($ins['id_instruktur'])); ?>" class="badge badge-danger badge-sm">hapus</a>
                         </div>
                       </div>
                     </div>

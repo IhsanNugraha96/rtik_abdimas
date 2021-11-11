@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class landingPage  extends CI_Controller 
+class LandingPage  extends CI_Controller 
 
 {
 	public function __construct()
@@ -9,27 +9,27 @@ class landingPage  extends CI_Controller
 		parent::__construct();
 		if($this->session->userdata('id_relawan'))
 		{	
-			redirect('relawan');
+			redirect('Relawan');
 		}
 		else if($this->session->userdata('id_admin'))
 		{	
-			redirect('admin');
+			redirect('Admin');
 		}
 		else if($this->session->userdata('id_instruktur'))
 		{	
-			redirect('instruktur');
+			redirect('Instruktur');
 		}
 		else if($this->session->userdata('id_pangkalan'))
 		{	
-			redirect('pangkalan');
+			redirect('Pangkalan');
 		}
 		else if($this->session->userdata('id_pembimbing'))
 		{	
-			redirect('pembimbing');
+			redirect('Pembimbing');
 		}
 		else if($this->session->userdata('id_mitra'))
 		{	
-			redirect('mitra');
+			redirect('Mitra');
 		}
 
 		$this->load->model('Relawan_Model');
@@ -244,6 +244,17 @@ class landingPage  extends CI_Controller
 		$data['artikel'] 	= $this->LandPage_Model->get_artikel_tim($tim);
 		// print_r($data['artikel']); die();
 		$this->load->view('landPage/artikel_tim', $data);
+	}
+
+	public function kredit()
+	{
+		$data['title'] 		= "Kredit";
+		$data['pengumuman'] = $this->Relawan_Model->get_pengumuman();
+		
+		$this->load->view('landPage/header', $data);
+		$this->load->view('landPage/navbar', $data);
+		$this->load->view('landPage/kredit');
+		$this->load->view('landPage/footer');
 	}
 
 	

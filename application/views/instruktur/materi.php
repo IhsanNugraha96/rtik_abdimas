@@ -72,7 +72,7 @@
           <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
           <h5 style="margin-top: -3%;">RTIKAbdimas</h5>
           <!-- form -->
-             <form class="user was-validated mt-3" method="post" action="<?= base_url('instruktur/aksi_materi/tambah/id');  ?>">
+             <form class="user was-validated mt-3" method="post" action="<?= base_url('Instruktur/aksi_materi/tambah/id');  ?>">
 
                 <div class="form-group">
                     <p for="" class="text-left mb-1 font-weight-bold">Nama materi :</p>
@@ -122,7 +122,7 @@
 	          <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
 	          <h5 style="margin-top: -3%;">RTIKAbdimas</h5>
 	          <!-- form -->
-	             <form class="user was-validated mt-3" method="post" action="<?= base_url('instruktur/aksi_materi/ubah/').$mtr['id_materi'];  ?>">
+	             <form class="user was-validated mt-3" method="post" action="<?= base_url('Instruktur/aksi_materi/ubah/').$mtr['id_materi'];  ?>">
 
 	                <div class="form-group">
 	                    <p for="" class="text-left mb-1 font-weight-bold">Nama materi :</p>
@@ -176,7 +176,7 @@
 							<h5>Materi <?= $mtr['nama_materi']; ?>?</h5>
 						</div>
 						<div class="modal-footer">
-							<a href="<?= base_url('instruktur/aksi_materi/hapus/').$mtr['id_materi']; ?>" class="badge badge-danger badge-sm">hapus</a>
+							<a href="<?= base_url('Instruktur/aksi_materi/hapus/').$mtr['id_materi']; ?>" class="badge badge-danger badge-sm">hapus</a>
 						</div>
 					</div>
 				</div>

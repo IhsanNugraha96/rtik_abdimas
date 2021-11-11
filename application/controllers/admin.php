@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class admin  extends CI_Controller 
+class Admin  extends CI_Controller 
 
 {
 	public function __construct()
@@ -9,7 +9,7 @@ class admin  extends CI_Controller
 		parent::__construct();
 		if(!$this->session->userdata('id_admin'))
 		{	
-			redirect('landingPage');
+			redirect('LandingPage');
 		}
 		$this->load->model('Relawan_Model');
 		$this->load->model('Admin_Model');
@@ -111,11 +111,11 @@ class admin  extends CI_Controller
 	{
 		if ($this->session->userdata('id_event')) 
 		{
-			redirect('admin/detail_Event');
+			redirect('Admin/detail_Event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{
@@ -281,11 +281,11 @@ class admin  extends CI_Controller
 	{
 		if ($this->session->userdata('id_event')) 
 		{
-			redirect('admin/detail_Event');
+			redirect('Admin/detail_Event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{
@@ -328,11 +328,11 @@ class admin  extends CI_Controller
 		// print_r($kegiatan_berlangsung); die();
 		if ($this->session->userdata('id_event')) 
 		{
-			redirect('admin/detail_Event');
+			redirect('Admin/detail_Event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{
@@ -344,7 +344,7 @@ class admin  extends CI_Controller
 			{
 				$pesan = "Gagal membuat event RTIKAbdimas baru, Harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('admin/event');
+				redirect('Admin/event');
 			}
 			else
 			{	
@@ -385,7 +385,7 @@ class admin  extends CI_Controller
 					$this->alert_ok($pesan);
 				}	
 
-				redirect('admin/event');
+				redirect('Admin/event');
 				
 			}
 		}
@@ -411,27 +411,34 @@ class admin  extends CI_Controller
 		foreach ($tim as $tm) 
 		{
 			$data_mitra = $this->Admin_Model->get_data_mitra_by_id_tim($tm['id_tim']);
-
-			if ($data_mitra['logo'] != 'default_logo.png') 
+			// print_r($data_mitra); die();
+			if ($data_mitra)
 			{
-				unlink(FCPATH . 'assets/img/mitra/' . $data_mitra['logo']);
+				if ($data_mitra['logo'] != 'default_logo.png') 
+				{
+					unlink(FCPATH . 'assets/img/mitra/' . $data_mitra['logo']);
+				}
 			}
+			
 			
 
 			$this->db->delete('mitra', array('id_tim' => $tm['id_tim']));
-			// echo $tm['id_tim']; die();
+			
 			$anggota_tim = $this->Admin_Model->get_anggota_tim_by_id_tim($tm['id_tim']);
 			
 			foreach ($anggota_tim as $agt) 
 			{
-				$this->db->delete('penilaian', array('id_anggota_tim' => $agt['id_anggota']));
+				$this->db->delete('nilai_individu', array('id_anggota_tim' => $agt['id_anggota']));
+				$this->db->delete('nilai_kinerja_relawan', array('id_anggota' => $agt['id_anggota']));
 				$this->db->delete('anggota_tim', array('id_anggota' => $agt['id_anggota']));
 			}
+
+			$this->db->delete('tim', array('id_tim' => $tim['id_tim']));
+			$this->db->delete('nilai_kinerja_tim', array('id_tim' => $tim['id_tim']));
 		}
 
-		$this->db->delete('tim', array('id_tim' => $tim['id_tim']));
-
-
+		$this->db->delete('template_sertifikat', array('id_event' => $id_e));
+		$this->db->delete('pembekalan', array('id_event' => $id_e));
 		$this->db->delete('event', array('id_event' => $id_e));
 
 		// $this->db->delete('sertifikat', array('id_event' => $id_e));
@@ -439,7 +446,7 @@ class admin  extends CI_Controller
 		$pesan = "Event berhasil dihapus";
 		$this->alert_ok($pesan);
 
-		redirect('admin/event');
+		redirect('Admin/event');
 	}
 
 	public function detil_event($id_event)
@@ -450,18 +457,18 @@ class admin  extends CI_Controller
 
 		$this->session->set_userdata($data);
 		// $this->detail_event();
-		redirect('admin/detail_Event');
+		redirect('Admin/detail_Event');
 	}
 
 	public function detail_Event()
 	{
 		if (!$this->session->userdata('id_event')) 
 		{
-			redirect('admin/event');
+			redirect('Admin/event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{
@@ -586,11 +593,11 @@ class admin  extends CI_Controller
 	{
 		if (!$this->session->userdata('id_event')) 
 		{
-			redirect('admin/event');
+			redirect('Admin/event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{
@@ -619,11 +626,11 @@ class admin  extends CI_Controller
 	{
 		if (!$this->session->userdata('id_event')) 
 		{
-			redirect('admin/event');
+			redirect('Admin/event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{
@@ -668,11 +675,11 @@ class admin  extends CI_Controller
 
 		if (!$this->session->userdata('id_event')) 
 		{
-			redirect('admin/event');
+			redirect('Admin/event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{
@@ -682,7 +689,7 @@ class admin  extends CI_Controller
 
 			$this->session->set_userdata($data);
 			// $this->detail_event();
-			redirect('admin/detail_tim');
+			redirect('Admin/detail_tim');
 		}
 	}
 
@@ -690,11 +697,11 @@ class admin  extends CI_Controller
 	{
 		if (!$this->session->userdata('id_tim')) 
 		{
-			redirect('admin/timRelawan_event');
+			redirect('Admin/timRelawan_event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{
@@ -732,11 +739,11 @@ class admin  extends CI_Controller
 	{
 		if (!$this->session->userdata('id_event')) 
 		{
-			redirect('admin/event');
+			redirect('Admin/event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{
@@ -767,11 +774,11 @@ class admin  extends CI_Controller
 	{
 		if ($this->session->userdata('id_event')) 
 		{
-			redirect('admin/detail_Event');
+			redirect('Admin/detail_Event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{
@@ -810,11 +817,11 @@ class admin  extends CI_Controller
 	{
 		if ($this->session->userdata('id_event')) 
 		{
-			redirect('admin/detail_Event');
+			redirect('Admin/detail_Event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{
@@ -868,7 +875,7 @@ class admin  extends CI_Controller
 		}
 		
 
-		redirect('admin/pengajuan_komisariat');		
+		redirect('Admin/pengajuan_komisariat');		
 	}
 
 	public function detailPangkalan($id_pangkalan)
@@ -879,13 +886,13 @@ class admin  extends CI_Controller
 		];
 
 		$this->session->set_userdata($data);
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 
 	public function kembali_komisariat()
 	{
 		$this->session->unset_userdata('id_pangkalan');
-		redirect('admin/komisariat');
+		redirect('Admin/komisariat');
 	}
 
 	public function detail_pangkalan()
@@ -896,7 +903,7 @@ class admin  extends CI_Controller
 
 		if (!$this->session->userdata('id_pangkalan')) 
 		{
-			redirect('admin/komisariat');
+			redirect('Admin/komisariat');
 		}
 		else
 		{
@@ -925,11 +932,11 @@ class admin  extends CI_Controller
 	{
 		if (!$this->session->userdata('id_event')) 
 		{
-			redirect('admin/event');
+			redirect('Admin/event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{			
@@ -993,7 +1000,7 @@ class admin  extends CI_Controller
 		{
 			$pesan = "Gagal memperbaharui data, pastikan telah mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('admin/pengaturan_event');
+			redirect('Admin/pengaturan_event');
 		}
 		else
 		{
@@ -1036,7 +1043,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Ukuran image ttd 1 yang diunggah melebihi batas (2MB), dokumen gagal di upload";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				}
 
 			}
@@ -1091,7 +1098,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Ukuran image ttd 2 yang diunggah melebihi batas (2MB), dokumen gagal di upload";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				}
 
 			}
@@ -1145,7 +1152,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Ukuran image stempel 1 yang diunggah melebihi batas (2MB), dokumen gagal di upload";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				}
 
 			}
@@ -1199,7 +1206,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Ukuran image stempel 1 yang diunggah melebihi batas (2MB), dokumen gagal di upload";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				}
 
 			}
@@ -1264,7 +1271,7 @@ class admin  extends CI_Controller
 
 			$pesan = "Pegaturan sertifikat berhasil dierbaharui";
 			$this->alert_ok($pesan);
-			redirect('admin/pengaturan_event');
+			redirect('Admin/pengaturan_event');
 		}
 	}
 
@@ -1313,11 +1320,11 @@ class admin  extends CI_Controller
 	{
 		if (!$this->session->userdata('id_event')) 
 		{
-			redirect('admin/event');
+			redirect('Admin/event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{			
@@ -1361,11 +1368,11 @@ class admin  extends CI_Controller
 	{
 		if (!$this->session->userdata('id_event')) 
 		{
-			redirect('admin/event');
+			redirect('Admin/event');
 		}
 		elseif ($this->session->userdata('id_pangkalan'))
 		{
-			redirect('admin/detail_pangkalan');
+			redirect('Admin/detail_pangkalan');
 		}
 		else
 		{			
@@ -1391,7 +1398,7 @@ class admin  extends CI_Controller
 				$data['jml_materi_instruktur'][$i] = $this->Admin_Model->get_jml_materi_instruktur($data['instruktur'][$i]['id_instruktur']);
 			}
 
-			// print_r($data['pembekalan']); die();
+			// print_r($data['instruktur']); die();
 
 			$this->load->view('template/header_dataTable', $data);
 			$this->load->view('admin/sidebar_2', $data);
@@ -1420,7 +1427,7 @@ class admin  extends CI_Controller
 				$pesan = "Nama event gagal diperbaharui";
 				$this->alert_gagal($pesan);
 				
-				redirect('admin/pengaturan_event');
+				redirect('Admin/pengaturan_event');
 			}
 			else
 			{	 
@@ -1433,7 +1440,7 @@ class admin  extends CI_Controller
 
 				$pesan = "Nama event berhasil diperbaharui";
 				$this->alert_ok($pesan);
-				redirect('admin/pengaturan_event');
+				redirect('Admin/pengaturan_event');
 			}
 			
 			
@@ -1449,7 +1456,7 @@ class admin  extends CI_Controller
 			{
 				$pesan = "Link default penyimpanan data event gagal diperbaharui";
 				$this->alert_gagal($pesan);
-				redirect('admin/pengaturan_event');
+				redirect('Admin/pengaturan_event');
 			}
 			else
 			{	 
@@ -1462,7 +1469,7 @@ class admin  extends CI_Controller
 
 				$pesan = "Link default penyimpanan data event berhasil diperbaharui";
 				$this->alert_ok($pesan);
-				redirect('admin/pengaturan_event');
+				redirect('Admin/pengaturan_event');
 			}
 		}
 
@@ -1492,7 +1499,7 @@ class admin  extends CI_Controller
 			{
 				$pesan = "Link default penyimpanan data event gagal diperbaharui";
 				$this->alert_gagal($pesan);
-				redirect('admin/pengaturan_event');
+				redirect('Admin/pengaturan_event');
 			}
 			else
 			{	 
@@ -1500,7 +1507,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Acara gagal dibuat, waktu pelaksanaan berada diluar jadwal pembekalan";
 					$this->alert_gagal($pesan);
-					redirect('admin/tambah_acara_pembekalan/'.urlencode($id_event));
+					redirect('Admin/tambah_acara_pembekalan/'.urlencode($id_event));
 				}
 				else
 				{
@@ -1533,7 +1540,7 @@ class admin  extends CI_Controller
 
 					$pesan = "Acara pembekalan berhasil ditambahkan";
 					$this->alert_ok($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				}
 			}
 		}
@@ -1564,7 +1571,7 @@ class admin  extends CI_Controller
 			{
 				$pesan = "Link default penyimpanan data event gagal diperbaharui";
 				$this->alert_gagal($pesan);
-				redirect('admin/pengaturan_event');
+				redirect('Admin/pengaturan_event');
 			}
 			else
 			{	 
@@ -1572,7 +1579,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Acara gagal dibuat, waktu pelaksanaan berada diluar jadwal pembekalan";
 					$this->alert_gagal($pesan);
-					redirect('admin/tambah_acara_pembekalan/'.urlencode($id_event));
+					redirect('Admin/tambah_acara_pembekalan/'.urlencode($id_event));
 				}
 				else
 				{
@@ -1601,7 +1608,7 @@ class admin  extends CI_Controller
 					
 					$pesan = "Acara pembekalan berhasil diperbaharui";
 					$this->alert_ok($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				}
 			}
 		}
@@ -1616,7 +1623,7 @@ class admin  extends CI_Controller
 
 			$pesan = "Acara pembekalan berhasil di hapus";
 			$this->alert_ok($pesan);
-			redirect('admin/pengaturan_event');
+			redirect('Admin/pengaturan_event');
 
 		}
 
@@ -1634,7 +1641,7 @@ class admin  extends CI_Controller
 			{
 				$pesan = "Waktu ".$judul." gagal diperbaharui";
 				$this->alert_gagal($pesan);
-				redirect('admin/pengaturan_event');
+				redirect('Admin/pengaturan_event');
 			}
 			else
 			{	 
@@ -1647,7 +1654,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Data gagal di perbaharui, Waktu akhir registrasi harus diatur setelah waktu awal registrasi";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				} 
 				else 
 				{ 
@@ -1662,7 +1669,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Data gagal di perbaharui, Waktu awal pembekalan harus diatur setelah waktu akhir registrasi";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				} 
 				else 
 				{ 
@@ -1677,7 +1684,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Data gagal di perbaharui, Waktu akhir pembekalan harus diatur setelah waktu awal pembekalan";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				} 
 				else 
 				{ 
@@ -1693,7 +1700,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Data gagal di perbaharui, Waktu awal pelayanan harus diatur setelah waktu akhir pembekalan";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				} 
 				else 
 				{ 
@@ -1708,7 +1715,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Data gagal di perbaharui, Waktu akhir pelayanan harus diatur setelah waktu awal pelayanan";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				} 
 				else 
 				{ 
@@ -1723,7 +1730,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Data gagal di perbaharui, Waktu awal pelaporan harus diatur setelah waktu akhir pelayanan";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				} 
 				else 
 				{ 
@@ -1738,7 +1745,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Data gagal di perbaharui, Waktu akhir pelaporan harus diatur setelah waktu awal pelaporan";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				} 
 				else 
 				{ 
@@ -1753,7 +1760,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Data gagal di perbaharui, Waktu awal penilaian harus diatur setelah waktu akhir pelaporan";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				} 
 				else 
 				{ 
@@ -1767,7 +1774,7 @@ class admin  extends CI_Controller
 				{
 					$pesan = "Data gagal di perbaharui, Waktu akhir penilaian harus diatur setelah waktu awal penilaian";
 					$this->alert_gagal($pesan);
-					redirect('admin/pengaturan_event');
+					redirect('Admin/pengaturan_event');
 				} 
 				else 
 				{ 
@@ -1784,7 +1791,7 @@ class admin  extends CI_Controller
 
 			$pesan = "Waktu ".$judul." berhasil diperbaharui";
 			$this->alert_ok($pesan);
-			redirect('admin/pengaturan_event');
+			redirect('Admin/pengaturan_event');
 		}
 	}
 
@@ -1796,11 +1803,11 @@ public function pengumuman_event()
 {
 	if (!$this->session->userdata('id_event')) 
 	{
-		redirect('admin/event');
+		redirect('Admin/event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -1830,11 +1837,11 @@ public function template()
 {
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/event');
+		redirect('Admin/event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -1848,7 +1855,7 @@ public function template()
 		$data['event'] 	= $this->Admin_Model->get_event();
 		$data['pengumuman'] = $this->Relawan_Model->get_pengumuman();
 		$data['template'] = $this->Admin_Model->get_all_template_berkas();
-		$data['nama_template'] = array('0' => 'Surat Izin', '1' =>'Surat Pengantar', '2' => 'Registrasi', '3' => 'Surat_pengantar', '4' => 'Survey Permintaan', '5' => 'Surat Konfirmasi', '6' => 'Buku Kendali', '7' => 'Presensi Pelayanan', '8' => 'Berita Acara Penerapan konten');
+		$data['nama_template'] = array('0' => 'Surat Izin', '1' =>'Survey Permintaan', '2' => 'Presensi Pelayanan', '3' => 'Berita Acara Penerapan Konten', '4' => 'Survey Program', '5' => 'Template Artikel Berita', '6' => 'Artikel MIFTEK', '7' => 'Surat Kesediaan Pangkalan', '8' => 'Berita Acara Penerapan konten');
 
 				// print_r($data['template']); die();
 		$this->load->view('template/header_dataTable', $data);
@@ -1900,14 +1907,14 @@ public function ubah_template($id)
 		}
 		$pesan = "Berkas template telah berhasil di perbaharui";
 		$this->alert_ok($pesan);
-		redirect('admin/template');
+		redirect('Admin/template');
 
 	}
 	else
 	{
 		$pesan = "Gagal memperbaharui template, harap memilih berkas template";
 		$this->alert_gagal($pesan);
-		redirect('admin/template');
+		redirect('Admin/template');
 	}
 }
 
@@ -1916,11 +1923,11 @@ public function admin()
 {
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_event');
+		redirect('Admin/detail_event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -1950,11 +1957,11 @@ public function tambah_admin()
 
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_event');
+		redirect('Admin/detail_event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -1969,7 +1976,7 @@ public function tambah_admin()
 			{
 				$pesan = "Gagal menambahkan admin, harap mengisi email yang belum terdaftar sebagai admin";
 				$this->alert_gagal($pesan);
-				redirect('admin/admin');
+				redirect('Admin/admin');
 
 			}
 			else
@@ -2004,7 +2011,7 @@ public function tambah_admin()
 			$pesan = "Alamat email sudah digunakan";
 			$this->alert_gagal($pesan);
 		}
-		redirect('admin/admin');
+		redirect('Admin/admin');
 	}	
 
 }
@@ -2074,13 +2081,13 @@ public function reset_password($user,$email)
 	{
 		$pesan = "Password admin berhasil di reset, Admin akan menerima pemberitahuan akun melalui email";
 		$this->alert_ok($pesan);
-		redirect('admin/admin');
+		redirect('Admin/admin');
 	}
 	elseif ($user == 'instruktur') 
 	{
 		$pesan = "Password admin berhasil di reset, Instruktur akan menerima pemberitahuan akun melalui email";
 		$this->alert_ok($pesan);
-		redirect('admin/instruktur');
+		redirect('Admin/instruktur');
 	}
 
 }
@@ -2148,7 +2155,7 @@ public function hapus_akun($user,$id_user)
 
 		$pesan = "Akun admin telah berhasil di hapus";
 		$this->alert_ok($pesan);
-		redirect('admin/admin');
+		redirect('Admin/admin');
 	}
 
 	elseif ($user == 'admin2') 
@@ -2175,14 +2182,14 @@ public function hapus_akun($user,$id_user)
 		$this->db->where($where);
 		$this->db->update('template');
 
-		redirect('logout/hapus_akun');
+		redirect('Logout/hapus_akun');
 	}
 	elseif ($user == 'insruktur') {
 		$this->db->delete('instruktur', array('id_instruktur' => $id_user));
 
 		$pesan = "Akun instruktur telah berhasil di hapus";
 		$this->alert_ok($pesan);
-		redirect('admin/instruktur');
+		redirect('Admin/instruktur');
 	}
 
 }
@@ -2192,11 +2199,11 @@ public function instruktur()
 {
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_event');
+		redirect('Admin/detail_event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -2236,11 +2243,11 @@ public function pengajuan_instruktur()
 {
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_Event');
+		redirect('Admin/detail_Event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -2284,7 +2291,7 @@ public function aksi_pengajuan_instruktur($keputusan,$email,$id_instruktur)
 
 		$pesan = "Instruktur baru telah berhasil di tambahkan";
 		$this->alert_ok($pesan);
-		redirect('admin/pengajuan_instruktur');	
+		redirect('Admin/pengajuan_instruktur');	
 	}
 	elseif ($keputusan == 'tolak') 
 	{
@@ -2294,7 +2301,7 @@ public function aksi_pengajuan_instruktur($keputusan,$email,$id_instruktur)
 		$this->_sendEmailInstruktur($email,'tolak');
 		$pesan = "Pengajuan instruktur telah di tolak";
 		$this->alert_ok($pesan);
-		redirect('admin/pengajuan_instruktur');	
+		redirect('Admin/pengajuan_instruktur');	
 	}
 	elseif ($keputusan == 'hapus') 
 	{
@@ -2318,7 +2325,7 @@ public function aksi_pengajuan_instruktur($keputusan,$email,$id_instruktur)
 
 		$pesan = "Data instruktur telah di hapus";
 		$this->alert_ok($pesan);
-		redirect('admin/instruktur');
+		redirect('Admin/instruktur');
 	}
 
 
@@ -2411,11 +2418,11 @@ public function pengumuman()
 {
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_event');
+		redirect('Admin/detail_event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -2454,11 +2461,11 @@ public function tambah_pengumuman()
 		// echo "masuk"; die();
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_Event');
+		redirect('Admin/detail_Event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -2475,7 +2482,7 @@ public function tambah_pengumuman()
 		{
 			$pesan = "Gagal membuat pengumuman baru, Harap mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('admin/pengumuman');
+			redirect('Admin/pengumuman');
 		}
 		else
 		{	
@@ -2498,7 +2505,7 @@ public function tambah_pengumuman()
 			$pesan = "Pengumuman baru berhasil di buat";
 			$this->alert_ok($pesan);
 
-			redirect('admin/pengumuman');
+			redirect('Admin/pengumuman');
 
 		}
 	}
@@ -2508,11 +2515,11 @@ public function aksi_pengumuman($aksi,$id_pengumuman)
 {
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_Event');
+		redirect('Admin/detail_Event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -2531,7 +2538,7 @@ public function aksi_pengumuman($aksi,$id_pengumuman)
 			{
 				$pesan = "Gagal memperbaharui, Harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('admin/pengumuman');
+				redirect('Admin/pengumuman');
 			}
 			else
 			{	
@@ -2551,7 +2558,7 @@ public function aksi_pengumuman($aksi,$id_pengumuman)
 				$pesan = "Pengumuman berhasil diperbaharui";
 				$this->alert_ok($pesan);
 
-				redirect('admin/pengumuman');
+				redirect('Admin/pengumuman');
 
 			}
 		}
@@ -2562,7 +2569,7 @@ public function aksi_pengumuman($aksi,$id_pengumuman)
 			$pesan = "Pengumuman berhasil dihapus";
 			$this->alert_ok($pesan);
 
-			redirect('admin/pengumuman');
+			redirect('Admin/pengumuman');
 		}
 		
 	}
@@ -2573,11 +2580,11 @@ public function mitra()
 {
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_event');
+		redirect('Admin/detail_event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -2644,14 +2651,14 @@ public function ubah_mitra($id)
 			$this->alert_gagal($pesan);
 		}
 		
-		redirect('admin/mitra');
+		redirect('Admin/mitra');
 
 	}
 	else
 	{
 		$pesan = "Gagal memperbaharui image, harap memilih image";
 		$this->alert_gagal($pesan);
-		redirect('admin/mitra');
+		redirect('Admin/mitra');
 	}
 }
 
@@ -2659,11 +2666,11 @@ public function keahlian()
 {
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_event');
+		redirect('Admin/detail_event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -2694,7 +2701,7 @@ public function pengajuan_keahlian($aksi,$id_keahlian)
 		$this->db->delete('draf_keahlian_relawan', array('id_keahlian' => $id_keahlian));
 
 		$pesan = "Data keahlian berhasil dihapus";
-		$this->alert_gagal($pesan);
+		$this->alert_ok($pesan);
 	}
 	elseif ($aksi == 'tambah') 
 	{			
@@ -2747,7 +2754,7 @@ public function pengajuan_keahlian($aksi,$id_keahlian)
 			$this->alert_ok($pesan);
 		}
 	}
-	redirect('admin/keahlian');
+	redirect('Admin/keahlian');
 }
 
 
@@ -2755,11 +2762,11 @@ public function jenis_mitra()
 {
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_event');
+		redirect('Admin/detail_event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -2848,18 +2855,18 @@ public function pengajuan_jenis_mitra($aksi,$id_cluster)
 			$this->alert_ok($pesan);
 		}
 	}
-	redirect('admin/jenis_mitra');
+	redirect('Admin/jenis_mitra');
 }
 
 public function profil()
 {
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_event');
+		redirect('Admin/detail_event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -2885,11 +2892,11 @@ public function edit_profil()
 {
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_event');
+		redirect('Admin/detail_event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -2929,7 +2936,7 @@ public function update_data($aksi,$id_admin)
 		{
 			$pesan = "Akun gagal di perbaharui, harap mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('admin/edit_profil');
+			redirect('Admin/edit_profil');
 
 		}
 		else
@@ -2964,7 +2971,7 @@ public function update_data($aksi,$id_admin)
 				{
 					$pesan = "Ukuran dokumen yang diunggah melebihi batas (2MB), dokumen gagal di upload";
 					$this->alert_gagal($pesan);
-					redirect('admin/edit_profil');
+					redirect('Admin/edit_profil');
 				}
 				
 				$where = array('id_admin' => $id_admin );
@@ -2978,9 +2985,9 @@ public function update_data($aksi,$id_admin)
 				// jika tidak ada image yang di upload
 			else
 			{
-				if ($cek_email == '0') 
+				if ($cek_username == '0') 
 				{
-					if ($cek_username == '0') 
+					if ($cek_email == '0') 
 					{
 
 						$data = [
@@ -2995,21 +3002,63 @@ public function update_data($aksi,$id_admin)
 						$pesan = "Akun anda sudah berhasil diperbaharui";
 						$this->alert_ok($pesan);	
 					}
+					elseif ($email == $data['admin']['email']) 
+					{
+						$data = [
+							'username' 	=> $Username,
+							'email' 	=> $email
+						];
+
+						$this->db->set($data);
+						$this->db->where('id_admin', $id_admin);
+						$this->db->update('admin');
+
+						$pesan = "Username sudah berhasil diperbaharui";
+						$this->alert_ok($pesan);	
+					}
 					else
 					{
-						$pesan = "Username sudah digunakan";
+						$pesan = "Email sudah digunakan";
 						$this->alert_gagal($pesan);
 					}
 					
 				}
+				elseif ($Username == $data['admin']['username']) 
+				{
+					if ($cek_email == '0') 
+					{
+						$data = [
+							'username' 	=> $Username,
+							'email' 	=> $email
+						];
+
+						$this->db->set($data);
+						$this->db->where('id_admin', $id_admin);
+						$this->db->update('admin');
+
+						$pesan = "Email anda sudah berhasil diperbaharui";
+						$this->alert_ok($pesan);	
+					}
+					elseif ($email == $data['admin']['email']) 
+					{
+						$pesan = "Tidak ada yang diperbaharui";
+						$this->alert_info($pesan);	
+					}
+					else
+					{
+						$pesan = "Email sudah digunakan";
+						$this->alert_gagal($pesan);
+					}
+
+				}
 				else
 				{
-					$pesan = "Alamat email sudah digunakan";
+					$pesan = "Username sudah digunakan";
 					$this->alert_gagal($pesan);				
 				}	
 			}
 
-			redirect('admin/edit_profil');
+			redirect('Admin/edit_profil');
 		}
 		
 		
@@ -3033,7 +3082,7 @@ public function update_data($aksi,$id_admin)
 
 		$pesan = "Foto Profil berhasil di hapus";
 		$this->alert_ok($pesan);
-		redirect('admin/edit_profil');
+		redirect('Admin/edit_profil');
 	}
 
 
@@ -3055,7 +3104,7 @@ public function update_data($aksi,$id_admin)
 		{
 			$pesan = "Biodata gagal di perbaharui, harap mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('admin/edit_profil/#bio');
+			redirect('Admin/edit_profil/#bio');
 
 		}
 		else
@@ -3073,7 +3122,7 @@ public function update_data($aksi,$id_admin)
 
 			$pesan = "Biodata telah di perbaharui";
 			$this->alert_ok($pesan);
-			redirect('admin/edit_profil/#bio');
+			redirect('Admin/edit_profil/#bio');
 		}	 
 
 	}
@@ -3093,7 +3142,7 @@ public function update_data($aksi,$id_admin)
 		{
 			$pesan = "Password gagal di perbaharui, harap mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('admin/edit_profil');
+			redirect('Admin/edit_profil');
 
 		}
 		else
@@ -3101,12 +3150,12 @@ public function update_data($aksi,$id_admin)
 			if ($passwordlama != base64_decode($data['admin']['password'])) {
 				$pesan = "Password lama tidak sesuai";
 				$this->alert_gagal($pesan);
-				redirect('admin/edit_profil');
+				redirect('Admin/edit_profil');
 			}
 			elseif ($passwordbaru != $passwordbaru2) {
 				$pesan = "Password baru tidak sama, harap input password baru dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('admin/edit_profil');
+				redirect('Admin/edit_profil');
 			}
 			else{
 				$password_baru3 = base64_encode($passwordbaru);
@@ -3117,7 +3166,7 @@ public function update_data($aksi,$id_admin)
 
 				$pesan = "Password berhasil di perbaharui";
 				$this->alert_ok($pesan);
-				redirect('admin/edit_profil');
+				redirect('Admin/edit_profil');
 			}
 			
 		}
@@ -3129,11 +3178,11 @@ public function penilaian()
 {
 	if ($this->session->userdata('id_event')) 
 	{
-		redirect('admin/detail_event');
+		redirect('Admin/detail_event');
 	}
 	elseif ($this->session->userdata('id_pangkalan'))
 	{
-		redirect('admin/detail_pangkalan');
+		redirect('Admin/detail_pangkalan');
 	}
 	else
 	{
@@ -3214,7 +3263,7 @@ public function ubah_persentase_kinerja_tim()
 		$pesan = "Persentase penilaian Kinerja Tim berhasil diperbaharui";
 		$this->alert_ok($pesan);
 	}
-	redirect('admin/penilaian');
+	redirect('Admin/penilaian');
 }
 
 
@@ -3266,7 +3315,7 @@ public function ubah_persentase_nilai_individu()
 		$pesan = "Persentase penilaian Nilai Individu berhasil diperbaharui";
 		$this->alert_ok($pesan);
 	}
-	redirect('admin/penilaian');
+	redirect('Admin/penilaian');
 }
 
 
@@ -3319,7 +3368,7 @@ public function ubah_persentase_kinerja_relawan()
 		$pesan = "Persentase penilaian Kinerja Relawan berhasil diperbaharui";
 		$this->alert_ok($pesan);
 	}
-	redirect('admin/penilaian');
+	redirect('Admin/penilaian');
 }
 
 
@@ -3337,7 +3386,7 @@ public function aksi_kriteria_penilaian($aksi,$id_indikator)
 		{
 			$pesan = "Gagal menambah indikator penilaian survei program, pastikan mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('admin/penilaian');
+			redirect('Admin/penilaian');
 		}
 		else
 		{	
@@ -3369,7 +3418,7 @@ public function aksi_kriteria_penilaian($aksi,$id_indikator)
 		{
 			$pesan = "Gagal menambah indikator penilaian survei program, pastikan mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('admin/penilaian');
+			redirect('Admin/penilaian');
 		}
 		else
 		{	
@@ -3402,7 +3451,7 @@ public function aksi_kriteria_penilaian($aksi,$id_indikator)
 		{
 			$pesan = "Gagal menambah indikator penilaian survei program, pastikan mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('admin/penilaian');
+			redirect('Admin/penilaian');
 		}
 		else
 		{	
@@ -3434,7 +3483,7 @@ public function aksi_kriteria_penilaian($aksi,$id_indikator)
 		{
 			$pesan = "Gagal menambah indikator penilaian survei program, pastikan mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('admin/penilaian');
+			redirect('Admin/penilaian');
 		}
 		else
 		{	
@@ -3491,7 +3540,7 @@ public function aksi_kriteria_penilaian($aksi,$id_indikator)
 	}
 
 
-	redirect('admin/penilaian');
+	redirect('Admin/penilaian');
 }
 
 

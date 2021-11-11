@@ -15,9 +15,7 @@
                 <div class="d-sm-flex align-items-center justify-content-between">
                       <h6 class="m-0 font-weight-bold text-primary">Tabel data mitra penerima manfaat </h6>
                     <div>
-                      <!-- <a href="<?= base_url('users/hapus_semuaPeserta/').$pemilihan['id_pemilihan'];?>" name="hapus" class="d-sm-inline-block btn btn-sm btn-danger shadow-sm" onclick="javascript : return confirm('Apakah Anda yakin akan menghapus semua data pemilih?')"><i class="fas fa-trash text-white-50"></i> Hapus Semua Pemilih</a>
-                      <a href="<?= base_url('users/excel'); ?>" class="d-sm-inline-block btn btn-sm btn-info shadow-sm"><i class="fas fa-download text-white-50"></i> Download Template</a>
-                      <a href="" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#ModalTambahPemilih"><i class="far fa-file-excel text-white-50"></i> Tambah Pemilih</a> -->
+                     
                     </div>
                 </div>
             </div>

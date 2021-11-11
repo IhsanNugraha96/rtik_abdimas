@@ -55,7 +55,7 @@
 
           <?php if ($relawan['is_active'] >= 3) {?>
             <?php if ($status_kepesertaan == 0) {?>
-              <a href="<?= base_url('relawan/daftar_event/'.urlencode($kegiatan_akan_datang['id_event'])); ?>" class="btn btn-primary btn-sm mb-5">Ikuti Event</a>
+              <a href="<?= base_url('Relawan/daftar_event/'.urlencode($kegiatan_akan_datang['id_event'])); ?>" class="btn btn-primary btn-sm mb-5">Ikuti Event</a>
             <?php } else {?>
               <a href="" class="btn btn-warning btn-sm mb-5" data-toggle="modal" data-target="#batal_ikuti_event">Batal Ikuti Event</a>
             <?php } ?>

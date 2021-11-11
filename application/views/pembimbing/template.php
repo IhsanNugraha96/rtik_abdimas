@@ -18,7 +18,7 @@
 				<div class="row text-center m-0  justify-content-md-center">
 
 					<?php $i=0; foreach ($template as $tmp) {?>
-						<a href="<?= base_url('pembimbing/unduh_template/'.$tmp['nama_template']); ?>"> 
+						<a href="<?= base_url('Pembimbing/unduh_template/'.$tmp['nama_template']); ?>"> 
 							<div class="card border-0">
 								<div class="card-body text-info">
 									<i class="fas fa-file-download fa-2x"></i><br>

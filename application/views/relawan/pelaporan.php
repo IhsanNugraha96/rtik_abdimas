@@ -19,7 +19,7 @@
 							<li>dapatkan link berbagi pada google drive dari file yang diunggah;</li>
 							<li>Copy link berbagi pada Google Drive;</li>
 							<li>Input link berbagi pada kolom input yang disediakan;</li>
-							<li>Ketua Tim yang mempunyai hak akses untuk membuat artikel berita dan mengunggah berkas laporan.</li>
+							<li>Ketua Tim yang mempunyai hak akses untuk mengunggah berkas laporan.</li>
 						</ol>
 					</small>
 				</div>
@@ -35,7 +35,7 @@
 				<div class="row text-center m-0">
 
 					<?php $i=0; foreach ($template as $tmp) {?>
-						<a href="<?= base_url('relawan/unduh_template/'.$tmp['nama_template']); ?>"> 
+						<a href="<?= base_url('Relawan/unduh_template/'.$tmp['nama_template']); ?>"> 
 							<div class="card border-0">
 								<div class="card-body text-info">
 									<i class="fas fa-file-download fa-2x"></i><br>
@@ -56,7 +56,7 @@
 						</div>
 						<div class="row m-0 mt-3 mb-3 ">
 							<!-- <div class="col-10 mb-4">
-								<form class="user was-validated" method="post" action="<?= base_url('relawan/unggah_berkas/surat_pengantar/'.urlencode($tim['id_tim']));?>">
+								<form class="user was-validated" method="post" action="<?= base_url('Relawan/unggah_berkas/surat_pengantar/'.urlencode($tim['id_tim']));?>">
 
 									<input type="text" class="custom-text-input form-control" id="link_surat_pengantar" name="link_surat_pengantar" oninvalid="this.setCustomValidity('Anda belum mengisi link berkas..')" oninput="setCustomValidity('')" 
 									placeholder="<?php if($tim['surat_pengantar'] == '-') { echo "link berkas surat pengantar";} else {echo $tim['surat_pengantar'];}?>" 
@@ -81,7 +81,7 @@
 							<!-- pemisah form -->
 
 							<div class="col-10 mb-4">
-								<form class="user was-validated" method="post" action="<?= base_url('relawan/unggah_berkas/survey_permintaan/'.urlencode($tim['id_tim']));?>">
+								<form class="user was-validated" method="post" action="<?= base_url('Relawan/unggah_berkas/survey_permintaan/'.urlencode($tim['id_tim']));?>">
 
 									<input type="text" class="custom-text-input form-control" id="link_survey_permintaan" name="link_survey_permintaan" oninvalid="this.setCustomValidity('Anda belum mengisi link berkas..')" oninput="setCustomValidity('')" 
 									placeholder="<?php if($tim['survey_permintaan'] == '-') { echo "link berkas survey pemintaan";} else {echo $tim['survey_permintaan'];}?>" 
@@ -106,7 +106,7 @@
 							<!-- pemisah form -->
 
 							<!-- <div class="col-10 mb-4">
-								<form class="user was-validated" method="post" action="<?= base_url('relawan/unggah_berkas/buku_kendali/'.urlencode($tim['id_tim']));?>">
+								<form class="user was-validated" method="post" action="<?= base_url('Relawan/unggah_berkas/buku_kendali/'.urlencode($tim['id_tim']));?>">
 
 									<input type="text" class="custom-text-input form-control" id="link_buku_kendali" name="link_buku_kendali" oninvalid="this.setCustomValidity('Anda belum mengisi link berkas..')" oninput="setCustomValidity('')" 
 									placeholder="<?php if($tim['buku_kendali'] == '-') { echo "link berkas buku kendali";} else {echo $tim['buku_kendali'];}?>" 
@@ -130,7 +130,7 @@
 							<!-- pemisah form -->
 
 							<div class="col-10 mb-4">
-								<form class="user was-validated" method="post" action="<?= base_url('relawan/unggah_berkas/surat_konfirmasi/'.urlencode($tim['id_tim']));?>">
+								<form class="user was-validated" method="post" action="<?= base_url('Relawan/unggah_berkas/surat_konfirmasi/'.urlencode($tim['id_tim']));?>">
 
 									<input type="text" class="custom-text-input form-control" id="link_surat_konfirmasi" name="link_surat_konfirmasi" oninvalid="this.setCustomValidity('Anda belum mengisi link berkas..')" oninput="setCustomValidity('')" 
 									placeholder="<?php if($tim['surat_konfirmasi'] == '-') { echo "link berkas surat konfirmasi";} else {echo $tim['surat_konfirmasi'];}?>" 
@@ -154,7 +154,7 @@
 							<!-- pemisah form -->
 
 							<div class="col-10 mb-4">
-								<form class="user was-validated" method="post" action="<?= base_url('relawan/unggah_berkas/presensi_pelayanan/'.urlencode($tim['id_tim']));?>">
+								<form class="user was-validated" method="post" action="<?= base_url('Relawan/unggah_berkas/presensi_pelayanan/'.urlencode($tim['id_tim']));?>">
 
 									<input type="text" class="custom-text-input form-control" id="link_presensi_pelayanan" name="link_presensi_pelayanan" oninvalid="this.setCustomValidity('Anda belum mengisi link berkas..')" oninput="setCustomValidity('')" 
 									placeholder="<?php if($tim['presensi_pelayanan'] == '-') { echo "link berkas presensi pelayanan";} else {echo $tim['presensi_pelayanan'];}?>" 
@@ -177,7 +177,7 @@
 
 							<!-- pemisah form -->
 							<div class="col-10 mb-4">
-								<form class="user was-validated" method="post" action="<?= base_url('relawan/unggah_berkas/berita_acara/'.urlencode($tim['id_tim']));?>">
+								<form class="user was-validated" method="post" action="<?= base_url('Relawan/unggah_berkas/berita_acara/'.urlencode($tim['id_tim']));?>">
 
 									<input type="text" class="custom-text-input form-control" id="link_berita_acara" name="link_berita_acara" oninvalid="this.setCustomValidity('Anda belum mengisi link berkas..')" oninput="setCustomValidity('')" 
 									placeholder="<?php if($tim['berita_Acara'] == '-') { echo "link berkas berita acara penerapan konten";} else {echo $tim['berita_Acara'];}?>" 
@@ -200,7 +200,7 @@
 
 
 							<div class="col-10 mb-4">
-								<form class="user was-validated" method="post" action="<?= base_url('relawan/unggah_berkas/artikel_miftek/'.urlencode($tim['id_tim']));?>">
+								<form class="user was-validated" method="post" action="<?= base_url('Relawan/unggah_berkas/artikel_miftek/'.urlencode($tim['id_tim']));?>">
 
 									<input type="text" class="custom-text-input form-control" id="link_artikel_miftek" name="link_artikel_miftek" oninvalid="this.setCustomValidity('Anda belum mengisi link berkas..')" oninput="setCustomValidity('')" 
 									placeholder="<?php if($tim['artikel_miftek'] == '-') { echo "link berkas artikel MIFTEK";} else {echo $tim['artikel_miftek'];}?>" 
@@ -252,7 +252,7 @@
 									<textarea id="summernote" name="contents"><?= $tim['laporan']?></textarea>
 								</div>
 								<button type="submit" class="btn btn-primary">Simpan</button>
-								<!-- <a class="btn btn-info" href="<?= base_url('relawan/lihat_artikel/'.urlencode($tim['id_tim'])) ?>">Lihat Artikel</a> -->
+								<!-- <a class="btn btn-info" href="<?= base_url('Relawan/lihat_artikel/'.urlencode($tim['id_tim'])) ?>">Lihat Artikel</a> -->
 							</form>
 						</div>
 					</div>

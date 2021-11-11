@@ -89,7 +89,7 @@
 			<div class="modal-body">
 				<h5>Tambah Pembimbing</h5>
 
-				<form class="user was-validated mt-5" method="post" action="<?= base_url('pangkalan/tambah_pembimbing');?>" enctype="multipart/form-data">
+				<form class="user was-validated mt-5" method="post" action="<?= base_url('Pangkalan/tambah_pembimbing');?>" enctype="multipart/form-data">
 					<div class="form-group">
 						<input type="email" class="form-control" id="email" name="email" placeholder="email" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda belum mengisi email pembimbing')" oninput="setCustomValidity('')" is_unique="pembimbing.email">
 
@@ -107,7 +107,7 @@
 					</div>
 
 					<div class="form-group">
-						<input type="text" class="form-control" id="nik" name="nik" placeholder="nik pembimbing" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda belum mengisi nik pembimbing')" oninput="setCustomValidity('')">
+						<input type="text" class="form-control" id="nik" name="nik" placeholder="nik pembimbing" aria-describedby="inputGroupPrepend" minlength="16" required oninvalid="this.setCustomValidity('Anda belum mengisi nik pembimbing')" oninput="setCustomValidity('')">
 
 						<?= form_error('date', '<small class="text-danger pl-3">','</small>'); ?>
 						<div class="invalid-feedback text-left">Isi nik pembimbing.</div>
@@ -235,7 +235,7 @@
 					<h6>Hapus pembimbing dari daftar pembimbing?</h6>
 				</div>
 				<div class="modal-footer">
-					<a href="<?= base_url('pangkalan/hapuspembimbing/'.urlencode($pmb['id_pembimbing'])); ?>" class="badge badge-danger badge-sm">hapus</a>
+					<a href="<?= base_url('Pangkalan/hapuspembimbing/'.urlencode($pmb['id_pembimbing'])); ?>" class="badge badge-danger badge-sm">hapus</a>
 				</div>
 			</div>
 		</div>
@@ -259,7 +259,7 @@
 					<h6>Reset password akun pembimbing?</h6>
 				</div>
 				<div class="modal-footer">
-					<a href="<?= base_url('pangkalan/reset_password_pembimbing/'.urlencode($pmb['id_pembimbing'])); ?>" class="badge badge-warning badge-sm">reset</a>
+					<a href="<?= base_url('Pangkalan/reset_password_pembimbing/'.urlencode($pmb['id_pembimbing'])); ?>" class="badge badge-warning badge-sm">reset</a>
 				</div>
 			</div>
 		</div>

@@ -94,7 +94,7 @@
 
 								</div>
 								<div class="modal-footer primary-md" style="margin-top: -7%;">
-									<a class="badge badge-primary badge-xs" href="<?= base_url('pembimbing/aksi_pengajuan_pembimbing/acc_tim/'.$ketua['id_tim']); ?>">Terima</a>
+									<a class="badge badge-primary badge-xs" href="<?= base_url('Pembimbing/aksi_pengajuan_pembimbing/acc_tim/'.$ketua['id_tim']); ?>">Terima</a>
 								</div>
 							</div>
 						</div>
@@ -125,7 +125,7 @@
 
 									</div>
 									<div class="modal-footer warning-md" style="margin-top: -7%;">
-										<a class="badge badge-warning badge-xs" href="<?= base_url('pembimbing/aksi_pengajuan_pembimbing/tolak_tim/'.$ketua['id_tim']); ?>">Tolak</a>
+										<a class="badge badge-warning badge-xs" href="<?= base_url('Pembimbing/aksi_pengajuan_pembimbing/tolak_tim/'.$ketua['id_tim']); ?>">Tolak</a>
 									</div>
 								</div>
 							</div>

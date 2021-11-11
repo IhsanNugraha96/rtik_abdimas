@@ -36,11 +36,11 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="<?= base_url('pembimbing') ?>">
+                <a class="dropdown-item" href="<?= base_url('Pembimbing') ?>">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profil
                 </a>
-                <a class="dropdown-item" href="<?= base_url('pembimbing/edit_profil') ?>">
+                <a class="dropdown-item" href="<?= base_url('Pembimbing/edit_profil') ?>">
                   <i class="fas fa-user-cog fa-sm fa-fw mr-2 text-gray-400"></i>
                   Edit Profil
                 </a>

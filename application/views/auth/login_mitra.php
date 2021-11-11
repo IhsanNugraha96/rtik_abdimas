@@ -12,7 +12,7 @@
                <!-- notifikasi -->
                 <?= $this->session->flashdata('message'); ?>
                 <!-- akhir notifikasi -->
-              <form class="user was-validated" method="post" action="<?= base_url('auth');  ?>">
+              <form class="user was-validated" method="post" action="<?= base_url('Auth');  ?>">
               	<div class="form-group">
 				    <input type="username" class="form-control is_invalid form-control-user" id="username" name="username" placeholder="id mitra" required>
 				    <div class="invalid-feedback">
@@ -31,7 +31,7 @@
                 </button>              
               </form>
               <hr>
-              <center style="margin-top: -3%;"><a href="<?= base_url('landingPage'); ?>"><i class="small ml-2">Kembali ke Beranda</i></a></center>
+              <center style="margin-top: -3%;"><a href="<?= base_url('LandingPage'); ?>"><i class="small ml-2">Kembali ke Beranda</i></a></center>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class instruktur  extends CI_Controller 
+class Instruktur  extends CI_Controller 
 
 {
 	public function __construct()
@@ -9,7 +9,7 @@ class instruktur  extends CI_Controller
 		parent::__construct();
 		if(!$this->session->userdata('id_instruktur'))
 		{	
-			redirect('landingPage');
+			redirect('LandingPage');
 		}
 		$this->load->model('Authentikasi');
 		$this->load->model('Relawan_Model');
@@ -207,7 +207,7 @@ class instruktur  extends CI_Controller
 			{
 				$pesan = "Akun gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('instruktur/edit_profil');
+				redirect('Instruktur/edit_profil');
 
 			}
 			else
@@ -242,7 +242,7 @@ class instruktur  extends CI_Controller
 					{
 						$pesan = "Ukuran dokumen yang diunggah melebihi batas (2MB), dokumen gagal di upload";
 						$this->alert_gagal($pesan);
-						redirect('instruktur/edit_profil');
+						redirect('Instruktur/edit_profil');
 					}
 					
 					$where = array('id_instruktur' => $id_instruktur );
@@ -277,7 +277,7 @@ class instruktur  extends CI_Controller
 
 				}
 
-				redirect('instruktur/edit_profil');
+				redirect('Instruktur/edit_profil');
 			}
 
 			
@@ -301,7 +301,7 @@ class instruktur  extends CI_Controller
 
 			$pesan = "Foto Profil berhasil di hapus";
 			$this->alert_ok($pesan);
-			redirect('instruktur/edit_profil');
+			redirect('Instruktur/edit_profil');
 		}
 
 
@@ -333,7 +333,7 @@ class instruktur  extends CI_Controller
 			{
 				$pesan = "Biodata gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('instruktur/edit_profil/#bio');
+				redirect('Instruktur/edit_profil/#bio');
 
 			}
 			else
@@ -356,7 +356,7 @@ class instruktur  extends CI_Controller
 
 				$pesan = "Biodata telah di perbaharui";
 				$this->alert_ok($pesan);
-				redirect('instruktur/edit_profil/#bio');
+				redirect('Instruktur/edit_profil/#bio');
 			}	 
 
 		}
@@ -376,7 +376,7 @@ class instruktur  extends CI_Controller
 			{
 				$pesan = "Password gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('instruktur/edit_profil');
+				redirect('Instruktur/edit_profil');
 
 			}
 			else
@@ -384,12 +384,12 @@ class instruktur  extends CI_Controller
 				if ($passwordlama != base64_decode($data['instruktur']['password'])) {
 					$pesan = "Password lama tidak sesuai";
 					$this->alert_gagal($pesan);
-					redirect('instruktur/edit_profil');
+					redirect('Instruktur/edit_profil');
 				}
 				elseif ($passwordbaru != $passwordbaru2) {
 					$pesan = "Password baru tidak sama, harap input password baru dengan benar";
 					$this->alert_gagal($pesan);
-					redirect('instruktur/edit_profil');
+					redirect('Instruktur/edit_profil');
 				}
 				else{
 					$password_baru3 = base64_encode($passwordbaru);
@@ -400,7 +400,7 @@ class instruktur  extends CI_Controller
 
 					$pesan = "Password berhasil di perbaharui";
 					$this->alert_ok($pesan);
-					redirect('instruktur/edit_profil');
+					redirect('Instruktur/edit_profil');
 				}
 				
 			}
@@ -427,7 +427,7 @@ class instruktur  extends CI_Controller
 
 			$pesan = "Data instruktur telah di hapus";
 			$this->alert_ok($pesan);
-			redirect('logout/hapus_akun');
+			redirect('Logout/hapus_akun');
 			
 
 		}
@@ -466,7 +466,7 @@ class instruktur  extends CI_Controller
 			{
 				$pesan = "Biodata gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('instruktur/materi');
+				redirect('Instruktur/materi');
 
 			}
 			else
@@ -505,7 +505,7 @@ class instruktur  extends CI_Controller
 			{
 				$pesan = "Biodata gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('instruktur/materi');
+				redirect('Instruktur/materi');
 
 			}
 			else
@@ -533,7 +533,7 @@ class instruktur  extends CI_Controller
 			$this->alert_ok($pesan);
 		}
 		
-		redirect('instruktur/materi');
+		redirect('Instruktur/materi');
 	}
 
 
@@ -587,7 +587,7 @@ class instruktur  extends CI_Controller
 			}
 		}
 
-		redirect('instruktur/pembekalan');
+		redirect('Instruktur/pembekalan');
 	}
 
 	public function sertifikat($id_pembekalan)

@@ -68,7 +68,7 @@
         </button>
       </div>
       <div class="modal-body" style="padding: 5% 10% 0 10%;">
-        <form class="user was-validated" method="post" action="<?= base_url('admin/pengajuan_jenis_mitra/tambah/1');?>" enctype="multipart/form-data">
+        <form class="user was-validated" method="post" action="<?= base_url('Admin/pengajuan_jenis_mitra/tambah/1');?>" enctype="multipart/form-data">
 
           <div class="form-group">
             <input type="text" class="form-control" id="jenis" name="jenis" placeholder="jenis mitra" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda mengisi jenis mitra')" oninput="setCustomValidity('')">
@@ -101,7 +101,7 @@
         </button>
       </div>
       <div class="modal-body" style="padding: 5% 10% 0 10%;">
-        <form class="user was-validated" method="post" action="<?= base_url('admin/pengajuan_jenis_mitra/ubah/'.$jns['id_cluster']); ?>" enctype="multipart/form-data">
+        <form class="user was-validated" method="post" action="<?= base_url('Admin/pengajuan_jenis_mitra/ubah/'.$jns['id_cluster']); ?>" enctype="multipart/form-data">
 
           <div class="form-group">
             <input type="text" class="form-control" id="jenis" name="jenis" placeholder="jenis mitra" value="<?= $jns['nama_cluster'] ?>" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda belum mengisi jenis mitra')" oninput="setCustomValidity('')">
@@ -139,7 +139,7 @@
             <h5><?= $jns['nama_cluster']; ?>?</h5>
           </div>
           <div class="modal-footer" style="margin-top: -10%;">
-            <a href="<?= base_url('admin/pengajuan_jenis_mitra/hapus/'.$jns['id_cluster']); ?>" class="badge badge-danger badge-sm">Hapus</a>
+            <a href="<?= base_url('Admin/pengajuan_jenis_mitra/hapus/'.$jns['id_cluster']); ?>" class="badge badge-danger badge-sm">Hapus</a>
           </div>
         </div>
       </div>

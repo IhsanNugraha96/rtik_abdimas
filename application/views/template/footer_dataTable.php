@@ -3,7 +3,7 @@
       <footer class="sticky-footer bg-white shadow">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            &copy; Copyright <?= date('Y');?> <strong><span>Sekolah Tinggi Teknologi Garut</span></strong>
+            &copy; Copyright <?= date('Y');?> <strong><span>Institut Teknologi Garut</span></strong>
           </div>
         </div>
       </footer>
@@ -48,7 +48,7 @@
           <p>Anda tidak bisa mengakses menu ini. <br> Harap melengkapi biodata terlebih dahulu!</p>
         </div>
         <div class="modal-footer warning-md" style="margin-top: -7%;">
-          <a href="<?= base_url('relawan/edit_profil') ?>"class="badge badge-primary badge-xs" type="button">Lengkapi Sekarang</a>
+          <a href="<?= base_url('Relawan/edit_profil') ?>"class="badge badge-primary badge-xs" type="button">Lengkapi Sekarang</a>
           <!-- <a href="" class="badge badge-warning badge-xs " type="button" data-dismiss="modal">Keluar</a> -->
         </div>
       </div>
@@ -70,7 +70,7 @@
           <h4 class="mt-2"><b>Yakin anda mau keluar?</b></h4>
         <p>Pilih tombol "Keluar" di bawah jika Anda siap mengakhiri sesi Anda saat ini.</p></div>
         <div class="modal-footer warning-md" style="margin-top: -7%;">
-          <a class="badge badge-primary badge-xs" href="<?= base_url('logout') ?>">Keluar</a>
+          <a class="badge badge-primary badge-xs" href="<?= base_url('Logout') ?>">Keluar</a>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@
           <h4 class="mt-2"><b>Yakin anda mau keluar?</b></h4>
         <p>Pilih tombol "Keluar" di bawah jika Anda siap mengakhiri sesi Anda saat ini.</p></div>
         <div class="modal-footer warning-md" style="margin-top: -7%;">
-          <a class="badge badge-warning badge-xs" href="<?= base_url('logout') ?>">Keluar</a>
+          <a class="badge badge-warning badge-xs" href="<?= base_url('Logout') ?>">Keluar</a>
         </div>
       </div>
     </div>
@@ -161,7 +161,7 @@
             var data = new FormData();
             data.append("image", image);
             $.ajax({
-                url: "<?php echo base_url('relawan/upload_image')?>",
+                url: "<?php echo base_url('Relawan/upload_image')?>",
                 cache: false,
                 contentType: false,
                 processData: false,
@@ -180,7 +180,7 @@
             $.ajax({
                 data: {src : src},
                 type: "POST",
-                url: "<?php echo base_url('relawan/delete_image')?>",
+                url: "<?php echo base_url('Relawan/delete_image')?>",
                 cache: false,
                 success: function(response) {
                     console.log(response);
@@ -212,7 +212,7 @@
         $(document).ready(function(){
           $.ajax({
             type:'post',
-            url:'<?= base_url('pangkalan/get_provinsi2'); ?>',
+            url:'<?= base_url('Pangkalan/get_provinsi2'); ?>',
             success:function(hasil_provinsi)
             {
             // alert("oke");
@@ -226,7 +226,7 @@
           var id_provinsi_terpilih = $("option:selected",this).attr('id_provinsi');
           $.ajax({
             type:'post',
-            url:'<?= base_url('pangkalan/get_kota2'); ?>',
+            url:'<?= base_url('Pangkalan/get_kota2'); ?>',
             data:'id_provinsi='+id_provinsi_terpilih,
             success:function(hasil_distrik)
             {

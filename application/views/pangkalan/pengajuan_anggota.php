@@ -176,7 +176,7 @@
 
 <?php $i=0; ?>
 <?php foreach ($pengajuan_anggota as $agt) { ?>
-	<div id="hapus_anggota_<?=$agt['id_relawan'];?>" class="modal modal-edu-general FullColor-popup-DangerModal fade shadow" role="dialog" style="padding: 20px;">
+	<div id="tolak_anggota_<?=$agt['id_relawan'];?>" class="modal modal-edu-general FullColor-popup-DangerModal fade shadow" role="dialog" style="padding: 20px;">
 		<div class="modal-dialog">
 			<div class="modal-content shadow">
 				<div class="modal-close-area modal-close-df">
@@ -188,7 +188,7 @@
 					<h6>Tolak pengajuan anggota?</h6>
 				</div>
 				<div class="modal-footer">
-					<a href="<?= base_url('pangkalan/aksi_pengajuan_anggota/tolak/'.urlencode($agt['id_relawan'])); ?>" class="badge badge-danger badge-sm">hapus</a>
+					<a href="<?= base_url('Pangkalan/aksi_pengajuan_anggota/tolak/'.urlencode($agt['id_relawan'])); ?>" class="badge badge-danger badge-sm">hapus</a>
 				</div>
 			</div>
 		</div>
@@ -209,10 +209,10 @@
 				<div class="modal-body">
 					<img class="img-profile mb-2" src="<?= base_url('assets/img/relawan/image/'.$agt['image']) ?>" style="width: 20%;">
 					<h5><?= $agt['nama_lengkap']; ?></h5>
-					<h6>Tolak pengajuan akun anggota?</h6>
+					<h6>Terima pengajuan akun anggota?</h6>
 				</div>
 				<div class="modal-footer">
-					<a href="<?= base_url('pangkalan/aksi_pengajuan_anggota/acc/'.urlencode($agt['id_relawan'])); ?>" class="badge badge-primary badge-sm">Terima</a>
+					<a href="<?= base_url('Pangkalan/aksi_pengajuan_anggota/acc/'.urlencode($agt['id_relawan'])); ?>" class="badge badge-primary badge-sm">Terima</a>
 				</div>
 			</div>
 		</div>

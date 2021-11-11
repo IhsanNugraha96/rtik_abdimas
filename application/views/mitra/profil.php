@@ -9,7 +9,6 @@
     </div>
   </div>
   <!-- Content Row -->
-
   <div class="row mb-5">
     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
       <div class="single-cards-item text-center shadow">

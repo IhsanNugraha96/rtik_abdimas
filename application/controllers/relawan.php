@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class relawan  extends CI_Controller 
+class Relawan  extends CI_Controller 
 
 {
 	public function __construct()
@@ -9,7 +9,7 @@ class relawan  extends CI_Controller
 		parent::__construct();
 		if(!$this->session->userdata('id_relawan'))
 		{	
-			redirect('landingPage');
+			redirect('LandingPage');
 		}
 
 
@@ -120,7 +120,7 @@ class relawan  extends CI_Controller
 			<i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr admin-check-pro-clr11" aria-hidden="true"></i>
 			<p><strong>Selamat Datang di Halaman Relawan!</strong></p>
 			</div>');
-		redirect('relawan/profil');
+		redirect('Relawan/profil');
 
 	}
 
@@ -340,7 +340,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Akun gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('relawan/edit_profil');
+				redirect('Relawan/edit_profil');
 
 			}
 			else
@@ -378,7 +378,7 @@ class relawan  extends CI_Controller
 					{
 						$pesan = "Ukuran dokumen yang diunggah melebihi batas (2MB), dokumen gagal di upload";
 						$this->alert_gagal($pesan);
-						redirect('relawan/edit_profil');
+						redirect('Relawan/edit_profil');
 					}
 
 					$where = array('id_relawan' => $id_relawan );
@@ -392,9 +392,9 @@ class relawan  extends CI_Controller
 					// jika tidak ada image yang di upload
 				else
 				{
-					if ($cek_email == '0') 
+					if ($cek_username == '0') 
 					{
-						if ($cek_username == '0') 
+						if ($cek_email == '0') 
 						{
 							$data = [
 								'username' 	=> $Username,
@@ -408,23 +408,41 @@ class relawan  extends CI_Controller
 							$pesan = "Akun anda sudah berhasil diperbaharui";
 							$this->alert_ok($pesan);
 						}
+						elseif ($email == $data['relawan']['email']) 
+						{
+							$data = [
+								'username' 	=> $Username
+							];
+
+							$this->db->set($data);
+							$this->db->where('id_relawan', $id_relawan);
+							$this->db->update('relawan');
+
+							$pesan = "Username telah diperbaharui";
+							$this->alert_ok($pesan);
+						}
 						else
 						{
-							$pesan = "Username sudah digunakan";
+							$pesan = "Alamat email sudah digunakan";
 							$this->alert_gagal($pesan);
 						}
 
 					}
+					elseif ($Username == $data['relawan']['username']) 
+					{
+						$pesan = "Username dan email tidak di perbaharui";
+						$this->alert_info($pesan);
+					}
 					else
 					{
-						$pesan = "Alamat email sudah digunakan";
+						$pesan = "Username sudah digunakan";
 						$this->alert_gagal($pesan);				
 					}	
 				}
 			}
 			
 			
-			redirect('relawan/edit_profil');
+			redirect('Relawan/edit_profil');
 		}
 
 
@@ -446,7 +464,7 @@ class relawan  extends CI_Controller
 
 			$pesan = "Foto Profil berhasil di hapus";
 			$this->alert_ok($pesan);
-			redirect('relawan/edit_profil');
+			redirect('Relawan/edit_profil');
 		}
 
 
@@ -454,7 +472,7 @@ class relawan  extends CI_Controller
 		{
 			$old_image = $data['relawan']['id_card'];
 
-			if ($old_image != 'default_id_card.jpg') 
+			if ($old_image != 'default_id_card.JPG') 
 			{
 				unlink(FCPATH . 'assets/img/relawan/id_card/' . $old_image);
 			}
@@ -465,9 +483,9 @@ class relawan  extends CI_Controller
 			$this->db->where($where);
 			$this->db->update('relawan');
 
-			$pesan = "Foto Profil berhasil di hapus";
+			$pesan = "Id card berhasil di hapus";
 			$this->alert_ok($pesan);
-			redirect('relawan/edit_profil/#bio');
+			redirect('Relawan/edit_profil/#bio');
 		}
 
 
@@ -508,7 +526,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Biodata gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('relawan/edit_profil/#bio');
+				redirect('Relawan/edit_profil/#bio');
 
 			}
 			else
@@ -546,7 +564,7 @@ class relawan  extends CI_Controller
 					{
 						$pesan = "Ukuran dokumen yang diunggah melebihi batas (2MB), dokumen gagal di upload";
 						$this->alert_gagal($pesan);
-						redirect('relawan/edit_profil/#biodata');
+						redirect('Relawan/edit_profil/#biodata');
 					}
 					
 					$where = array('id_relawan' => $id_relawan );
@@ -555,7 +573,7 @@ class relawan  extends CI_Controller
 
 					$pesan = "Id card berhasil diperbaharui";
 					$this->alert_ok($pesan);
-					redirect('relawan/edit_profil/#bio');
+					redirect('Relawan/edit_profil/#bio');
 				}
 
 				// jika tidak ada image yang di upload
@@ -584,7 +602,7 @@ class relawan  extends CI_Controller
 
 					$pesan = "Biodata telah di perbaharui";
 					$this->alert_ok($pesan);
-					redirect('relawan/edit_profil/#bio');
+					redirect('Relawan/edit_profil/#bio');
 				}
 			}	 
 
@@ -606,7 +624,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Informasi gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('relawan/edit_profil');
+				redirect('Relawan/edit_profil');
 
 			}
 			else
@@ -634,7 +652,7 @@ class relawan  extends CI_Controller
 
 				$pesan = "Informasi keahlian telah di perbaharui";
 				$this->alert_ok($pesan);
-				redirect('relawan/edit_profil');
+				redirect('Relawan/edit_profil');
 			}
 		}
 
@@ -651,7 +669,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Info Pangkalan gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('relawan/edit_profil');
+				redirect('Relawan/edit_profil');
 
 			}
 			else
@@ -668,7 +686,7 @@ class relawan  extends CI_Controller
 
 				$pesan = "Informasi Pangkalan telah di perbaharui";
 				$this->alert_ok($pesan);
-				redirect('relawan/edit_profil');
+				redirect('Relawan/edit_profil');
 			}
 		}
 
@@ -684,7 +702,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Pangkalan gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('relawan/edit_profil');
+				redirect('Relawan/edit_profil');
 
 			}
 			else
@@ -695,7 +713,7 @@ class relawan  extends CI_Controller
 
 				$pesan = "Pangkalan berhasil di ubah, tunggu verifikasi dari pangkalan";
 				$this->alert_ok($pesan);
-				redirect('relawan/edit_profil');
+				redirect('Relawan/edit_profil');
 			}
 
 		}
@@ -716,7 +734,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Password gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('relawan/edit_profil');
+				redirect('Relawan/edit_profil');
 
 			}
 			else
@@ -724,12 +742,12 @@ class relawan  extends CI_Controller
 				if ($passwordlama != base64_decode($data['relawan']['password'])) {
 					$pesan = "Password lama tidak sesuai";
 					$this->alert_gagal($pesan);
-					redirect('relawan/edit_profil');
+					redirect('Relawan/edit_profil');
 				}
 				elseif ($passwordbaru != $passwordbaru2) {
 					$pesan = "Password baru tidak sama, harap input password baru dengan benar";
 					$this->alert_gagal($pesan);
-					redirect('relawan/edit_profil');
+					redirect('Relawan/edit_profil');
 				}
 				else{
 					$password_baru3 = base64_encode($passwordbaru);
@@ -740,7 +758,7 @@ class relawan  extends CI_Controller
 
 					$pesan = "Password berhasil di perbaharui";
 					$this->alert_ok($pesan);
-					redirect('relawan/edit_profil');
+					redirect('Relawan/edit_profil');
 				}
 				
 			}
@@ -773,7 +791,7 @@ class relawan  extends CI_Controller
 
 			$pesan = "Akun telah berhasil di hapus";
 			$this->alert_ok($pesan);
-			redirect('logout/hapus_akun');
+			redirect('Logout/hapus_akun');
 		}
 	}
 
@@ -923,12 +941,14 @@ class relawan  extends CI_Controller
 		$data['jml_kegiatan_akan_datang'] = $this->Relawan_Model->get_jml_kegiatan_akan_datang();
 		$data['jml_kegiatan_telah_diikuti'] = $this->Relawan_Model->get_jml_kegiatan_telah_diikuti($id_relawan);
 		$data['kegiatan_berlangsung'] = $this->Relawan_Model->get_kegiatan_berlangsung();
+
+		// print_r($data['kegiatan_berlangsung']); die();
 		if ($data['kegiatan_berlangsung']) 
 		{
 			$data['status_kepesertaan'] = $this->Relawan_Model->cek_status_peserta_di_event($id_relawan, $data['kegiatan_berlangsung']['id_event']);
 			$data['data_di_tim'] = $this->Relawan_Model->get_data_di_tim($id_relawan, $data['kegiatan_berlangsung']['id_event']);
 
-			if ($data['kegiatan_berlangsung']['akhir_registrasi'] < date('YmdHis')) 
+			if (strtotime($data['kegiatan_berlangsung']['akhir_registrasi']) < strtotime(date('YmdHis'))) 
 			{
 				if ($data['data_di_tim']) 
 				{
@@ -973,7 +993,7 @@ class relawan  extends CI_Controller
 		$data['kegiatan_berlangsung'] = $this->Relawan_Model->get_kegiatan_berlangsung();
 		$data['status_kepesertaan'] = $this->Relawan_Model->cek_status_peserta_di_event($id_relawan, $data['kegiatan_berlangsung']['id_event']);
 		$data['template'] = $this->Relawan_Model->get_template_berkas_surat_izin();
-		// print_r($data['template']). die();
+		
 		if ($data['kegiatan_berlangsung']) 
 		{
 			$data['status_kepesertaan'] = $this->Relawan_Model->cek_status_peserta_di_event($id_relawan, $data['kegiatan_berlangsung']['id_event']);
@@ -988,7 +1008,7 @@ class relawan  extends CI_Controller
 		$data['tim'] = $this->Relawan_Model->get_all_tim_di_event($data['kegiatan_berlangsung']['id_event']);
 
 		$data['data_di_tim'] = $this->Relawan_Model->get_data_di_tim($id_relawan, $data['kegiatan_berlangsung']['id_event']);
-
+// print_r($data['tim']). die();
 
 
 		if ($data['data_di_tim']) {
@@ -1006,9 +1026,9 @@ class relawan  extends CI_Controller
 		// jika sudah melebihi jadwal registrasi
 		if (strtotime($data['kegiatan_berlangsung']['akhir_registrasi']) <= strtotime(date('Y-m-d G:i:s'))) 
 		{
-			redirect('relawan/kegiatan_berlangsung');
+			redirect('Relawan/kegiatan_berlangsung');
 		}
-		
+		// print_r($data['tim']). die();
 		// sesuaikan jumlah anggota tim dengan role_id tim
 		foreach ($data['tim'] as $tm) 
 		{
@@ -1030,7 +1050,7 @@ class relawan  extends CI_Controller
 			}
 		}
 		// echo count(($data['anggota_tim'])); die();
-		// print_r($data['tim']); die();
+		// print_r($data['data_kepesertaan']); die();
 
 
 		if ($data['data_kepesertaan'] ) 
@@ -1043,7 +1063,7 @@ class relawan  extends CI_Controller
 		}
 		else
 		{
-			redirect('relawan/kegiatan_berlangsung');
+			redirect('Relawan/kegiatan_berlangsung');
 		}
 		
 
@@ -1147,7 +1167,7 @@ class relawan  extends CI_Controller
 				{
 					$pesan = "Gagal menyimpan data";
 					$this->alert_gagal($pesan);
-					redirect('relawan/pelayanan');
+					redirect('Relawan/pelayanan');
 
 				}
 				else
@@ -1196,7 +1216,7 @@ class relawan  extends CI_Controller
 				$pesan = "Alamat email sudah terdaftar";
 				$this->alert_gagal($pesan);
 			}
-			redirect('relawan/mitra');			
+			redirect('Relawan/mitra');			
 		}
 
 		if ($nama_berkas == 'update_akun_mitra') 
@@ -1221,7 +1241,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Gagal menyimpan data";
 				$this->alert_gagal($pesan);
-				redirect('relawan/pelayanan');
+				redirect('Relawan/pelayanan');
 
 			}
 			else
@@ -1245,7 +1265,7 @@ class relawan  extends CI_Controller
 
 				$pesan = "Akun mitra berhasil diperbaharui";
 				$this->alert_ok($pesan);
-				redirect('relawan/mitra');
+				redirect('Relawan/mitra');
 			}
 		}
 
@@ -1259,7 +1279,7 @@ class relawan  extends CI_Controller
 
 			$pesan = "Password akun mitra berhasil di reset, mitra akan menerima notifikasi pemberitahuan melalui email yang di daftarkan";
 			$this->alert_ok($pesan);
-			redirect('relawan/mitra');
+			redirect('Relawan/mitra');
 		}
 
 
@@ -1273,7 +1293,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Gagal menyimpan data";
 				$this->alert_gagal($pesan);
-				redirect('relawan/registrasi_tim');
+				redirect('Relawan/registrasi_tim');
 
 			}
 			else
@@ -1288,7 +1308,7 @@ class relawan  extends CI_Controller
 
 				$pesan = "Data berhasil di simpan";
 				$this->alert_ok($pesan);
-				redirect('relawan/registrasi_tim');
+				redirect('Relawan/registrasi_tim');
 			}
 		} 
 
@@ -1302,7 +1322,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Gagal menyimpan data";
 				$this->alert_gagal($pesan);
-				redirect('relawan/pelaporan');
+				redirect('Relawan/pelaporan');
 
 			}
 			else
@@ -1317,7 +1337,7 @@ class relawan  extends CI_Controller
 
 				$pesan = "Data berhasil di simpan";
 				$this->alert_ok($pesan);
-				redirect('relawan/pelaporan');
+				redirect('Relawan/pelaporan');
 			}
 		}
 
@@ -1331,7 +1351,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Gagal menyimpan data";
 				$this->alert_gagal($pesan);
-				redirect('relawan/pelaporan');
+				redirect('Relawan/pelaporan');
 
 			}
 			else
@@ -1346,7 +1366,7 @@ class relawan  extends CI_Controller
 
 				$pesan = "Data berhasil di simpan";
 				$this->alert_ok($pesan);
-				redirect('relawan/pelaporan');
+				redirect('Relawan/pelaporan');
 			}
 		}
 
@@ -1361,7 +1381,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Gagal menyimpan data";
 				$this->alert_gagal($pesan);
-				redirect('relawan/pelaporan');
+				redirect('Relawan/pelaporan');
 
 			}
 			else
@@ -1376,7 +1396,7 @@ class relawan  extends CI_Controller
 
 				$pesan = "Data berhasil di simpan";
 				$this->alert_ok($pesan);
-				redirect('relawan/pelaporan');
+				redirect('Relawan/pelaporan');
 			}
 		}
 
@@ -1391,7 +1411,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Gagal menyimpan data";
 				$this->alert_gagal($pesan);
-				redirect('relawan/pelaporan');
+				redirect('Relawan/pelaporan');
 
 			}
 			else
@@ -1406,7 +1426,7 @@ class relawan  extends CI_Controller
 
 				$pesan = "Data berhasil di simpan";
 				$this->alert_ok($pesan);
-				redirect('relawan/pelaporan');
+				redirect('Relawan/pelaporan');
 			}
 		}
 
@@ -1421,7 +1441,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Gagal menyimpan data";
 				$this->alert_gagal($pesan);
-				redirect('relawan/pelaporan');
+				redirect('Relawan/pelaporan');
 
 			}
 			else
@@ -1436,7 +1456,7 @@ class relawan  extends CI_Controller
 
 				$pesan = "Data berhasil di simpan";
 				$this->alert_ok($pesan);
-				redirect('relawan/pelaporan');
+				redirect('Relawan/pelaporan');
 			}
 		}
 
@@ -1451,7 +1471,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Gagal menyimpan data";
 				$this->alert_gagal($pesan);
-				redirect('relawan/pelaporan');
+				redirect('Relawan/pelaporan');
 
 			}
 			else
@@ -1466,7 +1486,7 @@ class relawan  extends CI_Controller
 
 				$pesan = "Data berhasil di simpan";
 				$this->alert_ok($pesan);
-				redirect('relawan/pelaporan');
+				redirect('Relawan/pelaporan');
 			}
 		}
 		
@@ -1551,7 +1571,7 @@ class relawan  extends CI_Controller
 		}
 		else
 		{
-			redirect('relawan/kegiatan_berlangsung');
+			redirect('Relawan/kegiatan_berlangsung');
 		}
 		
 
@@ -1568,7 +1588,7 @@ class relawan  extends CI_Controller
 		{
 			$pesan = "Gagal membuat Tim baru";
 			$this->alert_gagal($pesan);
-			redirect('relawan/tim_relawan');
+			redirect('Relawan/tim_relawan');
 
 		}
 		else
@@ -1579,7 +1599,7 @@ class relawan  extends CI_Controller
 			if ($cek_tim) {
 				$pesan = "Gagal membuat tim baru, nama tim sudah dipakai";
 				$this->alert_gagal($pesan);
-				redirect('relawan/tim_relawan');
+				redirect('Relawan/tim_relawan');
 			}
 			else{
 				$permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -1616,7 +1636,7 @@ class relawan  extends CI_Controller
 
 				$pesan = "Anda berhasil membuat tim baru";
 				$this->alert_ok($pesan);
-				redirect('relawan/tim_relawan');
+				redirect('Relawan/tim_relawan');
 			}
 
 		}
@@ -1636,7 +1656,7 @@ class relawan  extends CI_Controller
 		
 		$pesan = "anda berhasil mengajukan permintaan menjadi anggota tim";
 		$this->alert_ok($pesan);
-		redirect('relawan/registrasi_tim');
+		redirect('Relawan/registrasi_tim');
 	}
 
 
@@ -1667,7 +1687,7 @@ class relawan  extends CI_Controller
 			$this->alert_ok($pesan);
 		}
 
-		redirect('relawan/registrasi_tim');
+		redirect('Relawan/registrasi_tim');
 	}
 
 
@@ -1706,7 +1726,7 @@ class relawan  extends CI_Controller
 
 			$pesan = "Anggota tim diperbaharui";
 			$this->alert_ok($pesan);
-			redirect('relawan/registrasi_tim');
+			redirect('Relawan/registrasi_tim');
 		}
 		elseif ($konfirmasi == 'tolak') 
 		{
@@ -1717,7 +1737,7 @@ class relawan  extends CI_Controller
 
 			$pesan = "Anggota tim diperbaharui";
 			$this->alert_ok($pesan);
-			redirect('relawan/registrasi_tim');
+			redirect('Relawan/registrasi_tim');
 		}
 	}
 
@@ -1739,7 +1759,7 @@ class relawan  extends CI_Controller
 
 		$pesan = "Pengajuan anggota tim telah berhasil ditutup";
 		$this->alert_info($pesan);
-		redirect('relawan/registrasi_tim');
+		redirect('Relawan/registrasi_tim');
 	}
 
 
@@ -1819,7 +1839,7 @@ class relawan  extends CI_Controller
 		// jika sudah melebihi jadwal pembekalan
 		if (strtotime($data['kegiatan_berlangsung']['akhir_pembekalan']) <= strtotime(date('Y-m-d G:i:s'))) 
 		{
-			redirect('relawan/kegiatan_berlangsung');
+			redirect('Relawan/kegiatan_berlangsung');
 		}
 
 		$this->load->view('template/header_dataTable',$data);
@@ -1863,7 +1883,7 @@ class relawan  extends CI_Controller
 		// jika sudah melebihi jadwal pelayanan
 		if (strtotime($data['kegiatan_berlangsung']['akhir_pelayanan']) <= strtotime(date('Y-m-d G:i:s'))) 
 		{
-			redirect('relawan/kegiatan_berlangsung');
+			redirect('Relawan/kegiatan_berlangsung');
 		}
 
 		$this->load->view('template/header_dataTable',$data);
@@ -1898,7 +1918,7 @@ class relawan  extends CI_Controller
 		else
 		{
 			$data['status_kepesertaan'] = "0";
-			redirect('relawan/kegiatan_berlangsung');
+			redirect('Relawan/kegiatan_berlangsung');
 		}
 		$id_event = $data['kegiatan_berlangsung']['id_event'];
 
@@ -1952,7 +1972,7 @@ class relawan  extends CI_Controller
 		// jika sudah melebihi jadwal pelayanan
 		if (strtotime($data['kegiatan_berlangsung']['akhir_pelaporan']) <= strtotime(date('Y-m-d G:i:s'))) 
 		{
-			redirect('relawan/kegiatan_berlangsung');
+			redirect('Relawan/kegiatan_berlangsung');
 		}
 
 		$this->load->view('template/header_dataTable',$data);
@@ -1979,7 +1999,7 @@ class relawan  extends CI_Controller
 		$this->db->update('tim');
 
 		// echo $contents;
-		redirect('relawan/lihat_artikel/'.$id_tim);
+		redirect('Relawan/lihat_artikel/'.$id_tim);
 	}
 
 
@@ -2013,7 +2033,7 @@ class relawan  extends CI_Controller
 		// jika sudah melebihi jadwal pelayanan
 		if (strtotime($data['kegiatan_berlangsung']['akhir_pelaporan']) <= strtotime(date('Y-m-d G:i:s'))) 
 		{
-			redirect('relawan/kegiatan_berlangsung');
+			redirect('Relawan/kegiatan_berlangsung');
 		}
 
 
@@ -2234,7 +2254,7 @@ class relawan  extends CI_Controller
 
 		$pesan = "Anda sudah terdaftar di event <b>".$event['nama_event']."</b>";
 		$this->alert_ok($pesan);
-		redirect('relawan/kegiatan_berlangsung');
+		redirect('Relawan/kegiatan_berlangsung');
 
 	}
 
@@ -2259,7 +2279,7 @@ class relawan  extends CI_Controller
 			{
 				$pesan = "Gagal untuk keluar dari <i>event</i>, pastikan tidak terdapat anggota tim pada tim yang anda ketuai";
 				$this->alert_gagal($pesan);
-				redirect('relawan/kegiatan_berlangsung');
+				redirect('Relawan/kegiatan_berlangsung');
 			}
 			// jika tidak ada anggota
 			else
@@ -2270,7 +2290,7 @@ class relawan  extends CI_Controller
 				
 				$pesan = "Anda sudah tidak terdaftar pada event <b>".$event['nama_event']."</b>";
 				$this->alert_gagal($pesan);
-				redirect('relawan/kegiatan_akan_datang');
+				redirect('Relawan/kegiatan_akan_datang');
 			}
 		}
 		else
@@ -2278,7 +2298,7 @@ class relawan  extends CI_Controller
 			$this->Relawan_Model->batal_ikuti_event($id_relawan,$id);
 			$pesan = "Anda sudah tidak terdaftar di event <b>".$event['nama_event']."</b>";
 			$this->alert_info($pesan);
-			redirect('relawan/kegiatan_akan_datang');
+			redirect('Relawan/kegiatan_akan_datang');
 		}
 
 
@@ -2357,7 +2377,7 @@ class relawan  extends CI_Controller
 		// print_r($data['pembimbing']); die();
 		if ($data['data_kepesertaan']['status_pengajuan'] <= '2' ) 
 		{
-			redirect('relawan/kegiatan_berlangsung');
+			redirect('Relawan/kegiatan_berlangsung');
 		}
 		else
 		{
@@ -2442,7 +2462,7 @@ class relawan  extends CI_Controller
 		{
 			$pesan = "Gagal merekam penilaian, harap mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('relawan/penilaian');
+			redirect('Relawan/penilaian');
 		}
 		else
 		{	
@@ -2467,7 +2487,7 @@ class relawan  extends CI_Controller
 
 			$pesan = "Terimakasih sudah memberikan penilaian, data penilaian sudah berhasil direkam";
 			$this->alert_ok($pesan);
-			redirect('relawan/penilaian');
+			redirect('Relawan/penilaian');
 		}
 	}
 

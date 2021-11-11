@@ -384,6 +384,10 @@
                       <td class="text-left"><small><?= $indikator['indikator']; ?></small></td>
                       <td  width="20%">
                         <a href="" name="edit" class="badge badge-warning"  data-toggle="modal" data-target="#ubah_indikator_<?=$indikator['id_indikator'];?>">edit</i></a>
+                        <?php if ($i+1 > 1) {?>
+                          <a href="" name="edit" class="badge badge-danger"  data-toggle="modal" data-target="#hapus_indikator_<?=$indikator['id_indikator'];?>">hapus</i></a>
+                        <?php } ?>
+                        
                       </td>
                     </tbody>
                     <?php $i++; } ?>
@@ -429,7 +433,7 @@
       <div class="modal-body">
         <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
         <!-- form -->
-        <form class="user was-validated mt-3" method="post" action="<?= base_url('admin/ubah_persentase_kinerja_tim')  ?>">
+        <form class="user was-validated mt-3" method="post" action="<?= base_url('Admin/ubah_persentase_kinerja_tim')  ?>">
           
           <?php foreach ($kinerja_tim as $kt) 
            {?>
@@ -464,7 +468,7 @@
       <div class="modal-body">
         <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
         <!-- form -->
-        <form class="user was-validated mt-3" method="post" action="<?= base_url('admin/ubah_persentase_nilai_individu')  ?>">
+        <form class="user was-validated mt-3" method="post" action="<?= base_url('Admin/ubah_persentase_nilai_individu')  ?>">
           
           <?php foreach ($nilai_individu as $ni) 
            {?>
@@ -501,7 +505,7 @@
       <div class="modal-body">
         <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
         <!-- form -->
-        <form class="user was-validated mt-3" method="post" action="<?= base_url('admin/ubah_persentase_kinerja_relawan')  ?>">
+        <form class="user was-validated mt-3" method="post" action="<?= base_url('Admin/ubah_persentase_kinerja_relawan')  ?>">
           
           <?php foreach ($kinerja_relawan as $kr) 
            {?>
@@ -537,7 +541,7 @@
       <div class="modal-body">
         <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
         <!-- form -->
-        <form class="user was-validated mt-3" method="post" action="<?= base_url('admin/aksi_kriteria_penilaian/tambah_indikator_collaborative/0')  ?>">
+        <form class="user was-validated mt-3" method="post" action="<?= base_url('Admin/aksi_kriteria_penilaian/tambah_indikator_collaborative/0')  ?>">
           <div class="form-group">
             <p for="" class="text-left mb-1 font-weight-bold">Indikator penilaian :</p>
             <textarea class="form-control is_invalid form-control-sm" rows="4"  id="nama" name="nama" placeholder="..." required oninvalid="this.setCustomValidity('Anda belum mengisi indikator penilaian..')" oninput="setCustomValidity('')"></textarea>
@@ -567,7 +571,7 @@
       <div class="modal-body">
         <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
         <!-- form -->
-        <form class="user was-validated mt-3" method="post" action="<?= base_url('admin/aksi_kriteria_penilaian/tambah_indikator_mitra/0')  ?>">
+        <form class="user was-validated mt-3" method="post" action="<?= base_url('Admin/aksi_kriteria_penilaian/tambah_indikator_mitra/0')  ?>">
           <div class="form-group">
             <p for="" class="text-left mb-1 font-weight-bold">Indikator penilaian :</p>
             <textarea class="form-control is_invalid form-control-sm" rows="4"  id="nama" name="nama" placeholder="..." required oninvalid="this.setCustomValidity('Anda belum mengisi indikator penilaian..')" oninput="setCustomValidity('')"></textarea>
@@ -596,7 +600,7 @@
       <div class="modal-body">
         <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
         <!-- form -->
-        <form class="user was-validated mt-3" method="post" action="<?= base_url('admin/aksi_kriteria_penilaian/tambah_indikator_performa/0')  ?>">
+        <form class="user was-validated mt-3" method="post" action="<?= base_url('Admin/aksi_kriteria_penilaian/tambah_indikator_performa/0')  ?>">
           <div class="form-group">
             <p for="" class="text-left mb-1 font-weight-bold">Indikator penilaian :</p>
             <textarea class="form-control is_invalid form-control-sm" rows="4"  id="nama" name="nama" placeholder="..." required oninvalid="this.setCustomValidity('Anda belum mengisi indikator penilaian..')" oninput="setCustomValidity('')"></textarea>
@@ -626,7 +630,7 @@
         <div class="modal-body">
           <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
           <!-- form -->
-          <form class="user was-validated mt-3" method="post" action="<?= base_url('admin/aksi_kriteria_penilaian/ubah_indikator/'.$indikator['id_indikator']);  ?>">
+          <form class="user was-validated mt-3" method="post" action="<?= base_url('Admin/aksi_kriteria_penilaian/ubah_indikator/'.$indikator['id_indikator']);  ?>">
             <div class="form-group">
               <p for="" class="text-left mb-1 font-weight-bold">Indikator penilaian :</p>
               <textarea class="form-control is_invalid form-control-sm" rows="4" id="nama" name="nama" value="<?= $indikator['indikator'];?>" required oninvalid="this.setCustomValidity('Anda belum mengisi indikator penilaian')" oninput="setCustomValidity('')"><?= $indikator['indikator'];?> </textarea>
@@ -660,7 +664,7 @@
           <h5>Yakin akan menghapus indikator penilaian?</h5>
         </div>
         <div class="modal-footer danger-md">
-          <a href="<?= base_url('admin/aksi_kriteria_penilaian/hapus_indikator/'.$indikator['id_indikator'])  ?>" class="badge badge-danger badge-sm"> Hapus</a>
+          <a href="<?= base_url('Admin/aksi_kriteria_penilaian/hapus_indikator/'.$indikator['id_indikator'])  ?>" class="badge badge-danger badge-sm"> Hapus</a>
         </div>
       </div>
     </div>
@@ -683,7 +687,7 @@
       <div class="modal-body">
         <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
         <!-- form -->
-        <form class="user was-validated mt-3" method="post" action="<?= base_url('admin/aksi_kriteria_penilaian/tambah_indikator_laporan/0')  ?>">
+        <form class="user was-validated mt-3" method="post" action="<?= base_url('Admin/aksi_kriteria_penilaian/tambah_indikator_laporan/0')  ?>">
           <div class="form-group">
             <p for="" class="text-left mb-1 font-weight-bold">Indikator penilaian :</p>
             <textarea class="form-control is_invalid form-control-sm" rows="4"  id="nama" name="nama" placeholder="..." required oninvalid="this.setCustomValidity('Anda belum mengisi indikator penilaian..')" oninput="setCustomValidity('')"></textarea>

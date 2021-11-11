@@ -16,7 +16,7 @@
 			<div class="d-sm-flex align-items-center justify-content-between">
 				<h6 class="m-0 font-weight-bold text-primary">Tabel data anggota </h6>
 				<div>
-					<a href="<?= base_url('pangkalan/pengajuan_anggota') ?>" class="d-sm-inline-block btn btn-sm btn-info shadow-sm">Pengajuan anggota <?php if ($jml_pengajuan_anggota) {?><div class="badge bg-danger text-light">  <?= $jml_pengajuan_anggota; ?> </div> <?php } ?></a>
+					<a href="<?= base_url('Pangkalan/pengajuan_anggota') ?>" class="d-sm-inline-block btn btn-sm btn-info shadow-sm">Pengajuan anggota <?php if ($jml_pengajuan_anggota) {?><div class="badge bg-danger text-light">  <?= $jml_pengajuan_anggota; ?> </div> <?php } ?></a>
 				</div>
 			</div>
 		</div>
@@ -189,7 +189,7 @@
 					<h6>Hapus anggota dari daftar anggota?</h6>
 				</div>
 				<div class="modal-footer">
-					<a href="<?= base_url('pangkalan/hapusanggota/'.urlencode($agt['id_relawan'])); ?>" class="badge badge-danger badge-sm">hapus</a>
+					<a href="<?= base_url('Pangkalan/hapusanggota/'.urlencode($agt['id_relawan'])); ?>" class="badge badge-danger badge-sm">hapus</a>
 				</div>
 			</div>
 		</div>
@@ -213,7 +213,7 @@
 					<h6>Reset password akun anggota?</h6>
 				</div>
 				<div class="modal-footer">
-					<a href="<?= base_url('pangkalan/reset_password_anggota/'.urlencode($agt['id_relawan'])); ?>" class="badge badge-warning badge-sm">reset</a>
+					<a href="<?= base_url('Pangkalan/reset_password_anggota/'.urlencode($agt['id_relawan'])); ?>" class="badge badge-warning badge-sm">reset</a>
 				</div>
 			</div>
 		</div>

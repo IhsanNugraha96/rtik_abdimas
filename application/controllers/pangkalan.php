@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class pangkalan  extends CI_Controller 
+class Pangkalan  extends CI_Controller 
 
 {
 	public function __construct()
@@ -9,7 +9,7 @@ class pangkalan  extends CI_Controller
 		parent::__construct();
 		if(!$this->session->userdata('id_pangkalan'))
 		{	
-			redirect('landingPage');
+			redirect('LandingPage');
 		}
 
 		
@@ -286,7 +286,7 @@ class pangkalan  extends CI_Controller
 		{
 			$pesan = "Gagal menambah pembimbing, pastikan nik dan email belum digunakan oleh pembimbing lain";
 			$this->alert_gagal($pesan);
-			redirect('pangkalan/pembimbing');
+			redirect('Pangkalan/pembimbing');
 		}
 		else
 		{	
@@ -321,7 +321,7 @@ class pangkalan  extends CI_Controller
 
 			$pesan = "Pembimbing sudah berhasil ditambahkan, Pembimbing akan menerima pemberitahuan akun melalui email";
 			$this->alert_ok($pesan);
-			redirect('pangkalan/pembimbing');
+			redirect('Pangkalan/pembimbing');
 		}
 	}
 
@@ -341,9 +341,11 @@ class pangkalan  extends CI_Controller
 		$this->db->where($where);
 		$this->db->update('tim');
 
+		$this->db->delete('pembimbing', array('id_pembimbing' => $data_pembimbing['id_pembimbing']));
+
 		$pesan = "Akun pembimbing telah berhasil di hapus";
 		$this->alert_ok($pesan);
-		redirect('pangkalan/pembimbing');
+		redirect('Pangkalan/pembimbing');
 	}
 
 	public function reset_password_pembimbing($id_pembimbing)
@@ -363,7 +365,7 @@ class pangkalan  extends CI_Controller
 
 		$pesan = "Password Pembimbing sudah berhasil di reset, Pembimbing akan menerima pemberitahuan akun melalui email";
 		$this->alert_ok($pesan);
-		redirect('pangkalan/pembimbing');
+		redirect('Pangkalan/pembimbing');
 
 
 	}
@@ -441,7 +443,7 @@ class pangkalan  extends CI_Controller
 
 		$pesan = "Password akun anggota Relawan sudah berhasil di reset, Anggota relawan akan menerima pemberitahuan akun melalui email";
 		$this->alert_ok($pesan);
-		redirect('pangkalan/anggota');
+		redirect('Pangkalan/anggota');
 
 
 	}
@@ -476,7 +478,7 @@ class pangkalan  extends CI_Controller
 
 		$pesan = "Akun anggota telah berhasil di hapus";
 		$this->alert_ok($pesan);
-		redirect('pangkalan/anggota');
+		redirect('Pangkalan/anggota');
 	}
 
 
@@ -504,7 +506,7 @@ class pangkalan  extends CI_Controller
 
 			$pesan = "Pengajuan anggota telah berhasil di hapus";
 			$this->alert_ok($pesan);
-			redirect('pangkalan/anggota');
+			redirect('Pangkalan/anggota');
 		}
 
 		elseif ($aksi == 'acc') 
@@ -522,7 +524,7 @@ class pangkalan  extends CI_Controller
 
 			$pesan = "Pengajuan akun telah di setujui";
 			$this->alert_ok($pesan);
-			redirect('pangkalan/anggota');
+			redirect('Pangkalan/anggota');
 		}
 		
 	}
@@ -643,7 +645,7 @@ class pangkalan  extends CI_Controller
 			{
 				$pesan = "Akun gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('pangkalan/edit_profil');
+				redirect('Pangkalan/edit_profil');
 
 			}
 			else
@@ -676,7 +678,7 @@ class pangkalan  extends CI_Controller
 					{
 						$pesan = "Ukuran dokumen yang diunggah melebihi batas (2MB), dokumen gagal di upload";
 						$this->alert_gagal($pesan);
-						redirect('pangkalan/edit_profil');
+						redirect('Pangkalan/edit_profil');
 					}
 				
 					$where = array('id_komisariat' => $id_pangkalan );
@@ -703,6 +705,15 @@ class pangkalan  extends CI_Controller
 						$pesan = "Akun anda sudah berhasil diperbaharui";
 						$this->alert_ok($pesan);
 					}
+					elseif ($email == $data_pangkalan['email']) 
+					{
+						$data = [
+							'username' 	=> $Username
+						];
+						$this->db->set($data);
+						$this->db->where('id_relawan', $id_relawan);
+						$this->db->update('relawan');
+					}
 					else
 					{
 						$pesan = "Alamat email sudah digunakan";
@@ -711,7 +722,7 @@ class pangkalan  extends CI_Controller
 						
 				}
 
-				redirect('pangkalan/edit_profil');
+				redirect('Pangkalan/edit_profil');
 			}
 		}
 
@@ -733,7 +744,7 @@ class pangkalan  extends CI_Controller
 
 			$pesan = "Foto Profil berhasil di hapus";
 			$this->alert_ok($pesan);
-			redirect('pangkalan/edit_profil');
+			redirect('Pangkalan/edit_profil');
 		}
 
 
@@ -760,7 +771,7 @@ class pangkalan  extends CI_Controller
 			{
 				$pesan = "Biodata gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('pangkalan/edit_profil/#bio');
+				redirect('Pangkalan/edit_profil/#bio');
 
 			}
 			else
@@ -781,7 +792,7 @@ class pangkalan  extends CI_Controller
 
 				$pesan = "Biodata telah di perbaharui";
 				$this->alert_ok($pesan);
-				redirect('pangkalan/edit_profil/#bio');
+				redirect('Pangkalan/edit_profil/#bio');
 			}	 
 		}
 
@@ -797,7 +808,7 @@ class pangkalan  extends CI_Controller
 			{
 				$pesan = "Akun gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('pangkalan/edit_profil/#ketua');
+				redirect('Pangkalan/edit_profil/#ketua');
 
 			}
 			else
@@ -833,7 +844,7 @@ class pangkalan  extends CI_Controller
 					{
 						$pesan = "Ukuran dokumen yang diunggah melebihi batas (2MB), dokumen gagal di upload";
 						$this->alert_gagal($pesan);
-						redirect('pangkalan/edit_profil/#ketua');
+						redirect('Pangkalan/edit_profil/#ketua');
 					}
 					
 					$where = array('id_komisariat' => $id_pangkalan );
@@ -860,7 +871,7 @@ class pangkalan  extends CI_Controller
 					$this->alert_ok($pesan);	
 				}
 
-				redirect('pangkalan/edit_profil');
+				redirect('Pangkalan/edit_profil');
 			}
 		}
 
@@ -881,7 +892,7 @@ class pangkalan  extends CI_Controller
 
 			$pesan = "Foto ketua pangkalan berhasil di hapus";
 			$this->alert_ok($pesan);
-			redirect('pangkalan/edit_profil');
+			redirect('Pangkalan/edit_profil');
 		}
 
 
@@ -900,7 +911,7 @@ class pangkalan  extends CI_Controller
 			{
 				$pesan = "Password gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('pangkalan/edit_profil');
+				redirect('Pangkalan/edit_profil');
 
 			}
 			else
@@ -908,12 +919,12 @@ class pangkalan  extends CI_Controller
 				if ($passwordlama != base64_decode($data_pangkalan['password'])) {
 					$pesan = "Password lama tidak sesuai";
 					$this->alert_gagal($pesan);
-					redirect('pangkalan/edit_profil');
+					redirect('Pangkalan/edit_profil');
 				}
 				elseif ($passwordbaru != $passwordbaru2) {
 					$pesan = "Password baru tidak sama, harap input password baru dengan benar";
 					$this->alert_gagal($pesan);
-					redirect('pangkalan/edit_profil');
+					redirect('Pangkalan/edit_profil');
 				}
 				else{
 					$password_baru3 = base64_encode($passwordbaru);
@@ -1039,7 +1050,7 @@ class pangkalan  extends CI_Controller
 		$data['pangkalan']	= $this->Pangkalan_Model->cek_pangkalan_by_idPangkalan2($id_pangkalan);
 		$data['event']		= $this->Pangkalan_Model->get_event_by_idPangkalan($id_pangkalan);
 		
-		
+		// print_r($data['event']); die();
 
 		$i=0;
 		if ($data['event']) 
@@ -1084,6 +1095,7 @@ class pangkalan  extends CI_Controller
 		$data['user'] 		= 'Pangkalan';
 		$data['pangkalan']	= $this->Pangkalan_Model->cek_pangkalan_by_idPangkalan2($id_pangkalan);
 		
+		$data['id_event'] 	= $id_event;
 		$data['pembimbing'] = $this->Pangkalan_Model->get_data_pembimbing_by_id_event_id_pangkalan($id_pangkalan,$id_event);
 		$data['jml_pembimbing']= $this->Pangkalan_Model->get_jml_pembimbing_by_id_event_id_pangkalan($id_pangkalan,$id_event);
 		$data['tim']		= $this->Pangkalan_Model->get_data_tim_relawan_by_idPangkalan($id_pangkalan,$id_event);
@@ -1098,19 +1110,52 @@ class pangkalan  extends CI_Controller
 				$data['mitra'][$j] = $this->Pangkalan_Model->get_mitra_by_id_tim($tim['id_tim']);
 				$data['anggota_tim'][$j] = $this->Pangkalan_Model->get_anggota_tim_by_id_tim($tim['id_tim']);
 				$data['ketua_tim'][$j] = $this->Pangkalan_Model->get_ketua_tim_by_id_tim($tim['id_tim']);
+				$data['berkas_tim'][$j] = $this->Pangkalan_Model->get_berkas_tim_by_id_tim($tim['id_tim']);
 			
 				$j++;
 			}
 		}
 
 
-		// print_r($data['ketua_tim']); die();
+		// print_r($data['berkas_tim']); die();
 
 		$this->load->view('template/header_dataTable', $data);
 		$this->load->view('relawan/sidebar2', $data);
 		$this->load->view('pangkalan/topbar', $data);
 		$this->load->view('pangkalan/detail_event', $data);
 		$this->load->view('template/footer_dataTable', $data);
+	}
+
+
+	public function lihat_artikel($id_tim,$id_event)
+	{
+		$data['title']   = "Pabgkalan - Lihat_artikel";
+		$data['tim'] = $this->Pangkalan_Model->get_berkas_tim_by_id_tim($id_tim);
+		$data['pengumuman'] = $this->Relawan_Model->get_pengumuman();
+		$id_pangkalan 		= $this->session->userdata('id_pangkalan');
+		$data['id_event'] 	= $id_event;
+		$data['user'] 		= 'Pangkalan';
+		$data['pangkalan']	= $this->Pangkalan_Model->cek_pangkalan_by_idPangkalan2($id_pangkalan);
+		
+		$this->load->view('template/header_dataTable',$data);
+		// $this->load->view('relawan/sidebar2', $data);
+		$this->load->view('pangkalan/topbar', $data);
+		$this->load->view('relawan/lihat_artikel', $data);
+		$this->load->view('template/footer_dataTable', $data);
+	}
+	public function tidak_ada_berkas($id_event)
+	{
+		$this->session->set_flashdata('message','<div class="alert alert-danger alert-mg-b alert-success-style4 alert-st-bg3 alert-st-bg14 animated--grow-in show" style="background-color: white;">
+			<button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
+			<span class="icon-sc-cl" aria-hidden="true">&times;</span>
+			</button>
+			<i class="fa fa-times edu-danger-error admin-check-pro admin-check-pro-clr3 admin-check-pro-clr14" aria-hidden="true"></i>
+			<p><strong>Maaf, belum ada berkas yang di unggah personel tim!</strong></p>
+			</div>');
+		
+			redirect('Pangkalan/detail_event/'.$id_event);
+		
+		
 	}
 
 	public function detail_pembimbing_event($id_event)

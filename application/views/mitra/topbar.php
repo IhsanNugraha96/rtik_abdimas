@@ -35,11 +35,11 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="<?= base_url('mitra') ?>">
+                <a class="dropdown-item" href="<?= base_url('Mitra') ?>">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profil
                 </a>
-                <a class="dropdown-item" href="<?= base_url('mitra/edit_profil') ?>">
+                <a class="dropdown-item" href="<?= base_url('Mitra/edit_profil') ?>">
                   <i class="fas fa-user-cog fa-sm fa-fw mr-2 text-gray-400"></i>
                   Edit Profil
                 </a>

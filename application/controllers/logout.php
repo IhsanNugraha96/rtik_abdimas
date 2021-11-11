@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class logout  extends CI_Controller 
+class Logout  extends CI_Controller 
 
 {
 		public function index()
@@ -16,7 +16,7 @@ class logout  extends CI_Controller
 		$this->session->unset_userdata('id_mitra');
 
 		$this->session->set_flashdata('message','<div class="alert alert-success" style="margin-top:-10%;" role="alert">Anda berhasil keluar! </div>');
-			redirect('auth');
+			redirect('Auth');
 
 	}
 
@@ -32,20 +32,20 @@ class logout  extends CI_Controller
 		$this->session->unset_userdata('id_pangkalan');
 
 		$this->session->set_flashdata('message','<div class="alert alert-success" style="margin-top:-10%;" role="alert">Akun anda telah berhasil di hapus! </div>');
-			redirect('landingPage');
+			redirect('LandingPage');
 
 	}
 
 	public function keluar_detail_event()
 	{
 		$this->session->unset_userdata('id_event');
-		redirect('admin/event');
+		redirect('Admin/event');
 	}
 
 	public function keluar_detail_tim()
 	{
 		$this->session->unset_userdata('id_tim');
-		redirect('admin/timRelawan_event');
+		redirect('Admin/timRelawan_event');
 	}
 
 }

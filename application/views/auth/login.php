@@ -14,7 +14,7 @@
         
         <?= form_error('username', '<small class="text-danger pl-3">','</small>'); ?>
         <!-- akhir notifikasi -->
-        <form class="user was-validated" method="post" action="<?= base_url('auth');  ?>">
+        <form class="user was-validated" method="post" action="<?= base_url('Auth');  ?>">
 
         <div class="form-group">
           <select class="custom-select" id="user" name="user" required oninvalid="this.setCustomValidity('Anda belum memilih jenis user..')" oninput="setCustomValidity('')">
@@ -53,8 +53,8 @@
         </button>              
       </form>
       <hr>
-      <center style="margin-top: -3%;"><a href="<?= base_url('auth/form_daftar_relawan'); ?>"><i class="small ml-2">Belum Memiliki Akun?</i></a></center>
-      <center><a href="<?= base_url('landingPage'); ?>"><i class="small ml-2">Kembali ke Beranda</i></a></center>
+      <center style="margin-top: -3%;"><a href="<?= base_url('Auth/form_daftar_relawan'); ?>"><i class="small ml-2">Belum Memiliki Akun?</i></a></center>
+      <center><a href="<?= base_url('LandingPage'); ?>"><i class="small ml-2">Kembali ke Beranda</i></a></center>
     </div>
   </div>
 </div>

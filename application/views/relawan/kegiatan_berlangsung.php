@@ -31,7 +31,7 @@
       <!-- <div class="col">      -->
         <?php if ($data_di_tim) { 
          if ($data_di_tim['status_pengajuan'] >=3) {?>
-          <a href="<?= base_url('relawan/tim_relawan') ?>" >
+          <a href="<?= base_url('Relawan/tim_relawan') ?>" >
           <?php }  }?>
           <div class="card border-0">
             <div class="card-body">
@@ -43,7 +43,7 @@
 
         <?php if ($data_di_tim) { 
          if ($data_di_tim['status_pengajuan'] >=3) {?>
-          <a href="<?= base_url('relawan/pembimbing') ?>">
+          <a href="<?= base_url('Relawan/pembimbing') ?>">
           <?php }  }?>
           <div class="card border-0">
             <div class="card-body">
@@ -57,7 +57,7 @@
         {?>
           <?php if ($data_di_tim) { 
          if ($data_di_tim['status_pengajuan'] >=3) {?>
-           <a href="<?= base_url('relawan/mitra') ?>">
+           <a href="<?= base_url('Relawan/mitra') ?>">
              <?php }  }?>
             <div class="card border-0">
               <div class="card-body">
@@ -79,7 +79,7 @@
 
         <!-- <div class="col">      -->
           <?php if (strtotime($kegiatan_berlangsung['akhir_registrasi']) >= strtotime(date('Y-m-d G:i:s'))) { ?>
-            <a href="<?= base_url('relawan/registrasi_tim') ?>"> 
+            <a href="<?= base_url('Relawan/registrasi_tim') ?>"> 
             <?php } ?>
             <div class="card border-0">
               <div class="card-body">
@@ -92,7 +92,7 @@
 
           <!-- <div class="col"> -->
             <?php if (strtotime($kegiatan_berlangsung['awal_pembekalan']) <= strtotime(date('Y-m-d G:i:s')) && strtotime($kegiatan_berlangsung['akhir_pembekalan']) >= strtotime(date('Y-m-d G:i:s'))) { ?>
-              <a href="<?= base_url('relawan/pembekalan') ?>" > <?php } ?>
+              <a href="<?= base_url('Relawan/pembekalan') ?>" > <?php } ?>
               <div class="card border-0">
                 <div class="card-body">
                   <i class="fas fa-chalkboard-teacher fa-2x"></i><br>
@@ -104,7 +104,7 @@
 
             <!-- <div class="col"> -->
               <?php if (strtotime($kegiatan_berlangsung['awal_pelayanan']) <= strtotime(date('Y-m-d G:i:s')) && strtotime($kegiatan_berlangsung['akhir_pelayanan']) >= strtotime(date('Y-m-d G:i:s'))) { ?>
-                <a href="<?= base_url('relawan/pelayanan'); ?>"> <?php } ?>
+                <a href="<?= base_url('Relawan/pelayanan'); ?>"> <?php } ?>
                 <div class="card border-0">
                   <div class="card-body">
                     <i class="fas fa-people-carry fa-2x"></i><br>
@@ -115,7 +115,7 @@
               <!-- </div> -->
 
               <?php if (strtotime($kegiatan_berlangsung['awal_pelaporan']) <= strtotime(date('Y-m-d G:i:s')) && strtotime($kegiatan_berlangsung['akhir_pelaporan']) >= strtotime(date('Y-m-d G:i:s'))) { ?>
-                <a href="<?= base_url('relawan/pelaporan'); ?>" > <?php } ?>
+                <a href="<?= base_url('Relawan/pelaporan'); ?>" > <?php } ?>
                 <div class="card border-0">
                   <div class="card-body">
                     <i class="far fa-copy fa-2x"></i><br>
@@ -125,7 +125,7 @@
               </a>
 
               <?php if (strtotime($kegiatan_berlangsung['awal_penilaian']) <= strtotime(date('Y-m-d G:i:s')) && strtotime($kegiatan_berlangsung['akhir_penilaian']) >= strtotime(date('Y-m-d G:i:s'))) { ?>
-                <a href="<?= base_url('relawan/penilaian'); ?>" > <?php } ?>
+                <a href="<?= base_url('Relawan/penilaian'); ?>" > <?php } ?>
                 <div class="card border-0">
                   <div class="card-body">
                     <i class="fas fa-sort-numeric-up-alt fa-2x"></i><br>
@@ -236,7 +236,7 @@ else if (strtotime($kegiatan_berlangsung['awal_penilaian']) <= strtotime(date('Y
     <div class="row text-center m-0 mt-3 justify-content-md-center">
 
       <!-- <div class="col">      -->
-        <a href="<?= base_url('pembimbing/pengajuan_pembimbing') ?>" >
+        <a href="<?= base_url('Pembimbing/pengajuan_pembimbing') ?>" >
           <div class="card border-0 ">
             <div class="card-body">
               <i class="fas fa-users fa-2x"></i>
@@ -252,7 +252,7 @@ else if (strtotime($kegiatan_berlangsung['awal_penilaian']) <= strtotime(date('Y
             </div>
           </a> 
 
-          <a href="<?= base_url('pembimbing/tim_pembimbing') ?>" > 
+          <a href="<?= base_url('Pembimbing/tim_pembimbing') ?>" > 
             <div class="card border-0">
               <div class="card-body">
                 <i class="fas fa-users fa-2x"></i><br>
@@ -261,7 +261,7 @@ else if (strtotime($kegiatan_berlangsung['awal_penilaian']) <= strtotime(date('Y
             </div>
           </a> 
 
-          <a href="<?= base_url('pembimbing/template_berkas'); ?>" >
+          <a href="<?= base_url('Pembimbing/template_berkas'); ?>" >
             <div class="card border-0">
               <div class="card-body">
                 <i class="far fa-copy fa-2x"></i><br>
@@ -276,7 +276,7 @@ else if (strtotime($kegiatan_berlangsung['awal_penilaian']) <= strtotime(date('Y
           <div class="row text-center m-0 mb-3 justify-content-md-center">
 
             <?php if (strtotime($kegiatan_berlangsung['awal_pembekalan']) <= strtotime(date('Y-m-d G:i:s')) && strtotime($kegiatan_berlangsung['akhir_pembekalan']) >= strtotime(date('Y-m-d G:i:s'))) { ?>
-              <a href="<?= base_url('pembimbing/pembekalan') ?>" > <?php } ?>
+              <a href="<?= base_url('Pembimbing/pembekalan') ?>" > <?php } ?>
               <div class="card border-0">
                 <div class="card-body">
                   <i class="fas fa-chalkboard-teacher fa-2x"></i><br>
@@ -287,7 +287,7 @@ else if (strtotime($kegiatan_berlangsung['awal_penilaian']) <= strtotime(date('Y
 
 
             <?php if (strtotime($kegiatan_berlangsung['awal_penilaian']) <= strtotime(date('Y-m-d G:i:s')) && strtotime($kegiatan_berlangsung['akhir_penilaian']) >= strtotime(date('Y-m-d G:i:s'))) { ?>
-              <a href="<?= base_url('pembimbing/penilaian'); ?>" > <?php } ?>
+              <a href="<?= base_url('Pembimbing/penilaian'); ?>" > <?php } ?>
               <div class="card border-0">
                 <div class="card-body">
                   <i class="fas fa-sort-numeric-up-alt fa-2x"></i><br>

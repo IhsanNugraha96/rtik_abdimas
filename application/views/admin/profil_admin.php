@@ -16,7 +16,7 @@
                 
                 <div class="single-product-text" style="padding-bottom: 10%;">
                     <a href="" data-toggle="modal" data-target="#lihat_foto">
-                        <img class="img-thumbnail mb-3 shadow rounded-circle rounded-profil" src="<?= base_url('assets/img/relawan/image/'.$admin['image']) ?>">
+                        <img class="img-thumbnail mb-3 shadow rounded-circle rounded-profil" src="<?= base_url('assets/img/admin/'.$admin['image']) ?>">
                         
                     </a>
                     <h6><b><?= $admin['username']; ?></b></h6>

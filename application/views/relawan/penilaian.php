@@ -22,7 +22,7 @@
           </div>
           <div class="card-body">
            <p class="text-center text-danger mb-5"><small><u>( Anda hanya bisa mengirimkan data penilaian satu kali. Jika data penilaian sudah di kirim, anda tidak bisa memperbaharuinya lagi! )</u></small></p>
-           <form class="user was-validated" method="post" action="<?= base_url('relawan/penilaian_anggota/'.$data_di_tim['id_tim']);?>">
+           <form class="user was-validated" method="post" action="<?= base_url('Relawan/penilaian_anggota/'.$data_di_tim['id_tim']);?>">
             <?php $i=0; foreach ($personel_tim as $agt) 
             { ?>
               <b><?= ($i+1).'. '. $agt['nama_lengkap']; ?></b>

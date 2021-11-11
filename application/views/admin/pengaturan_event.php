@@ -159,7 +159,7 @@
 
     <div class="col-sm-12">
       <div class="collapse multi-collapse" id="acara_pembekalan"><hr width="90%">
-        <a href="<?= base_url('admin/tambah_acara_pembekalan/'.urlencode($event['id_event'])) ?>" class="btn btn-primary btn-sm text-right ml-3">Tambah acara</a>
+        <a href="<?= base_url('Admin/tambah_acara_pembekalan/'.urlencode($event['id_event'])) ?>" class="btn btn-primary btn-sm text-right ml-3">Tambah acara</a>
         <div class="card-body no-border">
           <div class="row">
             <?php $i=0; foreach ($pembekalan as $pmb) {?>
@@ -221,7 +221,7 @@
                       </div>
 
                       <?php if ((strtotime($pmb['waktu_pelaksanaan'])+ 60*60*24 ) > strtotime(date('Y-m-d G:i:s'))) { ?>
-                        <a href="<?= base_url('admin/ubah_pembekalan/'.$pmb['id_pembekalan']);?>" class="btn btn-warning btn-sm mr-2">Ubah</a>
+                        <a href="<?= base_url('Admin/ubah_pembekalan/'.$pmb['id_pembekalan']);?>" class="btn btn-warning btn-sm mr-2">Ubah</a>
                         <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#WarningModalalert">Hapus</a>
                       <?php } ?>
                     </small>
@@ -527,7 +527,7 @@
             </button>
           </div>
           <div class="modal-body" style="padding: 5% 10% 0 10%;">
-            <form class="user was-validated" method="post" action="<?= base_url('admin/ubah_event/nama_event/'.urlencode($event['id_event']));?>" enctype="multipart/form-data">
+            <form class="user was-validated" method="post" action="<?= base_url('Admin/ubah_event/nama_event/'.urlencode($event['id_event']));?>" enctype="multipart/form-data">
 
               <input type="text" class="form-control" id="nama" name="nama" placeholder="<?= $event['nama_event']; ?>" value="<?= $event['nama_event']; ?>" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda belum mengisi nama event')" oninput="setCustomValidity('')">
 
@@ -558,7 +558,7 @@
             </button>
           </div>
           <div class="modal-body" style="padding: 5% 10% 0 10%;">
-            <form class="user was-validated" method="post" action="<?= base_url('admin/ubah_event/link_event/'.urlencode($event['id_event']));?>" enctype="multipart/form-data">
+            <form class="user was-validated" method="post" action="<?= base_url('Admin/ubah_event/link_event/'.urlencode($event['id_event']));?>" enctype="multipart/form-data">
 
               <input type="text" class="form-control" id="link" name="link" placeholder="<?= $event['link_gdrive_default']; ?>" value="<?= $event['link_gdrive_default']; ?>" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda belum mengisi link default penyimpanan berkas')" oninput="setCustomValidity('')">
 
@@ -590,7 +590,7 @@
             </button>
           </div>
           <div class="modal-body" style="padding: 5% 10% 0 10%;">
-            <form class="user was-validated" method="post" action="<?= base_url('admin/ubah_event/tambah_acara_pembekalan/'.urlencode($event['id_event']));?>" enctype="multipart/form-data">
+            <form class="user was-validated" method="post" action="<?= base_url('Admin/ubah_event/tambah_acara_pembekalan/'.urlencode($event['id_event']));?>" enctype="multipart/form-data">
 
               <input type="text" class="form-control" id="link" name="link" placeholder="<?= $event['link_gdrive_default']; ?>" value="<?= $event['link_gdrive_default']; ?>" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda belum mengisi link default penyimpanan berkas')" oninput="setCustomValidity('')">
 
@@ -621,7 +621,7 @@
             </button>
           </div>
           <div class="modal-body" style="padding: 5% 10% 0 10%;">
-            <form class="user was-validated" method="post" action="<?= base_url('admin/ubah_event/'.$Judul[$i]."/".urlencode($event['id_event']));?>" enctype="multipart/form-data">
+            <form class="user was-validated" method="post" action="<?= base_url('Admin/ubah_event/'.$Judul[$i]."/".urlencode($event['id_event']));?>" enctype="multipart/form-data">
               <div class="form-group">
                 <input type="date" class="form-control" id="date" name="tgl" placeholder="Tanggal" value="<?= substr($event[$nama_atribut[$i]], 0, 10); ?>" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda belum menentukan tanggal <?= $Judul[$i]; ?>')" oninput="setCustomValidity('')">
 
@@ -659,7 +659,7 @@
           <p>Anda yakin akan menghapus acara pembekalan ini?</p>
         </div>
         <div class="modal-footer warning-md" style="margin-top: -7%;">
-          <a href="<?= base_url('admin/ubah_event/hapus_acara_pembekalan/'.urlencode($pmb['id_pembekalan']));?>"class="badge badge-danger badge-xs" type="button">Hapus acara</a>
+          <a href="<?= base_url('Admin/ubah_event/hapus_acara_pembekalan/'.urlencode($pmb['id_pembekalan']));?>"class="badge badge-danger badge-xs" type="button">Hapus acara</a>
           <!-- <a href="" class="badge badge-warning badge-xs " type="button" data-dismiss="modal">Keluar</a> -->
         </div>
       </div>
@@ -682,7 +682,7 @@
           </div>
         <div class="modal-body m-0">
           
-          <form class="user was-validated mt-4" method="post" action="<?= base_url('admin/ubah_template_sertifikat/'.$event['id_event']);?>" enctype="multipart/form-data">
+          <form class="user was-validated mt-4" method="post" action="<?= base_url('Admin/ubah_template_sertifikat/'.$event['id_event']);?>" enctype="multipart/form-data">
 
 
             <div class="form-group">

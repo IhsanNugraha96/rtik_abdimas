@@ -21,11 +21,11 @@
               <div class="col-lg-5 col-md-5 col-sm-5 footer-contact" style="margin-right:-10%;">
                 <img src="<?= base_url('assets/img/logo/sttg.png'); ?>" alt="Logo Relawan RTIK" class="img-fluid" style="width: 17%; margin-left: -3%;">
                 <p>
-                  Sekolah Tinggi Teknologi Garut<br>
+                  Institut Teknologi Garut<br>
                   Jl. Mayor Syamsu No.1 Garut 44151<br>
-                  jawa Barat <br><br>
+                  Jawa Barat <br><br>
                   <strong>Phone:</strong> 0262-232773/4892180<br>
-                  <strong>Email:</strong> info@sttgarut.ac.id<br>
+                  <strong>Email:</strong> info@itg.ac.id<br>
                 </p>
               </div>
             </div>
@@ -48,26 +48,23 @@
       </div>
     </div>
 
-    <div class="container d-md-flex py-4">
+    <div class="container pt-3 py-4">
 
-      <div class="mr-md-auto text-center text-md-left">
+      <div class=" text-center">
         <div class="copyright">
-          &copy; Copyright <?= date('Y');?> <strong><span>Sekolah Tinggi Teknologi Garut</span></strong>
+          &copy; Copyright <?= date('Y');?> <strong><span>Institut Teknologi Garut</span></strong>
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
+         
           Template by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
       </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+      <!-- <div class="social-links text-center text-md-right pt-3 pt-md-0">
         <div class="copyright">
           Dikembangkan Oleh: <strong><br><span>Ihsan Nugraha</span></strong>
         </div>
 
-      </div>
+      </div> -->
     </div>
   </footer><!-- End Footer -->
 
@@ -88,31 +85,25 @@
   <!-- Template Main JS File -->
   <script src="<?= base_url('assets/landingPage2/assets/js/main.js');?>"></script>
 
-<!-- <iframe src="<?= base_url('landingPage/artikel_tim/'.$artikel['id_tim'])?>" class=" p-0 m-0 responsive-iframe"  frameborder="0"></iframe> -->
-
-<?php if ($title == 'Artikel Laporan Kegiatan') {?> 
-         <?php $i=0; foreach ($tahun as $thn) { ?>
-   <script type="text/javascript">
-    document.getElementById("tombol_pilihan_<?= $i; ?>").
-    addEventListener("click", tampilkan_nilai_p);
- 
+  
+  <?php if ($title == 'Artikel Laporan Kegiatan') {?> 
+   <?php $i=0; foreach ($tahun as $thn) { ?>
+     <script type="text/javascript">
+      document.getElementById("tombol_pilihan_<?= $i; ?>").
+      addEventListener("click", tampilkan_nilai_p);
+      
 
       function tampilkan_nilai_p() 
       {
         var tahun=document.getElementById("tahun_<?= $i; ?>").innerHTML;         
 
-        var pertama='<iframe src="<';
-        var kedua="?= base_url('landingPage/";
-        var ketiga="artikel_tahun/'.";
-        var keempat='); ?>"'; 
-        var kelima=' class="p-0 m-0 responsive-iframe" frameborder="0"></iframe>';
-        var hasil = pertama + kedua + ketiga + tahun + keempat + kelima;
-        var url = encodeURI(hasil);
+        let hasil = '<iframe src="<?= base_url('LandingPage/artikel_tahun/'.$thn); ?>" class="p-0 m-0 responsive-iframe" frameborder="0" />'
+        // var url = encodeURI(hasil);
         document.getElementById("demo").innerHTML=hasil;
-        alert(hasil);      
+        // alert(hasil);      
       }
     </script>
-      <?php $i++; } ?>
+    <?php $i++; } ?>
 
   <?php } ?>
 

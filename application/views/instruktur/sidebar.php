@@ -23,7 +23,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link" href = "<?= base_url('instruktur/materi');?>">
+        <a class="nav-link" href = "<?= base_url('Instruktur/materi');?>">
         <i class="fas fa-book"></i>
         <span>Data Materi</span></a>
       </li>
@@ -34,7 +34,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link" href="<?= base_url('instruktur/pembekalan') ?>" style="margin-top: -20px;">
+        <a class="nav-link" href="<?= base_url('Instruktur/pembekalan') ?>" style="margin-top: -20px;">
           <i class="fas fa-chalkboard-teacher"></i>
           <span>Pembekalan</span></a>
       </li>
@@ -52,7 +52,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link pb-0" href="<?= base_url('instruktur') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('Instruktur') ?>">
           <i class="fas fa-user"></i>
           <span>Profil instruktur</span></a>
       </li>
@@ -62,7 +62,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?> 
-        <a class="nav-link" href="<?= base_url('instruktur/edit_profil') ?>">
+        <a class="nav-link" href="<?= base_url('Instruktur/edit_profil') ?>">
           <i class="fas fa-user-cog"></i>
           <span>Edit Profil</span></a>
       </li>

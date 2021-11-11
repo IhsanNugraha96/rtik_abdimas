@@ -58,7 +58,7 @@
 									<a href="" name="detail" class="badge badge-warning" data-toggle="modal" data-target="#ubah_<?=$pmb['id_pembekalan'];?>">ubah</i></a>
 
 									<?php if (strtotime($pmb['akhir_penilaian']) < strtotime(date('YmdHis'))) {?>
-										<a href="<?= base_url('instruktur/sertifikat/'.$pmb['id_pembekalan']) ?>" name="detail" class="badge badge-success">Sertifikat</i></a>
+										<a href="<?= base_url('Instruktur/sertifikat/'.$pmb['id_pembekalan']) ?>" name="detail" class="badge badge-success">Sertifikat</i></a>
 									<?php } ?>
 								</td>             
 							</tr>
@@ -92,7 +92,7 @@
 	          <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
 	          <h5 style="margin-top: -3%;">RTIKAbdimas</h5>
 	          <!-- form -->
-	             <form class="user was-validated mt-3" method="post" action="<?= base_url('instruktur/aksi_acara_pembekalan/ubah/').$pmb['id_pembekalan'];  ?>">
+	             <form class="user was-validated mt-3" method="post" action="<?= base_url('Instruktur/aksi_acara_pembekalan/ubah/').$pmb['id_pembekalan'];  ?>">
 
 	                <div class="form-group">
 	                    <p for="" class="text-left mb-1 font-weight-bold">URL lokasi materi :</p>

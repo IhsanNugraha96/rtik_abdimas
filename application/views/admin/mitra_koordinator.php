@@ -52,7 +52,7 @@
         </div>
         <div class="modal-body text-left">
           <h5 class="text-center mb-5">Ubah Logo Mitra Koordinator</h5>
-          <form class="user was-validated" method="post" action="<?= base_url('admin/ubah_mitra/'.$image['id_template']);?>" enctype="multipart/form-data">
+          <form class="user was-validated" method="post" action="<?= base_url('Admin/ubah_mitra/'.$image['id_template']);?>" enctype="multipart/form-data">
 
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="validatedCustomFile" id="file" name="file" accept=".jpg,.jpeg,.png" oninvalid="this.setCustomValidity('Anda belum mengunggah gambar..')" oninput="setCustomValidity('')" required>

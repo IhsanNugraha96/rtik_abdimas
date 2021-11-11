@@ -7,7 +7,7 @@
               <?= $this->session->flashdata('message'); ?>
               <!-- akhir notifikasi -->
               <!-- <?php echo form_open_multipart('auth/proses_formulir_relawan');?> -->
-              <form class="user was-validated" method="post" action="<?= base_url('auth/proses_formulir_relawan');?>" enctype="multipart/form-data">
+              <form class="user was-validated" method="post" action="<?= base_url('Auth/proses_formulir_relawan');?>" enctype="multipart/form-data">
                 <h5 class="text-gray-900 mb-4" style="margin-top: -3%;">Informasi Personal (Wajib di isi)</h5>
 
 
@@ -231,7 +231,7 @@
                 <a class="btn btn-secondary" data-toggle="modal" data-target="#batalModal">Batal</a>
               </form>
               <hr>              
-              <center style="margin-top: -3%;"><a href="<?= base_url('landingPage'); ?>"><i class="small ml-2">Kembali ke Beranda</i></a></center>
+              <center style="margin-top: -3%;"><a href="<?= base_url('LandingPage'); ?>"><i class="small ml-2">Kembali ke Beranda</i></a></center>
             </div>
           </div>
 
@@ -261,7 +261,7 @@
           </button>
         </div>
         <div class="modal-footer">
-         <a href="<?= base_url('landingPage');  ?>" class="btn btn-primary"> Ya </a>
+         <a href="<?= base_url('LandingPage');  ?>" class="btn btn-primary"> Ya </a>
          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak </button>
 
        </div>

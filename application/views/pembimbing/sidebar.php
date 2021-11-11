@@ -29,12 +29,12 @@
         <div id="collapsePages" class="collapse <?php if($title == 'Kegiatan Akan Datang' || $title == 'Kegiatan Berlangsung' || $title == 'Kegiatan Selesai') {echo"show";}?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Kegiatan:</h6>
-            <a class="collapse-item <?php if($title == 'Kegiatan Akan Datang'){echo'active';} ?>" href="<?= base_url('pembimbing/kegiatan_akan_datang'); ?>">Akan Datang <?php if ($kegiatan_akan_datang) {?><div class="badge bg-danger text-light">  <?= $jml_kegiatan_akan_datang ?> </div> <?php } ?></a>
+            <a class="collapse-item <?php if($title == 'Kegiatan Akan Datang'){echo'active';} ?>" href="<?= base_url('Pembimbing/kegiatan_akan_datang'); ?>">Akan Datang <?php if ($kegiatan_akan_datang) {?><div class="badge bg-danger text-light">  <?= $jml_kegiatan_akan_datang ?> </div> <?php } ?></a>
 
-             <a class="collapse-item <?php if($title == 'Kegiatan Berlangsung'){echo'active';} ?>" href="<?= base_url('pembimbing/kegiatan_berlangsung'); ?>">Sedang Berlangsung <?php if ($kegiatan_berlangsung) { 
+             <a class="collapse-item <?php if($title == 'Kegiatan Berlangsung'){echo'active';} ?>" href="<?= base_url('Pembimbing/kegiatan_berlangsung'); ?>">Sedang Berlangsung <?php if ($kegiatan_berlangsung) { 
                 if ($status_pembimbing['role_id'] == '2' ) {?><div class="badge bg-danger text-light">  1 </div> <?php }} ?></a>
 
-            <a class="collapse-item <?php if($title == 'Kegiatan Selesai'){echo'active';} ?>" href="<?= base_url('pembimbing/kegiatan_selesai'); ?>">Telah Selesai <?php if ($jml_kegiatan_telah_diikuti != 0 ) {?><div class="badge bg-danger text-light">  <?= $jml_kegiatan_telah_diikuti ?> </div> <?php } ?></a>
+            <a class="collapse-item <?php if($title == 'Kegiatan Selesai'){echo'active';} ?>" href="<?= base_url('Pembimbing/kegiatan_selesai'); ?>">Telah Selesai <?php if ($jml_kegiatan_telah_diikuti != 0 ) {?><div class="badge bg-danger text-light">  <?= $jml_kegiatan_telah_diikuti ?> </div> <?php } ?></a>
           </div>
         </div>
       </li>
@@ -44,7 +44,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link" href="<?= base_url('pembimbing/pengajuan_pembimbing') ?>" style="margin-top: -20px;">
+        <a class="nav-link" href="<?= base_url('Pembimbing/pengajuan_pembimbing') ?>" style="margin-top: -20px;">
           <i class="fas fa-chalkboard-teacher"></i>
           <span>Pengajuan Pembimbing</span> <?php if ($kegiatan_berlangsung) { 
                 if ($status_pembimbing['role_id'] == '2' ) {?><div class="badge bg-danger text-light">  <?= $jml_pengajuan_pembimbing ?> </div> <?php }} ?></a>
@@ -63,7 +63,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link pb-0" href="<?= base_url('pembimbing') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('Pembimbing') ?>">
           <i class="fas fa-user"></i>
           <span>Profil Pembimbing</span></a>
       </li>
@@ -73,7 +73,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?> 
-        <a class="nav-link" href="<?= base_url('pembimbing/edit_profil') ?>">
+        <a class="nav-link" href="<?= base_url('Pembimbing/edit_profil') ?>">
           <i class="fas fa-user-cog"></i>
           <span>Edit Profil</span></a>
       </li>

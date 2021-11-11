@@ -7,12 +7,12 @@
               <?= $this->session->flashdata('message'); ?>
               <!-- akhir notifikasi -->
               <!-- <?php echo form_open_multipart('auth/formulir_relawan');?> -->
-              <form class="user was-validated" method="post" action="<?= base_url('auth/formulir_pangkalan');?>" enctype="multipart/form-data">
+              <form class="user was-validated" method="post" action="<?= base_url('Auth/formulir_pangkalan');?>" enctype="multipart/form-data">
                 <p  class="text-right font-italic">
-                  <small><a href="<?= base_url('landingPage'); ?>">Kembali ke Beranda</a></small> | 
-                  <small><a href="<?= base_url('auth'); ?>">Sudah punya akun, login!</a></small><br>
-                  <small><a href="<?= base_url('auth/form_daftar_relawan'); ?>">Daftar sebagai relawan</a></small> | 
-                  <small><a href="<?= base_url('auth/form_daftar_instruktur'); ?>">Daftar sebagai instruktur</a></small>
+                  <small><a href="<?= base_url('LandingPage'); ?>">Kembali ke Beranda</a></small> | 
+                  <small><a href="<?= base_url('Auth'); ?>">Sudah punya akun, login!</a></small><br>
+                  <small><a href="<?= base_url('Auth/form_daftar_relawan'); ?>">Daftar sebagai relawan</a></small> | 
+                  <small><a href="<?= base_url('Auth/form_daftar_instruktur'); ?>">Daftar sebagai instruktur</a></small>
                 </p>
                 <h5 class="text-gray-900 mb-4" style="margin-top: -6%;">Informasi Personal</h5>
 
@@ -138,7 +138,7 @@
               <p class="mt-3">Peran Pangkalan/co-host RTIKAbdimas :<br>
               <ol>
                 <small class="text-justify">
-                  <li>Mewakili instansinya bekerjasama dengan host (Sekolah Tinggi Teknologi Garut) dan Relawan TIK Indonesia dalam melaksanakan program RTIKAbdimas yang ditunjukan dengan surat tugas dari institusi tempat bernaung;</li>
+                  <li>Mewakili instansinya bekerjasama dengan host (Institut Teknologi Garut) dan Relawan TIK Indonesia dalam melaksanakan program RTIKAbdimas yang ditunjukan dengan surat tugas dari institusi tempat bernaung;</li>
                   <li>Menyampaikan materi pembekalan pra-Diklat kepada pembimbing dan personel kelompok Relawan TIK pada waktu dan dengan materi pembekalan yang ditentukan oleh host;</li>
                   <li>Menetapkan pembimbing kelompok Relawan TIK, di mana satu pembimbing bisa membimbing lebih dari satu tim;</li>
                   <li>Menetapkan kelompok Relawan TIK yang berisi 4 s.d 5 orang, dan menentukan seorang pembimbingnya;</li>
@@ -158,7 +158,7 @@
               <br>
             </div>
             <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>" style="width: 100%;" class="mx-auto d-block mb-3" >
-            <p class="text-justify"><small>Formulir untuk mengajukan diri sebagai Pangkalan / Co-Host / Koordinator Relawan TIK Lokal. Sebelum mengisi formulir pastikan anda telah membuat <b><a href="<?= base_url('auth/unduh_template/'.$template['nama_template']); ?>">surat kesediaan</a></b> dan <b>surat tugas</b> yang telah ditandatangani dan disajikan dalam format PDF.</small></p>
+            <p class="text-justify"><small>Formulir untuk mengajukan diri sebagai Pangkalan / Co-Host / Koordinator Relawan TIK Lokal. Sebelum mengisi formulir pastikan anda telah membuat <b><a href="<?= base_url('Auth/unduh_template/'.$template['nama_template']); ?>">surat kesediaan</a></b> dan <b>surat tugas</b> yang telah ditandatangani dan disajikan dalam format PDF.</small></p>
           </div>
           
         </div>
@@ -179,7 +179,7 @@
           </button>
         </div>
         <div class="modal-footer">
-         <a href="<?= base_url('landingPage');  ?>" class="btn btn-primary"> Ya </a>
+         <a href="<?= base_url('LandingPage');  ?>" class="btn btn-primary"> Ya </a>
          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak </button>
 
        </div>

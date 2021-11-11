@@ -23,7 +23,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link" href="<?= base_url('mitra/survey') ?>">
+        <a class="nav-link" href="<?= base_url('Mitra/survey') ?>">
           <i class="fas fa-poll"></i>
           <span>Survei Program</span></a>
       </li>
@@ -33,7 +33,9 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link" href="<?= base_url('mitra/sertifikat') ?>" style="margin-top: -20px;">
+       
+          <a class="nav-link"  <?php if (strtotime($event[0]['akhir_penilaian']) <= strtotime(date('Y-m-d G:i:s'))) { ?> href="<?= base_url('Mitra/sertifikat') ?>"<?php }?>  style="margin-top: -20px;" >
+        
           <i class="far fa-id-card"></i>
           <span>Sertifikat</span></a>
       </li>
@@ -51,7 +53,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link pb-0" href="<?= base_url('mitra') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('Mitra') ?>">
           <i class="fas fa-user"></i>
           <span>Profil Mitra</span></a>
       </li>
@@ -61,7 +63,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?> 
-        <a class="nav-link" href="<?= base_url('mitra/edit_profil') ?>">
+        <a class="nav-link" href="<?= base_url('Mitra/edit_profil') ?>">
           <i class="fas fa-user-cog"></i>
           <span>Edit Profil</span></a>
       </li>

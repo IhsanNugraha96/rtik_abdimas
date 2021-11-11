@@ -56,7 +56,7 @@
                             <?php if ($admin['role_id']=='1') {?>
                             <td>
                                 <?php if ($adm['role_id']=='0') { ?>  
-                              	<a href="<?= base_url('admin/reset_password/admin/'.urlencode($adm['email'])) ?>" name="reset" class="badge badge-info">reset password</i></a>
+                              	<a href="<?= base_url('Admin/reset_password/admin/'.urlencode($adm['email'])) ?>" name="reset" class="badge badge-info">reset password</i></a>
                               	<a href="" data-toggle="modal" data-target="#hapus_admin_Modal_<?= $adm['id_admin']; ?>" name="detail" class="badge badge-danger">hapus</i></a>
                               <?php } else { echo "Super Admin";} ?>
                             </td>
@@ -93,7 +93,7 @@
         <div class="modal-body">
           <img src="<?= base_url('assets/img/logo/logoRTIKAbdimas.png'); ?>"style="width: 20%; margin-top: -5%; margin-bottom: 5%;">
           <!-- form -->
-             <form class="user was-validated mt-3" method="post" action="<?= base_url('admin/tambah_admin');  ?>">
+             <form class="user was-validated mt-3" method="post" action="<?= base_url('Admin/tambah_admin');  ?>">
 
                 <div class="form-group">
                     <p for="" class="text-left mb-1 font-weight-bold">Email :</p>
@@ -128,7 +128,7 @@
           <h4 class="mt-2"><b>Yakin anda mau menghapus admin?</b></h4>
         <p>Pilih tombol "Hapus" di bawah jika Anda akan menghapus akun admin.</p></div>
         <div class="modal-footer warning-md" style="margin-top: -7%;">
-          <a class="badge badge-danger badge-xs" href="<?= base_url('admin/hapus_akun/admin/'.$adm['id_admin']) ?>">Hapus</a>
+          <a class="badge badge-danger badge-xs" href="<?= base_url('Admin/hapus_akun/admin/'.$adm['id_admin']) ?>">Hapus</a>
         </div>
       </div>
     </div>

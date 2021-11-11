@@ -80,7 +80,7 @@
     $(document).ready(function(){
       $.ajax({
         type:'post',
-        url:'<?= base_url('auth/get_provinsi'); ?>',
+        url:'<?= base_url('Auth/get_provinsi'); ?>',
         success:function(hasil_provinsi)
         {
           $("select[name=provinsi]").html(hasil_provinsi);
@@ -92,7 +92,7 @@
         var id_provinsi_terpilih = $("option:selected",this).attr('id_provinsi');
         $.ajax({
           type:'post',
-          url:'<?= base_url('auth/get_kota'); ?>',
+          url:'<?= base_url('Auth/get_kota'); ?>',
           data:'id_provinsi='+id_provinsi_terpilih,
           success:function(hasil_distrik)
           {

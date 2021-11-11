@@ -72,7 +72,7 @@
                     <div class="col-lg-12">
                         <div class="card shadow">
                           <div class="card-header font-weight-bold bg-info text-white">
-                             <a href="<?= base_url('relawan/edit_profil'.'#komisariat'); ?>" class="text-white">Ubah Komisariat</a>
+                             <a href="<?= base_url('Relawan/edit_profil'.'#komisariat'); ?>" class="text-white">Ubah Komisariat</a>
                           </div>
                           <div class="card-body">
                             <small class="card-text">Anda dapat mengubah komisariat selama akun anda <b>belum terkonfirmasi</b> sebagai anggota dari suatu komisariat.</small>

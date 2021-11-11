@@ -22,7 +22,7 @@
       <?php else : ?>
         <li class="nav-item ">
       <?php endif;?>
-        <a class="nav-link" href="<?= base_url('pangkalan') ?>">
+        <a class="nav-link" href="<?= base_url('Pangkalan') ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -48,9 +48,9 @@
         <div id="collapsePages" class="collapse <?php if($title == 'Pembimbing' || $title == 'Anggota' || $title == 'Event') {echo"show";}?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Data :</h6>
-            <a class="collapse-item <?php if($title == 'Pembimbing'){echo'active';} ?>" href="<?= base_url('pangkalan/pembimbing'); ?>">Pembimbing </a>
-            <a class="collapse-item <?php if($title == 'Anggota'){echo'active';} ?>" href="<?= base_url('pangkalan/anggota'); ?>">Anggota </a>
-            <a class="collapse-item <?php if($title == 'Event'){echo'active';} ?>" href="<?= base_url('pangkalan/event'); ?>">Event </a>
+            <a class="collapse-item <?php if($title == 'Pembimbing'){echo'active';} ?>" href="<?= base_url('Pangkalan/pembimbing'); ?>">Pembimbing </a>
+            <a class="collapse-item <?php if($title == 'Anggota'){echo'active';} ?>" href="<?= base_url('Pangkalan/anggota'); ?>">Anggota </a>
+            <a class="collapse-item <?php if($title == 'Event'){echo'active';} ?>" href="<?= base_url('Pangkalan/event'); ?>">Event </a>
           </div>
         </div>
       </li>
@@ -67,7 +67,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link pb-0" href="<?= base_url('pangkalan/profil') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('Pangkalan/profil') ?>">
           <i class="fas fa-user"></i>
           <span>Profil pangkalan</span></a>
       </li>
@@ -77,7 +77,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?> 
-        <a class="nav-link" href="<?= base_url('pangkalan/edit_profil') ?>">
+        <a class="nav-link" href="<?= base_url('Pangkalan/edit_profil') ?>">
           <i class="fas fa-user-cog"></i>
           <span>Edit Profil</span></a>
       </li>

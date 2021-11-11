@@ -22,12 +22,12 @@
             <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12">
                 <div class="card bg-white shadow mb-3" style="max-width: 90%; align-content: right; margin-left: 5%;">
                   <div class="card-body mt-3">
-                    <form class="user was-validated" method="post" action="<?= base_url('mitra/update_data/akun/').$mitra['id_mitra']; ?>" enctype="multipart/form-data">
+                    <form class="user was-validated" method="post" action="<?= base_url('Mitra/update_data/akun/').$mitra['id_mitra']; ?>" enctype="multipart/form-data">
                        <label for="Foto"><b>Photo</b></label><br>
                         <img class="img-profile rounded-circle mb-3 shadow img-thumbnail" style="height: 110px; width: 110px;" alt="background profil" src="   <?= base_url('assets/img/mitra/'.$mitra['logo']) ?>" class="rounded-circle"><br>
                    <div class="form-group">
                     <label for="foto" class="btn btn-outline-primary btn-sm shadow">Pilih Foto Profil</label>
-                    <a href="<?= base_url('mitra/update_data/hapus_foto/').$mitra['id_mitra']; ?>" class="btn btn-outline-primary btn-sm shadow  mb-2">Hapus Foto Profil</a><br>
+                    <a href="<?= base_url('Mitra/update_data/hapus_foto/').$mitra['id_mitra']; ?>" class="btn btn-outline-primary btn-sm shadow  mb-2">Hapus Foto Profil</a><br>
 
                     <input type="file" id="foto" name="foto" accept=".jpg,.jpeg,.png" value="Pilih Foto Profil" style="visibility:hidden;" onchange="this.form.submit();">
                 </div>
@@ -62,7 +62,7 @@
         <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12">
             <div class="card bg-white shadow mb-3" style="max-width: 90%; align-content: right; margin-left: 5%;">
               <div class="card-body mb-4">
-                <form class="user was-validated" method="post" action="<?= base_url('mitra/update_data/pimpinan/').$mitra['id_mitra']; ?>" enctype="multipart/form-data">
+                <form class="user was-validated" method="post" action="<?= base_url('Mitra/update_data/pimpinan/').$mitra['id_mitra']; ?>" enctype="multipart/form-data">
 
 
                     <div class="form-group" style="margin-right: 30%;" >
@@ -84,7 +84,7 @@
 
                     <div class="form-group" style="margin-right: 30%;">
                         <label for="no_hp_pimpinan"><b>No. Telp</b></label>
-                        <input type="number" class="form-control form-control-sm" id="no_hp_pimpinan" name="no_hp_pimpinan" value="<?= $mitra['no_hp_pimpinan'] ?>"  placeholder="<?= $mitra['no_hp_pimpinan'] ?>" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda belum mengisi no. telp. pimpinan')" oninput="setCustomValidity('')">
+                        <input type="number" class="form-control form-control-sm" id="no_hp_pimpinan" name="no_hp_pimpinan" value="<?= $mitra['no_hp_pimpinan'] ?>"  placeholder="<?= $mitra['no_hp_pimpinan'] ?>" aria-describedby="inputGroupPrepend" minlength="11" required oninvalid="this.setCustomValidity('Anda belum mengisi no. telp. pimpinan')" oninput="setCustomValidity('')">
                         <!-- menampilkan notifikasi kesalahan inputan -->
                         <div class="invalid-feedback">Masukkan no. telp. pimpinan anda.</div>
                     </div>
@@ -115,7 +115,7 @@
 
                     <div class="form-group" style="margin-right: 30%;">
                         <label for="no_hp_koordinator"><b>No. telp</b></label>
-                        <input type="number" class="form-control form-control-sm" id="no_hp_koordinator" name="no_hp_koordinator" value="<?= $mitra['no_hp_koordinator'] ?>" placeholder="<?= $mitra['no_hp_koordinator'] ?>" aria-describedby="inputGroupPrepend" required oninvalid="this.setCustomValidity('Anda belum mengisi no. telp. koordinator..')" oninput="setCustomValidity('')">
+                        <input type="number" class="form-control form-control-sm" id="no_hp_koordinator" name="no_hp_koordinator" value="<?= $mitra['no_hp_koordinator'] ?>" placeholder="<?= $mitra['no_hp_koordinator'] ?>" aria-describedby="inputGroupPrepend" minlength="11" required oninvalid="this.setCustomValidity('Anda belum mengisi no. telp. koordinator..')" oninput="setCustomValidity('')">
                         <!-- menampilkan notifikasi kesalahan inputan -->
                         <div class="invalid-feedback">Masukkan no. telp. koordinator.</div>
                     </div>
@@ -152,7 +152,7 @@
         <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12">
             <div class="card bg-white shadow mb-3" style="max-width: 90%; align-content: right; margin-left: 5%;">
               <div class="card-body mb-4">
-                <form class="user was-validated" method="post" action="<?= base_url('mitra/update_data/biodata/').$mitra['id_mitra']; ?>" enctype="multipart/form-data">
+                <form class="user was-validated" method="post" action="<?= base_url('Mitra/update_data/biodata/').$mitra['id_mitra']; ?>" enctype="multipart/form-data">
 
 
                     <div class="form-group" style="margin-right: 30%;" >
@@ -265,7 +265,7 @@
             <div class="card bg-white shadow mb-3" style="max-width: 90%; align-content: right; margin-left: 5%;">
 
                 <div class="card-body">
-                    <form class="user was-validated" method="post" action="<?= base_url('mitra/update_data/ubah_password/').$mitra['id_mitra']; ?>">
+                    <form class="user was-validated" method="post" action="<?= base_url('Mitra/update_data/ubah_password/').$mitra['id_mitra']; ?>">
                         <div class="form-group mt-3" style="margin-right: 30%;" >
                             <label for="passwordlama"><b>Password lama</b></label>
                             <input type="password" class="form-control form-password form-control-sm" id="passwordlama" name="passwordlama" placeholder="Password lama" required oninvalid="this.setCustomValidity('Anda belum mengisi password lama untuk akun anda..')" oninput="setCustomValidity('')" minlength="8" maxlength="50">

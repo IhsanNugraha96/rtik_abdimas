@@ -22,7 +22,7 @@
       <?php else : ?>
         <li class="nav-item ">
       <?php endif;?>
-        <a class="nav-link" href="<?= base_url('admin') ?>">
+        <a class="nav-link" href="<?= base_url('Admin') ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -48,10 +48,10 @@
         <div id="collapsePages" class="collapse <?php if($title == 'Event' || $title == 'Komisariat' || $title == 'Admin' || $title == 'Instruktur') {echo"show";}?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Data :</h6>
-            <a class="collapse-item <?php if($title == 'Event'){echo'active';} ?>" href="<?= base_url('admin/event'); ?>">Event </a>
-            <a class="collapse-item <?php if($title == 'Komisariat'){echo'active';} ?>" href="<?= base_url('admin/komisariat'); ?>">Pangkalan </a>
-            <a class="collapse-item <?php if($title == 'Instruktur'){echo'active';} ?>" href="<?= base_url('admin/instruktur'); ?>">Instruktur</a>
-            <a class="collapse-item <?php if($title == 'Admin'){echo'active';} ?>" href="<?= base_url('admin/admin'); ?>">Admin</a>
+            <a class="collapse-item <?php if($title == 'Event'){echo'active';} ?>" href="<?= base_url('Admin/event'); ?>">Event </a>
+            <a class="collapse-item <?php if($title == 'Komisariat'){echo'active';} ?>" href="<?= base_url('Admin/komisariat'); ?>">Pangkalan </a>
+            <a class="collapse-item <?php if($title == 'Instruktur'){echo'active';} ?>" href="<?= base_url('Admin/instruktur'); ?>">Instruktur</a>
+            <a class="collapse-item <?php if($title == 'Admin'){echo'active';} ?>" href="<?= base_url('Admin/admin'); ?>">Admin</a>
             
           </div>
         </div>
@@ -72,7 +72,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link" href = "<?= base_url('admin/template');?>">
+        <a class="nav-link" href = "<?= base_url('Admin/template');?>">
         <i class="fas fa-clipboard-list"></i>
         <span>Template Berkas</span></a>
       </li>
@@ -83,7 +83,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link" href="<?= base_url('admin/pengumuman') ?>" style="margin-top: -20px;">
+        <a class="nav-link" href="<?= base_url('Admin/pengumuman') ?>" style="margin-top: -20px;">
           <i class="fas fa-bullhorn"></i>
           <span>Pengumuman</span></a>
       </li>
@@ -93,7 +93,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link" href="<?= base_url('admin/mitra') ?>" style="margin-top: -20px;">
+        <a class="nav-link" href="<?= base_url('Admin/mitra') ?>" style="margin-top: -20px;">
           <i class="fas fa-link"></i>
           <span>Mitra Koordinator RTIK</span></a>
       </li>
@@ -103,7 +103,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link" href="<?= base_url('admin/keahlian') ?>" style="margin-top: -20px;">
+        <a class="nav-link" href="<?= base_url('Admin/keahlian') ?>" style="margin-top: -20px;">
           <i class="fas fa-list-ol"></i>
           <span>Daftar Keahlian Relawan</span></a>
       </li>
@@ -113,7 +113,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link" href="<?= base_url('admin/jenis_mitra') ?>" style="margin-top: -20px;">
+        <a class="nav-link" href="<?= base_url('Admin/jenis_mitra') ?>" style="margin-top: -20px;">
           <i class="fas fa-list-ul"></i>
           <span>Kelola Jenis Mitra</span></a>
       </li>
@@ -123,7 +123,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link" href="<?= base_url('admin/penilaian') ?>" style="margin-top: -20px;">
+        <a class="nav-link" href="<?= base_url('Admin/penilaian') ?>" style="margin-top: -20px;">
           <i class="fas fa-sort-numeric-up-alt"></i>
           <span>Kriteria Penilaian</span></a>
       </li>
@@ -142,7 +142,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?>
-        <a class="nav-link pb-0" href="<?= base_url('admin/profil') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('Admin/profil') ?>">
           <i class="fas fa-user"></i>
           <span>Profil admin</span></a>
       </li>
@@ -152,7 +152,7 @@
       <?php else : ?>
         <li class="nav-item">
       <?php endif;?> 
-        <a class="nav-link" href="<?= base_url('admin/edit_profil') ?>">
+        <a class="nav-link" href="<?= base_url('Admin/edit_profil') ?>">
           <i class="fas fa-user-cog"></i>
           <span>Edit Profil</span></a>
       </li>

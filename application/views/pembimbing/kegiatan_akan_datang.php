@@ -55,7 +55,7 @@
 
           <?php if ($kegiatan_akan_datang) {?>
             <?php if ($status_pembimbing['role_id'] == 1) {?>
-              <a href="<?= base_url('pembimbing/aksi_event/ikuti_event'); ?>" class="btn btn-primary btn-sm mb-5">Ikuti Event</a>
+              <a href="<?= base_url('Pembimbing/aksi_event/ikuti_event'); ?>" class="btn btn-primary btn-sm mb-5">Ikuti Event</a>
             <?php } else {?>
               <a href="" class="btn btn-warning btn-sm mb-5" data-toggle="modal" data-target="#batal_ikuti_event">Batal Ikuti Event</a>
             <?php } ?>

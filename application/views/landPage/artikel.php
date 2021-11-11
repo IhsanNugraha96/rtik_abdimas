@@ -38,7 +38,7 @@
 
 
               <span id="demo">
-                <iframe src="<?= base_url('landingPage/artikel_tim/'.$artikel['id_tim'])?>" class=" p-0 m-0 responsive-iframe"  frameborder="0"></iframe>
+                <iframe src="<?= base_url('LandingPage/artikel_tim/'.$artikel['id_tim'])?>" class=" p-0 m-0 responsive-iframe"  frameborder="0"></iframe>
                 </span>
               <!-- </div> -->
 

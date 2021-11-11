@@ -190,7 +190,11 @@
  										<div class="row text-center m-0  justify-content-md-center">
  											<div class="col-sm-4">     
 
- 												<a href="<?= $berkas['surat_pengantar']; ?>" target="_blank">
+ 												<a href="<?php if ($berkas['surat_pengantar'] != '-') 
+                                                    {echo $berkas['surat_pengantar']. '" target="_blank';}
+                                                    else 
+                                                    { echo '" data-toggle="modal" data-target="#tidak_ada_berkas'; } ?>"
+                                                >
  													<div class="card border-0">
  														<div class="card-body">
  															<i class="far fa-paper-plane fa-2x"></i><br>
@@ -199,8 +203,12 @@
  													</div>
  												</a> 
  											</div>
- 											<div class="col-sm-4">     
- 												<a href="<?= $berkas['survey_permintaan']; ?>" target="_blank">
+ 											<div class="col-sm-4">   
+                                                <a href="<?php if ($berkas['survey_permintaan'] != '-') 
+                                                    {echo $berkas['survey_permintaan']. '" target="_blank';}
+                                                    else 
+                                                    { echo '" data-toggle="modal" data-target="#tidak_ada_berkas'; } ?>"
+                                                > 
  													<div class="card border-0">
  														<div class="card-body">
  															<i class="fas fa-praying-hands fa-2x"></i><br>
@@ -210,7 +218,11 @@
  												</a>
  											</div>
  											<div class="col-sm-4">  
- 												<a href="<?=$berkas['surat_konfirmasi']; ?>" target="_blank">
+                                                <a href="<?php if ($berkas['surat_konfirmasi'] != '-') 
+                                                    {echo $berkas['surat_konfirmasi']. '" target="_blank';}
+                                                    else 
+                                                    { echo '" data-toggle="modal" data-target="#tidak_ada_berkas'; } ?>"
+                                                >
  													<div class="card border-0">
  														<div class="card-body">
  															<i class="far fa-thumbs-up fa-2x"></i><br>
@@ -220,7 +232,11 @@
  												</a>
  											</div> 
  											<div class="col-sm-4">  
- 												<a href="<?=$berkas['artikel_miftek']; ?>" target="_blank">
+                                                <a href="<?php if ($berkas['artikel_miftek'] != '-') 
+                                                    {echo $berkas['artikel_miftek']. '" target="_blank';}
+                                                    else 
+                                                    { echo '" data-toggle="modal" data-target="#tidak_ada_berkas'; } ?>"
+                                                >
  													<div class="card border-0">
  														<div class="card-body">
  															<i class="fas fa-book fa-2x"></i><br>
@@ -230,7 +246,11 @@
  												</a>
  											</div> 
  											<div class="col-sm-4">  
- 												<a href="<?=$berkas['presensi_pelayanan']; ?>" target="_blank">
+                                                <a href="<?php if ($berkas['presensi_pelayanan'] != '-') 
+                                                    {echo $berkas['presensi_pelayanan']. '" target="_blank';}
+                                                    else 
+                                                    { echo '" data-toggle="modal" data-target="#tidak_ada_berkas'; } ?>"
+                                                >
  													<div class="card border-0">
  														<div class="card-body">
  															<i class="fas fa-list-ol fa-2x"></i><br>
@@ -240,7 +260,11 @@
  												</a>
  											</div> 
  											<div class="col-sm-4">  
- 												<a href="<?=$berkas['berita_acara']; ?>" target="_blank">
+                                                <a href="<?php if ($berkas['berita_acara'] != '-') 
+                                                    {echo $berkas['berita_acara']. '" target="_blank';}
+                                                    else 
+                                                    { echo '" data-toggle="modal" data-target="#tidak_ada_berkas'; } ?>"
+                                                >
  													<div class="card border-0">
  														<div class="card-body">
  															<i class="fas fa-clipboard-list fa-2x"></i><br>
@@ -266,9 +290,9 @@
  								<div class="card shadow">
 
  									<h4 class="mt-4 font-weight-bold text-center"><u><?php echo $artikel['judul_laporan']; ?></u></h4>
- 									<div class="card-body">
+ 									<div class="card-body" style="padding:0 5% 0 5%;">
  										<div class="row m-0">
- 											<div class="col-sm-12">     
+ 											<div class="col-sm-12 ">     
  												<?php echo $artikel['laporan']; ?>
  												
  											</div> 
@@ -288,4 +312,19 @@
  		<!-- /.container-fluid -->
 
  	</div>
-<!-- End of Main Content -
+<!-- End of Main Content -->
+
+
+<div class="modal modal-edu-general Customwidth-popup-WarningModal fade shadow" id="tidak_ada_berkas" tabindex="-1" role="dialog" style="padding: 20px;">
+    <div class="modal-dialog">
+        <div class="modal-content shadow">
+            <div class="modal-close-area modal-close-df">
+                <a class="close" data-dismiss="modal" href="#"><i class="fas fa-times"></i></a>
+            </div>
+            <div class="modal-body">
+                <i class="fa fa-exclamation-triangle fa-3x text-warning"></i>
+                <h5 class="mt-2"><b>Tidak ditemukan berkas yang di unggah!</b></h5></div>
+                
+            </div>
+        </div>
+    </div>

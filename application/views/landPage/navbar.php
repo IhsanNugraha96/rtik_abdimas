@@ -11,25 +11,30 @@
       <nav class="nav-menu d-none d-lg-block" style="margin-bottom: 0;">
         <ul>
           <li <?php if ($title == "Relawan TIK Abdimas") {?>
-            class="active"<?php } ?>><a href="<?= base_url('landingPage'); ?>">Beranda</a></li>
+            class="active"<?php } ?>><a href="<?= base_url('LandingPage'); ?>">Beranda</a></li>
 
-          <?php if ($title != 'Artikel Laporan Kegiatan') { ?>
+          
             <li <?php if ($title == "Tentang") {?>
-              class="active"<?php } ?>><a href="#about-us">Tentang</a></li>
+              class="active"<?php } ?>><a href="<?= base_url('LandingPage/#about-us'); ?>">Tentang</a></li>
 
-            <li><a href="#kegiatan">Kegiatan</a></li>
+            <li <?php if ($title == "Artikel Laporan Kegiatan") {?>
+              class="active"<?php } ?>><a href="<?= base_url('LandingPage/#kegiatan'); ?>">Kegiatan</a></li>
+              
             <li <?php if ($title == "Statistik") {?>
-              class="active"<?php } ?>><a href="#services">Statistik</a></li>
-            <!-- <li><a href="#">Kontak Kami</a></li> -->
+              class="active"<?php } ?>><a href="<?= base_url('LandingPage/#services'); ?>">Statistik</a></li>
+            
             <li class="drop-down"><a>Daftar</a>
               <ul>
-                <li><a href="<?= base_url('auth/form_daftar_relawan') ?>">Peserta/Relawan</a></li>
-                <li><a href="<?= base_url('auth/form_daftar_instruktur') ?>">Instruktur</a></li>
-                <li><a href="<?= base_url('auth/form_daftar_pangkalan') ?>">Pangkalan</a></li>
+                <li><a href="<?= base_url('Auth/form_daftar_relawan') ?>">Peserta/Relawan</a></li>
+                <li><a href="<?= base_url('Auth/form_daftar_instruktur') ?>">Instruktur</a></li>
+                <li><a href="<?= base_url('Auth/form_daftar_pangkalan') ?>">Pangkalan</a></li>
               </ul>
             </li>
-            <li><a href="<?= base_url('auth'); ?>">Masuk</a></li>
-          <?php } ?>
+            <li><a href="<?= base_url('Auth'); ?>">Masuk</a></li>
+
+             <li <?php if ($title == "Kredit") {?>
+              class="active"<?php } ?>><a href="<?= base_url('LandingPage/kredit') ?>">Kredit</a></li>
+          
         </ul>
       </nav>
     </div>

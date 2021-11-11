@@ -17,7 +17,8 @@
             <img class="rounded-circle img-thumbnail mb-2" style="width: 110px; height: 110px;" src="<?= base_url('assets/img/relawan/image/'.$ketua_tim['image']) ?>">
            
             <br>
-            <b class="card-text"><?= $ketua_tim['nama_lengkap']; ?></b><br>
+            <b class="card-text"><?= $ketua_tim['nama_lengkap']; ?></b><br> 
+            <i class="card-text"><?= $ketua_tim['nama_komisariat']; ?></i><br>
             <?php if ($this->session->userdata('id_pembimbing')) 
             {?>
                 <b class="card-text"><a href="" data-toggle="modal" data-target="#detail_ketua_<?= $ketua_tim['id_anggota']?>">(lihat detail)</a></b><br>
@@ -33,6 +34,7 @@
                 
                 <br>
                 <b class="card-text"><?= $agt['nama_lengkap']; ?></b><br>
+                <i class="card-text"><?= $agt['nama_komisariat']; ?></i><br>
                 <?php if ($this->session->userdata('id_pembimbing')) 
                 {?>
                     <b class="card-text"><a href="" data-toggle="modal" data-target="#detail_anggota_<?= $agt['id_anggota']?>">(lihat detail)</a></b><br>
@@ -117,7 +119,7 @@
                 <h5 class="font-weight-bold">Surat izin orang tua</h5>
                 <a href=<?php if($ketua_tim['file_surat_izin_ortu'] != '0')
                     { echo '"'.$ketua_tim['file_surat_izin_ortu'].'" target="_blank"';} 
-                    else{ echo '"'.base_url('pembimbing/lihat_berkas/surat_izin_ortu/'.$ketua_tim['id_tim']).'"';} ?> > Lihat surat izin orang tua
+                    else{ echo '"'.base_url('Pembimbing/lihat_berkas/surat_izin_ortu/'.$ketua_tim['id_tim']).'"';} ?> > Lihat surat izin orang tua
                 </a>
         </div>
     </div>
@@ -188,7 +190,7 @@
                 <h5 class="font-weight-bold">Surat izin orang tua</h5>
                 <a href=<?php if($agt['file_surat_izin_ortu'] != '0')
                     { echo '"'.$agt['file_surat_izin_ortu'].'" target="_blank"';} 
-                    else{ echo '"'.base_url('pembimbing/lihat_berkas/surat_izin_ortu/'.$agt['id_tim']).'"';} ?> > Lihat surat izin orang tua
+                    else{ echo '"'.base_url('Pembimbing/lihat_berkas/surat_izin_ortu/'.$agt['id_tim']).'"';} ?> > Lihat surat izin orang tua
                 </a>
         </div>
     </div>

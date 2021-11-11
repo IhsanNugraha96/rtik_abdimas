@@ -158,7 +158,7 @@ class Pangkalan_Model extends CI_Model
 	public function get_event_by_idPangkalan($id_pangkalan)
 	{
 		$id = "'".$id_pangkalan."'";
-		$query = "SELECT DISTINCT event.id_event,event.nama_event FROM tim 
+		$query = "SELECT DISTINCT event.id_event,event.nama_event,event.akhir_penilaian FROM tim 
 				JOIN anggota_tim ON tim.id_tim = anggota_tim.id_tim
 				JOIN relawan ON anggota_tim.id_relawan = relawan.id_relawan
 				JOIN event ON tim.id_event = event.id_event
@@ -336,6 +336,14 @@ class Pangkalan_Model extends CI_Model
 				JOIN event ON tim.id_event = event.id_event 
 				WHERE event.id_event = $id_ev and pembimbing.id_komisariat = $id";
 		return $this->db->query($query)->num_rows();
+	}
+
+	public function get_berkas_tim_by_id_tim($id_tim)
+	{
+		$id	= "'".$id_tim."'";
+		
+		$query 	= "SELECT id_tim,nama_tim,surat_pengantar,survey_permintaan,surat_konfirmasi,artikel_miftek,presensi_pelayanan,berita_Acara,judul_laporan,laporan FROM tim WHERE id_tim = $id";
+		return $this->db->query($query)->row_array();
 	}
 
 }

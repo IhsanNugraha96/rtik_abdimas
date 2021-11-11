@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class pembimbing  extends CI_Controller 
+class Pembimbing  extends CI_Controller 
 
 {
 	public function __construct()
@@ -9,7 +9,7 @@ class pembimbing  extends CI_Controller
 		parent::__construct();
 		if(!$this->session->userdata('id_pembimbing'))
 		{	
-			redirect('landingPage');
+			redirect('LandingPage');
 		}
 
 		
@@ -311,7 +311,7 @@ class pembimbing  extends CI_Controller
 			{
 				$pesan = "Akun gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('pembimbing/edit_profil');
+				redirect('Pembimbing/edit_profil');
 
 			}
 			else
@@ -345,7 +345,7 @@ class pembimbing  extends CI_Controller
 					{
 						$pesan = "Ukuran dokumen yang diunggah melebihi batas (2MB), dokumen gagal di upload";
 						$this->alert_gagal($pesan);
-						redirect('pembimbing/edit_profil');
+						redirect('Pembimbing/edit_profil');
 					}
 					
 					$where = array('id_pembimbing' => $id_pembimbing );
@@ -372,6 +372,19 @@ class pembimbing  extends CI_Controller
 						$pesan = "Akun anda sudah berhasil diperbaharui";
 						$this->alert_ok($pesan);
 					}
+					elseif ($email == $data_pembimbing['email']) 
+					{
+						$data = [
+							'email' 	=> $email
+						];
+						// print_r($data); die();
+						$this->db->set($data);
+						$this->db->where('id_pembimbing', $id_pembimbing);
+						$this->db->update('pembimbing');
+						
+						$pesan = "Tidak ada yang diperbaharui!";
+						$this->alert_info($pesan);
+					}
 					else
 					{
 						$pesan = "Alamat email sudah digunakan";
@@ -380,7 +393,7 @@ class pembimbing  extends CI_Controller
 					
 				}
 
-				redirect('pembimbing/edit_profil');
+				redirect('Pembimbing/edit_profil');
 				
 			}
 		}
@@ -402,7 +415,7 @@ class pembimbing  extends CI_Controller
 
 			$pesan = "Foto Profil berhasil di hapus";
 			$this->alert_ok($pesan);
-			redirect('pembimbing/edit_profil');
+			redirect('Pembimbing/edit_profil');
 		}
 
 
@@ -438,7 +451,7 @@ class pembimbing  extends CI_Controller
 			{
 				$pesan = "Biodata gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('pembimbing/edit_profil');
+				redirect('Pembimbing/edit_profil');
 
 			}
 			else
@@ -463,7 +476,7 @@ class pembimbing  extends CI_Controller
 
 				$pesan = "Biodata telah di perbaharui";
 				$this->alert_ok($pesan);
-				redirect('pembimbing/edit_profil');
+				redirect('Pembimbing/edit_profil');
 			}	 
 
 		}
@@ -484,7 +497,7 @@ class pembimbing  extends CI_Controller
 			{
 				$pesan = "Password gagal di perbaharui, harap mengisi data dengan benar";
 				$this->alert_gagal($pesan);
-				redirect('pembimbing/edit_profil');
+				redirect('Pembimbing/edit_profil');
 
 			}
 			else
@@ -492,12 +505,12 @@ class pembimbing  extends CI_Controller
 				if ($passwordlama != base64_decode($data_pembimbing['password'])) {
 					$pesan = "Password lama tidak sesuai";
 					$this->alert_gagal($pesan);
-					redirect('pembimbing/edit_profil');
+					redirect('Pembimbing/edit_profil');
 				}
 				elseif ($passwordbaru != $passwordbaru2) {
 					$pesan = "Password baru tidak sama, harap input password baru dengan benar";
 					$this->alert_gagal($pesan);
-					redirect('pembimbing/edit_profil');
+					redirect('Pembimbing/edit_profil');
 				}
 				else{
 					$password_baru3 = base64_encode($passwordbaru);
@@ -508,7 +521,7 @@ class pembimbing  extends CI_Controller
 
 					$pesan = "Password berhasil di perbaharui";
 					$this->alert_ok($pesan);
-					redirect('pembimbing/edit_profil');
+					redirect('Pembimbing/edit_profil');
 				}
 				
 			}
@@ -535,7 +548,7 @@ class pembimbing  extends CI_Controller
 
 			$pesan = "Akun pembimbing telah di hapus";
 			$this->alert_ok($pesan);
-			redirect('logout/hapus_akun');
+			redirect('Logout/hapus_akun');
 			
 
 		}
@@ -594,7 +607,7 @@ class pembimbing  extends CI_Controller
 
 			$pesan = "Pengajuan pembimbing tim telah diterima";
 			$this->alert_ok($pesan);
-			redirect('pembimbing/pengajuan_pembimbing');
+			redirect('Pembimbing/pengajuan_pembimbing');
 		}
 
 		if ($aksi == 'tolak_tim') 
@@ -606,7 +619,7 @@ class pembimbing  extends CI_Controller
 
 			$pesan = "Pengajuan pembimbing tim telah ditolak";
 			$this->alert_ok($pesan);
-			redirect('pembimbing/pengajuan_pembimbing');
+			redirect('Pembimbing/pengajuan_pembimbing');
 		}
 	}
 
@@ -666,7 +679,7 @@ class pembimbing  extends CI_Controller
 
 			$pesan = "Anda sedang mengikuti event";
 			$this->alert_ok($pesan);
-			redirect('pembimbing/kegiatan_berlangsung');
+			redirect('Pembimbing/kegiatan_berlangsung');
 		}
 
 		if ($aksi == 'batal_ikuti_event') 
@@ -686,7 +699,7 @@ class pembimbing  extends CI_Controller
 			$pesan = "Anda tidak sedang mengikuti event";
 			
 			$this->alert_ok($pesan);
-			redirect('pembimbing/kegiatan_akan_datang');
+			redirect('Pembimbing/kegiatan_akan_datang');
 		}
 	}
 
@@ -781,12 +794,12 @@ class pembimbing  extends CI_Controller
 		}
 		else
 		{
-			redirect('pembimbing/kegiatan_selesai');
+			redirect('Pembimbing/kegiatan_selesai');
 		}
 
 		if ($data['status_pembimbing']['role_id'] != '2') 
 		{
-			redirect('pembimbing/kegiatan_berlangsung');
+			redirect('Pembimbing/kegiatan_berlangsung');
 		}
 		// print_r($data['tim_pembimbing']); die();
 
@@ -829,7 +842,7 @@ class pembimbing  extends CI_Controller
 
 		if ($data['status_pembimbing']['role_id'] != '2') 
 		{
-			redirect('pembimbing/kegiatan_berlangsung');
+			redirect('Pembimbing/kegiatan_berlangsung');
 		}
 		// print_r($data['kegiatan_berlangsung']); die();
 
@@ -880,15 +893,15 @@ class pembimbing  extends CI_Controller
 			</div>');
 		if ($aksi == 'surat_izin_ortu') 
 		{
-			redirect('pembimbing/tim/'.$id_tim);
+			redirect('Pembimbing/tim/'.$id_tim);
 		}
 		else if ($aksi == 'surat_pengantar' || $aksi == 'survey_permintaan' || $aksi == 'surat_konfirmasi' || $aksi == 'artikel_miftek' || $aksi == 'presensi_pelayanan' || $aksi == 'berita_acara') 
 		{
-			redirect('pembimbing/tim_pembimbing');
+			redirect('Pembimbing/tim_pembimbing');
 		}
 		else if ($aksi == 'artikel_berita') 
 		{
-			redirect('pembimbing/artikel_berita/'.$id_tim);
+			redirect('Pembimbing/artikel_berita/'.$id_tim);
 		}
 		
 	}
@@ -917,7 +930,7 @@ class pembimbing  extends CI_Controller
 
 		if ($data['status_pembimbing']['role_id'] != '2') 
 		{
-			redirect('pembimbing/kegiatan_berlangsung');
+			redirect('Pembimbing/kegiatan_berlangsung');
 		}
 		// print_r($data['artikel']); die();
 
@@ -943,13 +956,18 @@ class pembimbing  extends CI_Controller
 		$data['template'] = $this->Pembimbing_Model->get_template_berkas_pelaporan();
 		$data['nama_template'] = array('0' => 'Surat Izin', '1' => 'Survei Permintaan', '2' => 'Presensi Layanan', '3' => 'Berita Acara Layanan', '4' => 'Survei Program', '5' => 'Artikel Berita', '6' => 'Artikel MIFTEK');
 		
+		if ($data['kegiatan_berlangsung']) 
+		{
+			$data['status_pembimbing'] = $this->Pembimbing_Model->cek_status_pembimbing($id_pembimbing);
+		}
+
 		if ($data['status_pembimbing']['role_id'] != '2') 
 		{
-			redirect('pembimbing/kegiatan_berlangsung');
+			redirect('Pembimbing/kegiatan_berlangsung');
 		}
 		
-		// print_r($data['template']); die();
-
+		// print_r($data['status_pembimbing']); die();
+// 
 		$this->load->view('template/header', $data);
 		$this->load->view('relawan/sidebar2', $data);
 		$this->load->view('pembimbing/topbar', $data);
@@ -990,7 +1008,7 @@ class pembimbing  extends CI_Controller
 
 		if ($data['status_pembimbing']['role_id'] != '2') 
 		{
-			redirect('pembimbing/kegiatan_berlangsung');
+			redirect('Pembimbing/kegiatan_berlangsung');
 		}
 		// print_r($data['agenda_pembekalan']); die();
 
@@ -1050,13 +1068,13 @@ class pembimbing  extends CI_Controller
 		}
 		else
 		{
-			redirect('pembimbing/kegiatan_selesai');
+			redirect('Pembimbing/kegiatan_selesai');
 		}
 
 		
 		if ($data['status_pembimbing']['role_id'] != '2') 
 		{
-			redirect('pembimbing/kegiatan_berlangsung');
+			redirect('Pembimbing/kegiatan_berlangsung');
 		}
 		// print_r($data['status_penilaian']); die();
 
@@ -1090,7 +1108,7 @@ class pembimbing  extends CI_Controller
 		{
 			$pesan = "Gagal merekam penilaian, harap mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('relawan/penilaian');
+			redirect('Relawan/penilaian');
 		}
 		else
 		{	
@@ -1116,7 +1134,7 @@ class pembimbing  extends CI_Controller
 
 			$pesan = "Terimakasih sudah memberikan penilaian, data penilaian sudah berhasil direkam";
 			$this->alert_ok($pesan);
-			redirect('pembimbing/penilaian');
+			redirect('Pembimbing/penilaian');
 		}
 	}
 
@@ -1149,7 +1167,7 @@ class pembimbing  extends CI_Controller
 		{
 			$pesan = "Gagal merekam penilaian, harap mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('relawan/penilaian');
+			redirect('Relawan/penilaian');
 		}
 		else
 		{	
@@ -1204,7 +1222,7 @@ class pembimbing  extends CI_Controller
 
 
 
-			redirect('pembimbing/penilaian');
+			redirect('Pembimbing/penilaian');
 		}
 		
 	}
@@ -1238,7 +1256,7 @@ class pembimbing  extends CI_Controller
 		{
 			$pesan = "Gagal merekam penilaian, harap mengisi data dengan benar";
 			$this->alert_gagal($pesan);
-			redirect('relawan/penilaian');
+			redirect('Relawan/penilaian');
 		}
 		else
 		{	
@@ -1293,7 +1311,7 @@ class pembimbing  extends CI_Controller
 
 
 
-			redirect('pembimbing/penilaian');
+			redirect('Pembimbing/penilaian');
 		}
 	}
 

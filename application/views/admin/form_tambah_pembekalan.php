@@ -15,7 +15,7 @@
 	
 	<div class="row">
 		<div class="col-md-5 mb-3">
-			<form class="user was-validated" method="post" action="<?= base_url('admin/ubah_event/tambah_acara_pembekalan/'.urlencode($event['id_event']));?>" enctype="multipart/form-data">
+			<form class="user was-validated" method="post" action="<?= base_url('Admin/ubah_event/tambah_acara_pembekalan/'.urlencode($event['id_event']));?>" enctype="multipart/form-data">
 				<div class="form-group">
 					<select class="custom-select"  name="pilihan_instruktur"  id="pilihan_instruktur" required oninvalid="this.setCustomValidity('Anda belum memilih instruktur..')" oninput="setCustomValidity('')">
 						<option value="">--Pilih instruktur--</option>

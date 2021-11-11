@@ -43,7 +43,7 @@
 
 							<h5 class="font-weight-bold text-center">Tim <?= $mitra['nama_tim']; ?></h5>
 							<p class="text-center text-danger mb-5"><small><u>( Anda hanya bisa mengirimkan data penilaian satu kali ! )</u></small></p>
-							<form class="user was-validated" method="post" action="<?= base_url('mitra/penilaian_mitra/').$mitra['id_tim'];?>">
+							<form class="user was-validated" method="post" action="<?= base_url('Mitra/penilaian_mitra/').$mitra['id_tim'];?>">
 								<?php $i=0;  ?>
 								<?php foreach ($indikator_penilaian as $idk) 
 								{?>

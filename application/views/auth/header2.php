@@ -62,11 +62,11 @@
             <ul class="navbar-nav ">
               <li class="nav-item active font-weight-bold">
                 <?php if ($title == 'Form Pendaftaran (Relawan)') {?>
-                  <a class="nav-link" href="<?= base_url('auth'); ?>" style="font-size: 15pt;">Formulir Pendaftaran (Relawan TIK) <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="<?= base_url('Auth/form_daftar_relawan'); ?>" style="font-size: 15pt;">Formulir Pendaftaran (Relawan TIK) <span class="sr-only">(current)</span></a>
                 <?php } else if ($title == 'Form Pendaftaran (Instruktur)') { ?>
-                  <a class="nav-link" href="<?= base_url('auth'); ?>" style="font-size: 15pt;">Formulir Pendaftaran (Instruktur) <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="<?= base_url('Auth/form_daftar_instruktur'); ?>" style="font-size: 15pt;">Formulir Pendaftaran (Instruktur) <span class="sr-only">(current)</span></a>
                 <?php } else if ($title == 'Form Pendaftaran (Pangkalan)') { ?>
-                  <a class="nav-link" href="<?= base_url('auth'); ?>" style="font-size: 15pt;">Formulir Pendaftaran (Pangkalan) <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="<?= base_url('Auth/form_daftar_pangkalan'); ?>" style="font-size: 15pt;">Formulir Pendaftaran (Pangkalan) <span class="sr-only">(current)</span></a>
                 <?php } ?>
               </li>
             </ul>

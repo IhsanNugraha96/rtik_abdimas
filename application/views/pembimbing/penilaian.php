@@ -90,7 +90,7 @@
 
           <?php if (!$status_penilaian_anggota_tim[$i]) { ?>
             <p class="text-center text-danger mb-5">( Anda hanya bisa satu kali memberikan penilaian! )</p>
-            <form class="user was-validated" method="post" action="<?= base_url('pembimbing/penilaian_anggota/'.$tim['id_tim']);?>">
+            <form class="user was-validated" method="post" action="<?= base_url('Pembimbing/penilaian_anggota/'.$tim['id_tim']);?>">
               <?php $j=0; foreach ($anggota_tim[$i] as $agt) 
               { ?>
                 <b><?= ($j+1).'. '. $agt['nama_lengkap']; ?></b>
@@ -183,7 +183,7 @@
 
     <?php if (!$status_penilaian_tim[$i] || $status_penilaian_tim[$i]['nilai_laporan'] == '0') {?>
             <p class="text-center text-danger mb-5">( Anda hanya bisa satu kali memberikan penilaian! )</p>
-            <form class="user was-validated" method="post" action="<?= base_url('pembimbing/penilaian_tim/'.$tim['id_tim']);?>">
+            <form class="user was-validated" method="post" action="<?= base_url('Pembimbing/penilaian_tim/'.$tim['id_tim']);?>">
 
               <?php $j=0;?>
                <?php foreach ($indikator_laporan as $idk) 
@@ -266,7 +266,7 @@
 
     <?php if (!$status_penilaian_tim[$i] || $status_penilaian_tim[$i]['nilai_dokumen'] == '0') {?>
             <p class="text-center text-danger mb-5">( Anda hanya bisa satu kali memberikan penilaian! )</p>
-            <form class="user was-validated" method="post" action="<?= base_url('pembimbing/penilaian_dokumen_tim/'.$tim['id_tim']);?>">
+            <form class="user was-validated" method="post" action="<?= base_url('Pembimbing/penilaian_dokumen_tim/'.$tim['id_tim']);?>">
 
               <?php $j=0;?>
                <?php foreach ($indikator_penilaian_dokumen as $idk) 

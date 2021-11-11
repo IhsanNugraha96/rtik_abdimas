@@ -1,35 +1,37 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class auth  extends CI_Controller 
+class Auth  extends CI_Controller 
 
 {
 	public function __construct()
 	{
 		parent::__construct();
+
+	
 		if($this->session->userdata('id_relawan'))
 		{	
-			redirect('relawan');
+			redirect('Relawan');
 		}
 		else if($this->session->userdata('id_admin'))
 		{	
-			redirect('admin');
+			redirect('Admin');
 		}
 		elseif($this->session->userdata('id_instruktur'))
 		{	
-			redirect('instruktur');
+			redirect('Instruktur');
 		}
 		elseif($this->session->userdata('id_pangkalan'))
 		{	
-			redirect('pangkalan');
+			redirect('Pangkalan');
 		}
 		elseif($this->session->userdata('id_mitra'))
 		{	
-			redirect('mitra');
+			redirect('Mitra');
 		}
 		elseif($this->session->userdata('id_pembimbing'))
 		{	
-			redirect('pembimbing');
+			redirect('Pembimbing');
 		}
 		
 	}
@@ -117,20 +119,20 @@ class auth  extends CI_Controller
 							<i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr admin-check-pro-clr11" aria-hidden="true"></i>
 							<p><strong>Selamat Datang di Halaman Mitra Tim RTIKAbdimas!</strong></p>
 							</div>');
-						redirect('mitra');
+						redirect('Mitra');
 
 					}
 					else
 					{
 						$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Password salah!</div>');
-						redirect('auth');
+						redirect('Auth');
 					}
 			}
 			else
 			{
 
 				$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Email belum terdaftar! </div>');
-				redirect('auth');
+				redirect('Auth');
 			}
 	}
 	// akhir fungsi untuk login mitra
@@ -168,23 +170,23 @@ class auth  extends CI_Controller
 						<i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr admin-check-pro-clr11" aria-hidden="true"></i>
 						<p><strong>Selamat Datang di Halaman Dashboard Relawan!</strong></p>
 						</div>');
-					redirect('relawan');
+					redirect('Relawan');
 
 				}
 				else{
 					$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Password salah!</div>');
-					redirect('auth');
+					redirect('Auth');
 				}
 			}
 			elseif ($data_user['is_active'] == '2' || $data_user['is_active'] == '1') 
 			{
 				$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Akun anda belum di aktivasi pangkalan!</div>');
-				redirect('auth');
+				redirect('Auth');
 			}
 			elseif ($data_user['is_active'] == '0')
 			{
 				$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Email belum di aktivasi!</div>');
-				redirect('auth');
+				redirect('Auth');
 			}
 		}
 
@@ -212,29 +214,29 @@ class auth  extends CI_Controller
 							<i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr admin-check-pro-clr11" aria-hidden="true"></i>
 							<p><strong>Selamat Datang di Halaman Dashboard Relawan!</strong></p>
 							</div>');
-						redirect('relawan');
+						redirect('Relawan');
 
 					}
 					else{
 						$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Password salah!</div>');
-						redirect('auth');
+						redirect('Auth');
 					}
 				}
 
 				elseif ($data_user['is_active'] == '1' || $data_user['is_active'] == '2') 
 				{
 					$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Akun anda belum di aktivasi pangkalan!</div>');
-					redirect('auth');
+					redirect('Auth');
 				}
 				elseif ($data_user['is_active'] == '0')
 				{
 					$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Email belum di aktivasi!</div>');
-					redirect('auth');
+					redirect('Auth');
 				}
 			}
 
 			$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Username & Email belum terdaftar! </div>');
-			redirect('auth');
+			redirect('Auth');
 		}
 		
 	}
@@ -271,12 +273,12 @@ class auth  extends CI_Controller
 					<i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr admin-check-pro-clr11" aria-hidden="true"></i>
 					<p><strong>Selamat Datang di Halaman Dashboard administrator!</strong></p>
 					</div>');
-				redirect('admin');
+				redirect('Admin');
 
 			}
 			else{
 				$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Password salah!</div>');
-				redirect('auth');
+				redirect('Auth');
 			}
 		}
 
@@ -301,17 +303,17 @@ class auth  extends CI_Controller
 						<i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr admin-check-pro-clr11" aria-hidden="true"></i>
 						<p><strong>Selamat Datang di Halaman Dashboard Administrator!</strong></p>
 						</div>');
-					redirect('admin');
+					redirect('Admin');
 
 				}
 				else{
 					$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Password salah!</div>');
-					redirect('auth');
+					redirect('Auth');
 				}
 			}
 
 			$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Username/Email belum terdaftar! </div>');
-			redirect('auth');
+			redirect('Auth');
 		}
 
 	}
@@ -347,26 +349,26 @@ class auth  extends CI_Controller
 						<i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr admin-check-pro-clr11" aria-hidden="true"></i>
 						<p><strong>Selamat Datang di Halaman Instruktur!</strong></p>
 						</div>');
-					redirect('instruktur');
+					redirect('Instruktur');
 
 				}
 				else
 				{
 					$this->session->set_flashdata('message','<div class="alert alert-warning" style="margin-top:-10%;" role="alert">Password salah!</div>');
-					redirect('auth');
+					redirect('Auth');
 				}
 
 			}
 			elseif ($data_instruktur['role_id'] == '0') 
 			{
 					$this->session->set_flashdata('message','<div class="alert alert-warning" style="margin-top:-10%;" role="alert">Anda belum bisa login, pengajuan akun belum di terima!</div>');
-					redirect('auth');
+					redirect('Auth');
 			}
 		}
 		// echo "email tidak ada"; die();
 
 		$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Email belum terdaftar! </div>');
-		redirect('auth');
+		redirect('Auth');
 
 	}
 
@@ -401,26 +403,26 @@ class auth  extends CI_Controller
 						<i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr admin-check-pro-clr11" aria-hidden="true"></i>
 						<p><strong>Selamat Datang di Halaman Pangkalan!</strong></p>
 						</div>');
-					redirect('pangkalan');
+					redirect('Pangkalan');
 
 				}
 				else
 				{
 					$this->session->set_flashdata('message','<div class="alert alert-warning" style="margin-top:-10%;" role="alert">Password salah!</div>');
-					redirect('auth');
+					redirect('Auth');
 				}
 
 			}
 			elseif ($data_pangkalan['role_id'] == '0') 
 			{
 					$this->session->set_flashdata('message','<div class="alert alert-warning" style="margin-top:-10%;" role="alert">Anda belum bisa login, pengajuan akun belum di terima!</div>');
-					redirect('auth');
+					redirect('Auth');
 			}
 		}
 		// echo "email tidak ada"; die();
 
 		$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Email belum terdaftar! </div>');
-		redirect('auth');
+		redirect('Auth');
 
 	}
 
@@ -454,26 +456,26 @@ class auth  extends CI_Controller
 						<i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr admin-check-pro-clr11" aria-hidden="true"></i>
 						<p><strong>Selamat Datang di Halaman Pembimbing!</strong></p>
 						</div>');
-					redirect('pembimbing');
+					redirect('Pembimbing');
 
 				}
 				else
 				{
 					$this->session->set_flashdata('message','<div class="alert alert-warning" style="margin-top:-10%;" role="alert">Password salah!</div>');
-					redirect('auth');
+					redirect('Auth');
 				}
 
 			}
 			elseif ($data_pangkalan['role_id'] == '0') 
 			{
 					$this->session->set_flashdata('message','<div class="alert alert-warning" style="margin-top:-10%;" role="alert">Anda belum bisa login, email belum di aktivasi!</div>');
-					redirect('auth');
+					redirect('Auth');
 			}
 		}
 		// echo "email tidak ada"; die();
 
 		$this->session->set_flashdata('message','<div class="alert alert-danger" style="margin-top:-10%;" role="alert">Email belum terdaftar! </div>');
-		redirect('auth');
+		redirect('Auth');
 	}
 
 	
@@ -562,7 +564,7 @@ class auth  extends CI_Controller
 					$this->db->delete('user_token', ['email' => $email]);
 
 					$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Akun anda sudah berhasil di aktivasi. harap menunggu akun di konfirmasi oleh pangkalan! </div>');
-					redirect('auth');
+					redirect('Auth');
 				}
 				else
 				{
@@ -570,19 +572,19 @@ class auth  extends CI_Controller
 					$this->db->delete('draf_keahlian_relawan', ['id_relawan' => $user['id_relawan']]);
 					$this->db->delete('user_token', ['email' => $email]);
 					$this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Akun sudah tidak terdaftar! proses verifikasi sudah melebihi batas waktu yang ditentukan.</div>');
-					redirect('auth');
+					redirect('Auth');
 				}
 			}
 			else
 			{
 				$this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Akun gagal di aktivasi! Token tidak sesuai.</div>');
-				redirect('auth');
+				redirect('Auth');
 			}
 		}
 		else
 		{
 			$this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Akun gagal di aktivasi! Email tidak terdaftar.</div>');
-			redirect('auth');
+			redirect('Auth');
 		}
 	}
 	// akhir fungsi verifikasi email akun
@@ -697,7 +699,7 @@ class auth  extends CI_Controller
 		// syntax untuk membuata supaya user yang sudah login tidak bisa kembali ke halaman login melalui "ubah URL"
 		if($this->session->userdata('id_relawan'))
 		{	
-			redirect('relawan');
+			redirect('Relawan');
 		}
 		
 		// end
@@ -722,7 +724,7 @@ class auth  extends CI_Controller
 		// syntax untuk membuata supaya user yang sudah login tidak bisa kembali ke halaman login melalui "ubah URL"
 		if($this->session->userdata('id_relawan'))
 		{	
-			redirect('relawan');
+			redirect('Relawan');
 		}
 		// end
 		else
@@ -886,7 +888,7 @@ class auth  extends CI_Controller
 				$this->_sendEmail($token, 'verifikasi', $nama_lengkap);
 
 				$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Akun anda sudah berhasil di buat. Silahkan lakukan verifikasi email! </div>');
-				redirect('auth');
+				redirect('Auth');
 			}		
 		}
 	}
@@ -912,7 +914,7 @@ class auth  extends CI_Controller
 		// syntax untuk membuata supaya user yang sudah login tidak bisa kembali ke halaman login melalui "ubah URL"
 		if($this->session->userdata('id_relawan'))
 		{	
-			redirect('relawan');
+			redirect('Relawan');
 		}
 		// end
 		else
@@ -999,7 +1001,7 @@ class auth  extends CI_Controller
 				$this->_sendEmail($pesan, 'akun_instruktur', $nama_lengkap);
 
 				$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Akun anda sudah berhasil di buat. Silahkan cek email pemberitahuan di email anda! </div>');
-				redirect('auth');
+				redirect('Auth');
 			}		
 		}
 	}
@@ -1044,11 +1046,11 @@ class auth  extends CI_Controller
 			$srt_kesediaan = htmlspecialchars($this->input->post('srt_kesediaan', true)); 
 			$password = htmlspecialchars($this->input->post('password', true));  
 			$password2 = htmlspecialchars($this->input->post('password2', true));  
-			// echo $password.' - '.$password2;
+			// echo $password.' - '.$password2; die();
 
 
 			if ($this->form_validation->run() == false)
-			{ echo "gagal"; die();
+			{ 
 				$this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Akun gagal di buat, harap mengisi data dengan benar! </div>');
 				$this->load->model('Authentikasi');
 				$data['title'] = "Form Pendaftaran (Pangkalan)";
@@ -1107,7 +1109,7 @@ class auth  extends CI_Controller
 				$this->_sendEmail($pesan, 'akun_pangkalan', $nama);
 
 				$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Akun anda sudah berhasil di buat. Silahkan cek pemberitahuan di email anda! </div>');
-				redirect('auth');
+				redirect('Auth');
 			}		
 	}
 

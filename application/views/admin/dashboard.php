@@ -13,7 +13,7 @@
   <div class="row">
     <!-- Earnings User Card -->
     <div class="col-xl-3 col-md-6 mb-4 animated--grow-in" >
-      <a href="<?= base_url('admin/event'); ?>">
+      <a href="<?= base_url('Admin/event'); ?>">
         <div class="card border-left-primary shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -32,7 +32,7 @@
 
     <!-- Earnings Acara Card -->
     <div class="col-xl-3 col-md-6 mb-4 animated--grow-in" data-scroll-reveal="enter top move 50px over 0.9s after 0.4s">
-      <a href="<?= base_url('admin/komisariat'); ?>">
+      <a href="<?= base_url('Admin/komisariat'); ?>">
         <div class="card border-left-success shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -52,7 +52,7 @@
 
     <!-- Earnings (Monthly) Card Example -->
     <div class="col-xl-3 col-md-6 mb-4 animated--grow-in" data-scroll-reveal="enter top move 50px over 0.9s after 0.4s">
-      <a href="<?= base_url('admin/pengajuan_komisariat'); ?>">
+      <a href="<?= base_url('Admin/pengajuan_komisariat'); ?>">
         <div class="card border-left-info shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -74,7 +74,7 @@
       <!-- Earnings (Monthly) Card Example -->
 
       <div class="col-xl-3 col-md-6 mb-4 animated--grow-in"  data-scroll-reveal="enter top move 50px over 0.9s after 0.4s">
-        <a href="<?= base_url('admin/pengajuan_instruktur'); ?>">
+        <a href="<?= base_url('Admin/pengajuan_instruktur'); ?>">
           <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">

@@ -187,7 +187,7 @@ class Admin_Model extends CI_Model
 	public function get_anggota_tim_by_id_tim($id_tim)
 	{
 		$id = "'".$id_tim."'";
-		$query = "SELECT relawan.id_relawan,relawan.nama_lengkap,relawan.jenis_kelamin,relawan.tempat_lahir,relawan.tgl_lahir,relawan.kecamatan,relawan.alamat_lengkap,relawan.no_hp,relawan.email,relawan.pendidikan_terakhir,relawan.nik,relawan.thn_anggota,relawan.image,relawan.jabatan_di_rtik,relawan.image,komisariat.nama_komisariat,kota.type,kota.nama_kota,provinsi.nama_provinsi FROM anggota_tim
+		$query = "SELECT relawan.id_relawan,relawan.nama_lengkap,relawan.jenis_kelamin,relawan.tempat_lahir,relawan.tgl_lahir,relawan.kecamatan,relawan.alamat_lengkap,relawan.no_hp,relawan.email,relawan.pendidikan_terakhir,relawan.nik,relawan.thn_anggota,relawan.image,relawan.jabatan_di_rtik,relawan.image,komisariat.nama_komisariat,kota.type,kota.nama_kota,provinsi.nama_provinsi,anggota_tim.id_anggota FROM anggota_tim
 			JOIN relawan ON anggota_tim.id_relawan = relawan.id_relawan
 			JOIN kota ON relawan.kota = kota.id_kota
 			JOIN provinsi ON kota.id_provinsi = provinsi.id_provinsi
@@ -440,7 +440,7 @@ class Admin_Model extends CI_Model
 	{
 		$query = "SELECT * FROM template
 			JOIN admin ON template.id_admin = admin.id_admin
-			WHERE id_template != 'mitra' and id_template != 'pangkalan'";
+			WHERE id_template != 'mitra'";
 		
 		return $this->db->query($query)->result_array();
 	}

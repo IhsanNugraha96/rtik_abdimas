@@ -43,10 +43,10 @@
 											<th scope="row"><?= $i; ?></th>
 											<td><?= $tm['nama_tim']; ?></td>
 											<td>  
-												<a href="<?= base_url('relawan/detail_tim/').urlencode($tm['id_tim']); ?>" name="detail" class="badge badge-success">detail</i></a>
+												<a href="<?= base_url('Relawan/detail_tim/').urlencode($tm['id_tim']); ?>" name="detail" class="badge badge-success">detail</i></a>
 												<?php  if ($tm['role_id'] == 0) { ?>
 													<?php if (!$data_di_tim || $data_di_tim['status_pengajuan'] == 0 || $data_di_tim['status_pengajuan'] == 2 ) { ?>
-														<a href="<?= base_url('relawan/ajukan_anggota_tim/').urlencode($tm['id_tim'])."/".urlencode($data_kepesertaan['id_anggota']) ?>" name="ajukan" class="badge badge-info">ajukan permintaan</i></a>
+														<a href="<?= base_url('Relawan/ajukan_anggota_tim/').urlencode($tm['id_tim'])."/".urlencode($data_kepesertaan['id_anggota']) ?>" name="ajukan" class="badge badge-info">ajukan permintaan</i></a>
 													<?php } } else {?>
 														<a href="" class="badge badge-danger">Anggota penuh</i></a>
 													<?php } ?>
@@ -88,8 +88,9 @@
 											<img class="rounded-circle img-thumbnail mb-2" style="width: 110px; height: 110px;" src="<?= base_url('assets/img/relawan/image/'.$agt['image']) ?>">
 											<br>
 											<b class="card-text"><?= $agt['nama_lengkap']; ?></b><br>
+											<i class="card-text"><?= $agt['nama_komisariat']; ?></i><br>
 											<?php if (strtotime($kegiatan_berlangsung['akhir_registrasi']) >= strtotime(date('Y-m-d G:i:s')) && $data_di_tim['status_pengajuan'] == '4'){?>
-												<a href="<?= base_url('relawan/konfirmasi_anggota_tim/tolak/'.urlencode($agt['id_anggota'])) ?>" class="d-sm-inline-block badge badge-sm badge-danger shadow-sm font-weight-bold" ></i> Hapus Anggota</a>
+												<a href="<?= base_url('Relawan/konfirmasi_anggota_tim/tolak/'.urlencode($agt['id_anggota'])) ?>" class="d-sm-inline-block badge badge-sm badge-danger shadow-sm font-weight-bold" ></i> Hapus Anggota</a>
 											<?php } ?>
 
 										</div>
@@ -111,8 +112,9 @@
 														
 														<br>
 														<b class="card-text"><?= $agt['nama_lengkap']; ?></b><br>
-														<a href="<?= base_url('relawan/konfirmasi_anggota_tim/acc/'.urlencode($agt['id_anggota'])) ?>" class="d-sm-inline-block badge badge-sm badge-primary shadow-sm font-weight-bold" ></i> Konfirmasi</a>
-														<a href="<?= base_url('relawan/konfirmasi_anggota_tim/tolak/'.urlencode($agt['id_anggota'])) ?>" class="d-sm-inline-block badge badge-sm badge-danger shadow-sm  font-weight-bold" > Tolak</a>
+														<i class="card-text"><?= $agt['nama_komisariat']; ?></i><br>
+														<a href="<?= base_url('Relawan/konfirmasi_anggota_tim/acc/'.urlencode($agt['id_anggota'])) ?>" class="d-sm-inline-block badge badge-sm badge-primary shadow-sm font-weight-bold" ></i> Konfirmasi</a>
+														<a href="<?= base_url('Relawan/konfirmasi_anggota_tim/tolak/'.urlencode($agt['id_anggota'])) ?>" class="d-sm-inline-block badge badge-sm badge-danger shadow-sm  font-weight-bold" > Tolak</a>
 													</div>
 													<?php $i++; }} ?>
 												</div>
@@ -124,7 +126,7 @@
 															<b class="font-weight-bold text-primary">PEMBIMBING</b>
 															
 															<div class="small mt-2 mb-3">Sebagai ketua tim anda ditugaskan untuk memilih pembimbing. </div>
-															<form class="user was-validated" method="post" action="<?= base_url('relawan/ajukan_pembimbing/'.urlencode($ketua_tim['id_tim']));?>">
+															<form class="user was-validated" method="post" action="<?= base_url('Relawan/ajukan_pembimbing/'.urlencode($ketua_tim['id_tim']));?>">
 
 																<select class="custom-select" id="pembimbing" name="pembimbing" required oninvalid="this.setCustomValidity('Anda belum memilih pangkalan..')" oninput="setCustomValidity('')" <?php if ( $ketua_tim['status_pembimbing'] == '2') { echo "disabled";} ?>>
 
@@ -176,7 +178,7 @@
 													<div class="row mt-3	">
 														<div class="col-md-8">
 															<div class="small mb-3">Unggah surat izin orang tua jika anda berusia di bawah 25 tahun <a href="<?= $kegiatan_berlangsung['link_gdrive_default']; ?>" target='_blank' class="text-danger font-weight-bold">di sini</a>. dapatkan link berbagi pada google drive dari file yang diunggah, kemudian insert link tersebut pada form dibawah.</div>
-															<form class="user was-validated" method="post" action="<?= base_url('relawan/unggah_berkas/surat_izin/'.urlencode($data_kepesertaan['id_anggota']));?>">
+															<form class="user was-validated" method="post" action="<?= base_url('Relawan/unggah_berkas/surat_izin/'.urlencode($data_kepesertaan['id_anggota']));?>">
 																<input type="text" class="custom-text-input form-control" id="link_surat_izin" name="link_surat_izin" oninvalid="this.setCustomValidity('Anda belum mengisi link berkas..')" oninput="setCustomValidity('')" placeholder="<?php if($data_kepesertaan['file_surat_izin_ortu'] == '0') { echo "link berkas surat izin";} else {echo $data_kepesertaan['file_surat_izin_ortu'];}?>" value="<?= $data_kepesertaan['file_surat_izin_ortu'] ?>" required=""  maxlength="535">
 																<!-- menampilkan notifikasi kesalahan inputan -->
 
@@ -206,7 +208,7 @@
 											<div class="row mt-3	">
 												<div class="col-md-8">
 													<div class="small mb-3">Unggah surat izin orang tua jika anda berusia di bawah 25 tahun <a href="<?= $kegiatan_berlangsung['link_gdrive_default']; ?>" target='_blank' class="text-danger font-weight-bold">di sini</a>. dapatkan link berbagi pada google drive dari file yang diunggah, kemudian insert link tersebut pada form dibawah.</div>
-													<form class="user was-validated" method="post" action="<?= base_url('relawan/unggah_berkas/surat_izin/'.urlencode($data_kepesertaan['id_anggota']));?>">
+													<form class="user was-validated" method="post" action="<?= base_url('Relawan/unggah_berkas/surat_izin/'.urlencode($data_kepesertaan['id_anggota']));?>">
 														
 														<input type="text" class="custom-text-input form-control" id="link_surat_izin" name="link_surat_izin" oninvalid="this.setCustomValidity('Anda belum mengisi link berkas..')" oninput="setCustomValidity('')" 
 														placeholder="<?php if($data_kepesertaan['file_surat_izin_ortu'] == '0') { echo "link berkas surat izin";} else {echo $data_kepesertaan['file_surat_izin_ortu'];}?>" 
@@ -288,7 +290,7 @@
 										<div class="col-lg-12 mt-3">
 											<div class="card shadow border-left-warning">
 												<div class="card-body">
-													<div>Unggah surat izin orang tua jika anda berusia di bawah 25 tahun. klik <a href="<?= base_url('relawan/unduh_template/').$template['nama_template']; ?>" class="text-danger font-weight-bold">di sini</a> untuk mengunduh template surat izin</div>
+													<div>Unggah surat izin orang tua jika anda berusia di bawah 25 tahun. klik <a href="<?= base_url('Relawan/unduh_template/').$template['nama_template']; ?>" class="text-danger font-weight-bold">di sini</a> untuk mengunduh template surat izin</div>
 												</div>
 											</div>
 										</div>
@@ -327,7 +329,7 @@
 									<img src="<?= base_url('assets/img/logo/logoRTIKAbdimas2.png'); ?>" style="width: 20%;">
 									<p><b>RTIKAbdimas</b></p>
 									<!-- form -->
-									<form class="user was-validated mt-3" method="post" action="<?= base_url('relawan/buat_tim_baru/'.$relawan['id_relawan'].'/'.urlencode($kegiatan_berlangsung['id_event']));  ?>">
+									<form class="user was-validated mt-3" method="post" action="<?= base_url('Relawan/buat_tim_baru/'.$relawan['id_relawan'].'/'.urlencode($kegiatan_berlangsung['id_event']));  ?>">
 										<div class="form-group">
 											<p for="" class="text-left mb-1 font-weight-bold">Nama tim :</p>
 											<input type="text" class="form-control is_invalid form-control-sm" id="nama_tim" name="nama_tim" placeholder="..." required oninvalid="this.setCustomValidity('Anda belum mengisi nama tim yang akan dibuat..')" oninput="setCustomValidity('')">
