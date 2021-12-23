@@ -27,7 +27,7 @@
       </div>
 
        <div class="col-lg-4 col-md-4 col-sm-12">
-        <h6><b>Developer</b></h6>
+        <h6><b>Pengembang</b></h6>
         <img class="rounded-circle img-thumbnail mb-2" style="width: 110px; height: 110px;" src="<?= base_url('assets/img/pengembang/ihsan nugraha.jpeg') ?>">
         <h6><b>Ihsan Nugraha</b></h6>
         <i>1706005@itg.ac.id</i>
